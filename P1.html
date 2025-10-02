@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Detail | Anshul Kanodia</title>
+    <!-- The favicon cannot use a local file path. It will remain the custom SVG icon. -->
+    <link rel="icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3crect width='100' height='100' rx='20' fill='%2314b8a6'/%3e%3ctext x='50' y='50' font-size='50' fill='white' text-anchor='middle' dy='.3em' font-family='Inter, sans-serif' font-weight='bold'%3eAK%3c/text%3e%3c/svg%3e">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #111827;
+            --text-white: #f9fafb;
+            --primary-color-light: #2dd4bf;
+            --text-secondary-color: #9ca3af;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-white);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <main class="container mx-auto px-6 py-12">
+        <!-- Home Button -->
+        <div class="mb-8">
+            <a href="portfolio.html" class="inline-flex items-center text-lg font-semibold transition duration-300" style="color: var(--primary-color-light);">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Back to Portfolio
+            </a>
+        </div>
+
+        <!-- Project Title -->
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Project Title Goes Here</h1>
+        <p class="text-xl mb-8" style="color: var(--text-secondary-color);">A one-sentence summary of the project's main goal.</p>
+
+        <!-- Main Project Image -->
+        <div class="mb-12">
+            <img src="C:\Users\ANSHUL KANODIA\Pictures\Saved Pictures\download.jpg" alt="Project main image" class="w-full h-auto rounded-lg shadow-2xl">
+        </div>
+
+        <!-- Project Description -->
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-4">About The Project</h2>
+            <div class="prose prose-lg prose-invert text-gray-300 max-w-none space-y-4">
+                <p>
+                    This is where you write a detailed description of your project. Talk about the problem you were trying to solve, your approach, and the key features you implemented.
+                </p>
+                <p>
+                    You can have multiple paragraphs to explain the different parts of the project, the challenges you faced, and what you learned during the process.
+                </p>
+            </div>
+
+            <!-- Screenshots Section -->
+            <h3 class="text-2xl font-bold text-white mt-12 mb-4">Screenshots</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <img src="C:\Users\ANSHUL KANODIA\Pictures\Saved Pictures\download.jpg" alt="Project screenshot 1" class="w-full h-auto rounded-lg shadow-lg">
+                <img src="C:\Users\ANSHUL KANODIA\Pictures\Saved Pictures\download.jpg" alt="Project screenshot 2" class="w-full h-auto rounded-lg shadow-lg">
+            </div>
+
+            <!-- Tech Stack Section -->
+            <h3 class="text-2xl font-bold text-white mt-12 mb-4">Technologies Used</h3>
+            <div class="flex flex-wrap gap-4">
+                <span class="bg-gray-700 text-teal-300 font-semibold py-1 px-3 rounded-full">Python</span>
+                <span class="bg-gray-700 text-teal-300 font-semibold py-1 px-3 rounded-full">JavaScript</span>
+                <span class="bg-gray-700 text-teal-300 font-semibold py-1 px-3 rounded-full">HTML/CSS</span>
+            </div>
+
+            <!-- Source Code Button -->
+            <div class="mt-12 text-center">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="inline-block bg-teal-500 text-white font-bold py-3 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105 hover:bg-teal-600">
+                    View Source Code
+                </a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
+
