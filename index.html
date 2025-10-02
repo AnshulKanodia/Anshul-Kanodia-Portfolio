@@ -2,9 +2,8 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
     <title>Anshul Kanodia | Portfolio</title>
-    <!-- The favicon cannot use a local file path. It will remain the custom SVG icon. -->
     <link rel="icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='50' fill='%2314b8a6'/%3e%3ctext x='50' y='50' font-size='50' fill='white' text-anchor='middle' dy='.3em' font-family='Inter, sans-serif' font-weight='bold'%3eAK%3c/text%3e%3c/svg%3e">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +29,6 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            transition: background-color 0.3s ease, color 0.3s ease;
         }
         
         .section-title {
@@ -48,7 +46,6 @@
             margin-bottom: 2rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            transition: color 0.3s ease;
         }
         
     </style>
@@ -59,7 +56,8 @@
     <header class="bg-gray-900/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-md shadow-black/20" style="background-color: color-mix(in srgb, var(--bg-color) 80%, transparent);">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#home" class="text-2xl font-bold text-white flex items-center">
-                <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/Profile/main.jpg" alt="Logo" class="h-9 w-9 rounded-full mr-3 object-cover border" style="background-color: var(--bg-secondary-color); border-color: var(--shadow-color);">            <span>Anshul Kanodia</span>
+                <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/Profile/main.jpg" alt="Logo" class="h-9 w-9 rounded-full mr-3 object-cover border" style="background-color: var(--bg-secondary-color); border-color: var(--shadow-color);">
+                <span>Anshul Kanodia</span>
             </a>
             <nav class="hidden md:flex space-x-8">
                 <a href="#about" class="text-gray-300 transition duration-300 hover:text-[var(--primary-color-light)]">About</a>
@@ -89,7 +87,7 @@
     <main>
         <!-- Hero Section -->
         <section id="home" class="h-screen flex flex-col items-center justify-center text-center px-6" style="z-index: 1; position: relative;">
-            <img id="hero-photo" src="https://raw.githubusercontent.com/AnshulKan/Images/main/Profile/main.jpg  " alt="Anshul Kanodia" class="rounded-full shadow-2xl mx-auto w-48 h-48 md:w-64 md:h-64 object-cover border-4 mb-6 transition-all duration-300" style="border-color: var(--bg-tertiary-color); box-shadow: 0 0 35px var(--shadow-color);">
+            <img id="hero-photo" src="https://raw.githubusercontent.com/AnshulKan/Images/main/Profile/main.jpg" alt="Anshul Kanodia" class="rounded-full shadow-2xl mx-auto w-48 h-48 md:w-64 md:h-64 object-cover border-4 mb-6 transition-all duration-300" style="border-color: var(--bg-tertiary-color); box-shadow: 0 0 35px var(--shadow-color);">
             <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-2">Hi, I'm Anshul Kanodia</h1>
             <p class="text-xl md:text-2xl font-semibold mb-8" style="color: var(--primary-color-light);">AI & System Development Enthusiast | Aspiring Software Engineer</p>
              <a href="#about" id="scroll-down-arrow" class="absolute bottom-10 animate-bounce p-3 rounded-full transition-opacity duration-300" style="background-color: var(--bg-secondary-color);">
@@ -117,27 +115,27 @@
                 <h2 class="section-title">My Tech Stack</h2>
                 <p class="section-subtitle">Technologies I Use</p>
                 <div class="max-w-5xl mx-auto flex flex-wrap justify-center gap-8 text-center">
-                    <div class="p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 15px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
+                    <div class="p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-40" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 15px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
                         <img src="https://www.vectorlogo.zone/logos/python/python-icon.svg" alt="Python" class="h-16 w-16 mx-auto mb-2">
                         <p class="font-semibold text-white">Python</p>
                     </div>
-                    <div class="p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 15px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
+                    <div class="p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-40" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 15px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
                          <img src="https://www.vectorlogo.zone/logos/isocpp/isocpp-icon.svg" alt="C++" class="h-16 w-16 mx-auto mb-2">
                         <p class="font-semibold text-white">C++</p>
                     </div>
-                    <div class="p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 15px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
+                    <div class="p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-40" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 15px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" class="h-16 w-16 mx-auto mb-2">
                         <p class="font-semibold text-white">C</p>
                     </div>
-                    <div class="p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 15px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
+                    <div class="p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-40" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 15px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
                          <img src="https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" alt="SQL" class="h-16 w-16 mx-auto mb-2">
                         <p class="font-semibold text-white">SQL</p>
                     </div>
-                    <div class="p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 15px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
+                    <div class="p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-40" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 15px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
                          <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" alt="HTML5" class="h-16 w-16 mx-auto mb-2">
                         <p class="font-semibold text-white">HTML5</p>
                     </div>
-                    <div class="p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 15px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
+                    <div class="p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-40" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 15px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
                          <img src="https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" alt="JavaScript" class="h-16 w-16 mx-auto mb-2">
                         <p class="font-semibold text-white">JavaScript</p>
                     </div>
@@ -269,7 +267,7 @@
             </div>
         </section>
 
-                <!-- Find Me Online Section -->
+        <!-- Find Me Online Section -->
         <section id="know-more" class="py-16 md:py-24">
             <div class="container mx-auto px-6">
                 <h2 class="section-title">Find Me Online</h2>
@@ -313,18 +311,18 @@
                 <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-8 md:gap-16">
                     <!-- Contact Form -->
                     <div class="w-full">
-                        <form id="contact-form">
+                        <form id="contact-form" action="https://formspree.io/f/mdkwzlej" method="POST">
                             <div class="mb-4">
                                 <label for="name" class="block text-sm font-medium mb-1" style="color: var(--text-color);">Name</label>
-                                <input type="text" id="name" name="name" placeholder="Your Name" class="w-full px-4 py-2 rounded-md focus:ring-2 focus:outline-none transition" style="background-color: var(--bg-secondary-color); border: 1px solid var(--primary-color); color: var(--text-white); --tw-ring-color: var(--primary-color-light);">
+                                <input type="text" id="name" name="name" placeholder="Your Name" class="w-full px-4 py-2 rounded-md focus:ring-2 focus:outline-none transition" style="background-color: var(--bg-secondary-color); border: 1px solid var(--primary-color); color: var(--text-white); --tw-ring-color: var(--primary-color-light);" required>
                             </div>
                             <div class="mb-4">
                                 <label for="email" class="block text-sm font-medium mb-1" style="color: var(--text-color);">Email</label>
-                                <input type="email" id="email" name="email" placeholder="Your Email Address" class="w-full px-4 py-2 rounded-md focus:ring-2 focus:outline-none transition" style="background-color: var(--bg-secondary-color); border: 1px solid var(--primary-color); color: var(--text-white); --tw-ring-color: var(--primary-color-light);">
+                                <input type="email" id="email" name="email" placeholder="Your Email Address" class="w-full px-4 py-2 rounded-md focus:ring-2 focus:outline-none transition" style="background-color: var(--bg-secondary-color); border: 1px solid var(--primary-color); color: var(--text-white); --tw-ring-color: var(--primary-color-light);" required>
                             </div>
                             <div class="mb-4">
                                 <label for="message" class="block text-sm font-medium mb-1" style="color: var(--text-color);">Message</label>
-                                <textarea id="message" name="message" rows="4" placeholder="Your Message Here..." class="w-full px-4 py-2 rounded-md focus:ring-2 focus:outline-none transition" style="background-color: var(--bg-secondary-color); border: 1px solid var(--primary-color); color: var(--text-white); --tw-ring-color: var(--primary-color-light);"></textarea>
+                                <textarea id="message" name="message" rows="4" placeholder="Your Message Here..." class="w-full px-4 py-2 rounded-md focus:ring-2 focus:outline-none transition" style="background-color: var(--bg-secondary-color); border: 1px solid var(--primary-color); color: var(--text-white); --tw-ring-color: var(--primary-color-light);" required></textarea>
                             </div>
                             <button type="submit" class="w-full text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105" style="background-color: var(--primary-color);">Send Message</button>
                         </form>
@@ -376,22 +374,37 @@
         // --- Set Current Year ---
         document.getElementById('year').textContent = new Date().getFullYear();
         
-        // --- Contact Form Handler ---
+        // --- Contact Form Handler (AJAX Submission) ---
         const form = document.getElementById('contact-form');
-        const formMessage = document.getElementById('form-message');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            formMessage.textContent = 'Sending...';
-            setTimeout(() => {
-                const statusColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color-light');
-                formMessage.textContent = "Thank you for your message!";
-                formMessage.style.color = statusColor;
-                form.reset();
-            }, 1000);
-        });
+        async function handleSubmit(event) {
+            event.preventDefault();
+            const status = document.getElementById('form-message');
+            const data = new FormData(event.target);
+            status.textContent = 'Sending...';
+            
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    status.textContent = "Thank you for your message!";
+                    form.reset();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            status.textContent = data["errors"].map(error => error["message"]).join(", ")
+                        } else {
+                            status.textContent = "Oops! There was a problem submitting your form."
+                        }
+                    })
+                }
+            }).catch(error => {
+                status.textContent = "Oops! There was a problem submitting your form."
+            });
+        }
+        form.addEventListener("submit", handleSubmit);
     </script>
 </body>
 </html>
-
-
 
