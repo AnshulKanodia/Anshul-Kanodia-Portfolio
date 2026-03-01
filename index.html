@@ -555,44 +555,45 @@
                 }
             });
         }
-
         // --- Set Current Year ---
         document.getElementById('year').textContent = new Date().getFullYear();
         
         // --- Contact Form Handler (AJAX Submission) ---
         const form = document.getElementById('contact-form');
-        
-        form.addEventListener("submit", async function(event) {
-            event.preventDefault(); // Stops the redirect
-            
-            const status = document.getElementById('form-message');
-            const data = new FormData(event.target);
-            status.textContent = 'Sending...';
-            
-            try {
-                const response = await fetch(event.target.action, {
-                    method: form.method,
-                    body: data,
-                    headers: { 'Accept': 'application/json' }
-                });
+        if (form) {
+            form.addEventListener("submit", async function(event) {
+                // 1. THIS is the magic line that stops the Formspree redirect
+                event.preventDefault(); 
                 
-                if (response.ok) {
-                    status.textContent = "Thank you for your message!";
-                    form.reset();
-                } else {
-                    const responseData = await response.json();
-                    if (responseData && responseData.errors) {
-                        status.textContent = responseData.errors.map(error => error.message).join(", ");
+                const status = document.getElementById('form-message');
+                const data = new FormData(event.target);
+                
+                status.textContent = 'Sending...';
+                
+                try {
+                    const response = await fetch(event.target.action, {
+                        method: form.method,
+                        body: data,
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    
+                    if (response.ok) {
+                        status.textContent = "Thank you for your message!";
+                        form.reset();
                     } else {
-                        status.textContent = "Oops! There was a problem submitting your form.";
+                        const responseData = await response.json();
+                        // Bulletproof fallback for error checking (No Object.hasOwn)
+                        if (responseData && responseData.errors) {
+                            status.textContent = responseData.errors.map(error => error.message).join(", ");
+                        } else {
+                            status.textContent = "Oops! There was a problem submitting your form.";
+                        }
                     }
+                } catch (error) {
+                    status.textContent = "Oops! There was a problem submitting your form.";
                 }
-            } catch (error) {
-                status.textContent = "Oops! There was a problem submitting your form.";
-            }
-        });
+            });
         }
-        form.addEventListener("submit", handleSubmit);
     </script>
 </body>
 </html>
