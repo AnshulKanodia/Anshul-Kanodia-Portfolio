@@ -208,7 +208,7 @@
                             <h3 class="text-xl font-bold mb-2 text-white">Desktop Voice Assistant (DVA)</h3>
                             <p class="mb-4" style="color: var(--text-secondary-color);">A command-line voice assistant built with Python to enhance productivity and automate desktop tasks on Windows.</p>
                             <div class="flex justify-center space-x-4">
-                                <a href="P1.html" class="font-semibold hover:underline" style="color: var(--primary-color-light);">More Info</a>
+                                <a href="/project/desktop-voice-assistant" class="font-semibold hover:underline" style="color: var(--primary-color-light);">More Info</a>
                                 <a href="https://github.com/AnshulKan/Desktop-Voice-Assistant" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline" style="color: var(--primary-color-light);">Source Code</a>
                             </div>
                         </div>
@@ -418,7 +418,7 @@
                 <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-8 md:gap-16">
                     <!-- Contact Form -->
                     <div class="w-full">
-                        <form id="contact-form" action="https://formspree.io/f/mdkwzlej" method="POST">
+                        <form id="contact-form" action="https://formspree.io/f/mdkwzlej" method="POST" onsubmit="return handleFormSubmit(event, this);">
                             <div class="mb-4">
                                 <label for="name" class="block text-sm font-medium mb-1" style="color: var(--text-color);">Name</label>
                                 <input type="text" id="name" name="name" placeholder="Your Name" class="w-full px-4 py-2 rounded-md focus:ring-2 focus:outline-none transition" style="background-color: var(--bg-secondary-color); border: 1px solid var(--primary-color); color: var(--text-white); --tw-ring-color: var(--primary-color-light);" required>
@@ -431,9 +431,10 @@
                                 <label for="message" class="block text-sm font-medium mb-1" style="color: var(--text-color);">Message</label>
                                 <textarea id="message" name="message" rows="4" placeholder="Your Message Here..." class="w-full px-4 py-2 rounded-md focus:ring-2 focus:outline-none transition" style="background-color: var(--bg-secondary-color); border: 1px solid var(--primary-color); color: var(--text-white); --tw-ring-color: var(--primary-color-light);" required></textarea>
                             </div>
-                            <button type="submit" class="w-full text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105" style="background-color: var(--primary-color);">Send Message</button>
+                            
+                            <button type="submit" id="submit-btn" class="w-full text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105" style="background-color: var(--primary-color);">Send Message</button>
                         </form>
-                        <p id="form-message" class="mt-4 text-center" style="color: var(--primary-color-light);">&nbsp;</p>
+                        <p id="form-message" class="mt-4 text-center font-bold" style="color: var(--primary-color-light);">&nbsp;</p>
                     </div>
                      <!-- Contact Info -->
                     <div class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left">
@@ -454,11 +455,11 @@
 
     <footer class="relative z-10 text-white py-6" style="background-color: var(--bg-color);">
         <div class="container mx-auto px-6 text-center">
-            
             <p>&copy; <span id="year"></span> Anshul Kanodia. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- SCRIPT 1: Background Animation and UI Logic -->
     <script>
         // --- Particle Background ---
         const canvas = document.getElementById('particle-canvas');
@@ -547,7 +548,6 @@
         setupCanvas();
         animateParticles();
 
-
         // --- Mobile Menu Toggle ---
         document.getElementById('mobile-menu-button').addEventListener('click', () => {
             document.getElementById('mobile-menu').classList.toggle('hidden');
@@ -575,14 +575,12 @@
 
                 // Scroll to the targeted section smoothly
                 const targetId = this.getAttribute('href').substring(1);
-                if (targetId) {
-                    const targetElement = document.getElementById(targetId);
-                    
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 }
                 
                 // Automatically close the mobile menu if it's open
@@ -592,37 +590,56 @@
                 }
             });
         });
-        
-        // --- Contact Form Handler (AJAX Submission) ---
-        const form = document.getElementById('contact-form');
-        async function handleSubmit(event) {
-            event.preventDefault();
-            const status = document.getElementById('form-message');
-            const data = new FormData(event.target);
-            status.textContent = 'Sending...';
+    </script>
+
+    <!-- SCRIPT 2: Form Submission Logic (Isolated so it never fails) -->
+    <script>
+        async function handleFormSubmit(event, formElement) {
+            // 1. Physically stops the native Formspree redirect and page reload
+            event.preventDefault(); 
             
-            fetch(event.target.action, {
-                method: form.method,
-                body: data,
-                headers: { 'Accept': 'application/json' }
-            }).then(response => {
+            const submitBtn = document.getElementById('submit-btn');
+            const status = document.getElementById('form-message');
+            const data = new FormData(formElement);
+            
+            status.textContent = 'Sending message...';
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = '0.7';
+                submitBtn.textContent = 'Sending...';
+            }
+            
+            try {
+                const response = await fetch(formElement.action, {
+                    method: formElement.method,
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+                
                 if (response.ok) {
-                    status.textContent = "Thank you for your message!";
-                    form.reset();
+                    status.textContent = "Thank you for your message! I'll get back to you soon.";
+                    formElement.reset();
                 } else {
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            status.textContent = data["errors"].map(error => error["message"]).join(", ")
-                        } else {
-                            status.textContent = "Oops! There was a problem submitting your form."
-                        }
-                    })
+                    const responseData = await response.json();
+                    if (responseData && responseData.errors) {
+                        status.textContent = responseData.errors.map(error => error.message).join(", ");
+                    } else {
+                        status.textContent = "Oops! There was a problem submitting your form.";
+                    }
                 }
-            }).catch(error => {
-                status.textContent = "Oops! There was a problem submitting your form."
-            });
+            } catch (error) {
+                status.textContent = "Oops! There was a network problem submitting your form.";
+            } finally {
+                // Re-enable the button
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '1';
+                    submitBtn.textContent = 'Send Message';
+                }
+            }
+            
+            return false; // Double prevention mechanism
         }
-        form.addEventListener("submit", handleSubmit);
     </script>
 </body>
 </html>
