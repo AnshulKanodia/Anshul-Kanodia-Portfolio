@@ -101,11 +101,16 @@
         }
     </style>
     
-    <!-- Vercel Web Analytics -->
+    <!-- Vercel Web Analytics & Speed Insights -->
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
-    <script defer src="/_vercel/insights/script.js"></script>
+    <script src="/_vercel/insights/script.js"></script>
+    <script>
+        window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+    </script>
+    <script src="/_vercel/speed-insights/script.js"></script>
+
 </head>
 <body class="text-gray-300">
     <!-- Added pointer-events-none so the canvas NEVER blocks clicks -->
@@ -123,6 +128,8 @@
                 <a href="#skills" class="text-gray-300 transition duration-300 hover:text-[var(--primary-color-light)]">Skills</a>
                 <a href="#projects" class="text-gray-300 transition duration-300 hover:text-[var(--primary-color-light)]">Projects</a>
                 <a href="#certificates" class="text-gray-300 transition duration-300 hover:text-[var(--primary-color-light)]">Certificates</a>
+                <!-- Added Resume Link -->
+                <a href="/resume" class="text-gray-300 transition duration-300 hover:text-[var(--primary-color-light)] font-semibold border-b-2 border-transparent hover:border-[var(--primary-color)]">Resume</a>
                 <a href="#know-more" class="text-gray-300 transition duration-300 hover:text-[var(--primary-color-light)]">Find Me</a>
                 <a href="#contact" class="text-gray-300 transition duration-300 hover:text-[var(--primary-color-light)]">Contact</a>
             </nav>
@@ -137,6 +144,8 @@
             <a href="#skills" class="block py-2 text-gray-300 hover:text-[var(--primary-color-light)]">Skills</a>
             <a href="#projects" class="block py-2 text-gray-300 hover:text-[var(--primary-color-light)]">Projects</a>
             <a href="#certificates" class="block py-2 text-gray-300 hover:text-[var(--primary-color-light)]">Certificates</a>
+            <!-- Added Resume Link -->
+            <a href="/resume" class="block py-2 text-gray-300 hover:text-[var(--primary-color-light)] font-semibold">Resume</a>
             <a href="#know-more" class="block py-2 text-gray-300 hover:text-[var(--primary-color-light)]">Find Me</a>
             <a href="#contact" class="block py-2 text-gray-300 hover:text-[var(--primary-color-light)]">Contact</a>
         </div>
@@ -407,7 +416,7 @@
                         <p class="font-semibold text-white">Instagram</p>
                     </a>
                     <!-- Gmail Card -->
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=anshulkanodia35GMAIL.com" target="_blank" rel="noopener noreferrer" class="block p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-40 glow-card" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 20px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=anshulkanodia3560@gmail.com" target="_blank" rel="noopener noreferrer" class="block p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-40 glow-card" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 20px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
                         <img src="https://www.vectorlogo.zone/logos/gmail/gmail-icon.svg" alt="Gmail" class="h-16 w-16 mx-auto mb-2">
                         <p class="font-semibold text-white">Gmail</p>
                     </a>
@@ -437,7 +446,6 @@
                                 <label for="message" class="block text-sm font-medium mb-1" style="color: var(--text-color);">Message</label>
                                 <textarea id="message" name="message" rows="4" placeholder="Your Message Here..." class="w-full px-4 py-2 rounded-md focus:ring-2 focus:outline-none transition" style="background-color: var(--bg-secondary-color); border: 1px solid var(--primary-color); color: var(--text-white); --tw-ring-color: var(--primary-color-light);" required></textarea>
                             </div>
-                            
                             <button type="submit" id="submit-btn" class="w-full text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105" style="background-color: var(--primary-color);">Send Message</button>
                         </form>
                         <p id="form-message" class="mt-4 text-center font-bold" style="color: var(--primary-color-light);">&nbsp;</p>
@@ -554,6 +562,7 @@
         setupCanvas();
         animateParticles();
 
+
         // --- Mobile Menu Toggle ---
         document.getElementById('mobile-menu-button').addEventListener('click', () => {
             document.getElementById('mobile-menu').classList.toggle('hidden');
@@ -581,12 +590,14 @@
 
                 // Scroll to the targeted section smoothly
                 const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                if (targetId) {
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
                 }
                 
                 // Automatically close the mobile menu if it's open
@@ -596,13 +607,10 @@
                 }
             });
         });
-    </script>
-
-    <!-- SCRIPT 2: Form Submission Logic (Isolated so it never fails) -->
-    <script>
+        
+        // --- BULLETPROOF Contact Form Handler ---
         async function handleFormSubmit(event, formElement) {
-            // 1. Physically stops the native Formspree redirect and page reload
-            event.preventDefault(); 
+            event.preventDefault(); // Physically stops the native Formspree redirect and page reload
             
             const submitBtn = document.getElementById('submit-btn');
             const status = document.getElementById('form-message');
@@ -647,11 +655,5 @@
             return false; // Double prevention mechanism
         }
     </script>
-    
-    <!-- Vercel Speed Insights -->
-    <script>
-        window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>
