@@ -214,23 +214,48 @@
                 <h2 class="section-title">Featured Projects</h2>
                 <p class="section-subtitle">My Recent Work</p>
                 <div class="flex flex-wrap justify-center items-stretch gap-8">
-                    <!-- Project Card -->
-                    <div class="group w-full max-w-md rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 glow-card" style="background-color: var(--bg-card-secondary-color);">
+
+                    <!-- Project Card 1: Cyber Shield -->
+                    <div data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1" class="group w-full max-w-md rounded-lg shadow-lg overflow-hidden glow-card reveal-hidden" style="background-color: var(--bg-card-secondary-color); transition-delay: 200ms;">
                         <div class="overflow-hidden">
-                            <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/Projects/DVA/main.jpg" alt="Desktop Voice Assistant" class="w-full h-56 object-contain project-image group-hover:scale-105 transition-transform duration-300 ease-in-out">
+                            <!-- Note: I added a fallback image in case you haven't uploaded the Cyber Shield image to your GitHub yet! -->
+                            <img src="https://raw.githubusercontent.com/anshulkanodia/Images/main/Projects/CyberShield/main.jpg" onerror="this.src='https://placehold.co/600x400/12162d/a9b2d8?text=Cyber+Shield+Project'" alt="Cyber Shield Project" class="w-full h-56 object-contain project-image group-hover:scale-105 transition-transform duration-500 ease-out" style="transform: translateZ(30px);">
                         </div>
                         <div class="p-6 text-center" style="transform: translateZ(20px);">
-    <h3 class="text-xl font-bold mb-2 text-white">Desktop Voice Assistant (DVA)</h3>
-    <p class="mb-4" style="color: var(--text-secondary-color);">A command-line voice assistant built with Python to enhance productivity and automate desktop tasks on Windows.</p>
-    
-    <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm md:text-base">
-        <a href="/project/desktop-voice-assistant" class="font-semibold hover:underline relative z-10" style="color: var(--primary-color-light);">More Info</a>
-        <span class="text-gray-600">|</span>
-        <a href="https://github.com/anshulkanodia/Desktop-Voice-Assistant" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline relative z-10" style="color: var(--primary-color-light);">Source Code</a>
-        <span class="text-gray-600">|</span>
-        <a href="/project/desktop-voice-assistant/Report.pdf" download="DVA_Project_Report.pdf" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline relative z-10" style="color: var(--primary-color-light);">Download Report</a>
-    </div>
-</div>
+                            <h3 class="text-xl font-bold mb-2 text-white">Cyber Shield (Toxicity Detection)</h3>
+                            <p class="mb-6" style="color: var(--text-secondary-color);">An advanced NLP machine learning model to detect context-aware toxic behavior and cyberbullying in social media interactions.</p>
+                            
+                            <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm md:text-base">
+                                <a href="/project/cyber-shield" class="font-semibold hover:underline relative z-10" style="color: var(--primary-color-light);">More Info</a>
+                                <span class="text-gray-600">|</span>
+                                <a href="https://github.com/anshulkanodia/Cyber-Shield" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline relative z-10" style="color: var(--primary-color-light);">Source Code</a>
+                                <span class="text-gray-600">|</span>
+                                <a href="/project/cyber-shield/Report.pdf" download="CyberShield_Report.pdf" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline relative z-10" style="color: var(--primary-color-light);">Download Report</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2: DVA -->
+                    <div data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1" class="group w-full max-w-md rounded-lg shadow-lg overflow-hidden glow-card reveal-hidden" style="background-color: var(--bg-card-secondary-color);">
+                        <div class="overflow-hidden">
+                            <!-- Image subtly zooms when parent is hovered -->
+                            <img src="https://raw.githubusercontent.com/anshulkanodia/Images/main/Projects/DVA/main.jpg" alt="Desktop Voice Assistant" class="w-full h-56 object-contain project-image group-hover:scale-105 transition-transform duration-500 ease-out" style="transform: translateZ(30px);">
+                        </div>
+                        <div class="p-6 text-center" style="transform: translateZ(20px);">
+                            <h3 class="text-xl font-bold mb-2 text-white">Desktop Voice Assistant (DVA)</h3>
+                            <p class="mb-6" style="color: var(--text-secondary-color);">A command-line voice assistant built with Python to enhance productivity and automate desktop tasks on Windows.</p>
+                            
+                            <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm md:text-base">
+                                <a href="/project/desktop-voice-assistant" class="font-semibold hover:underline relative z-10" style="color: var(--primary-color-light);">More Info</a>
+                                <span class="text-gray-600">|</span>
+                                <a href="https://github.com/anshulkanodia/Desktop-Voice-Assistant" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline relative z-10" style="color: var(--primary-color-light);">Source Code</a>
+                                <span class="text-gray-600">|</span>
+                                <a href="/project/desktop-voice-assistant/Report.pdf" download="DVA_Project_Report.pdf" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline relative z-10" style="color: var(--primary-color-light);">Download Report</a>
+                            </div>
+                        </div>
+                    </div>
+
+
                     </div>
                 </div>
             </div>
