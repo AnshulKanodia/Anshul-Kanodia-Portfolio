@@ -136,6 +136,12 @@
             margin-left: 2px;
             animation: blink 0.8s infinite;
         }
+
+        /* Mobile Menu Optimization */
+        #mobile-menu {
+            will-change: transform, opacity;
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
     </style>
 
     <!-- Vercel Web Analytics & Speed Insights -->
@@ -191,7 +197,7 @@
         </div>
 
         <!-- Mobile Glassmorphic Dropdown Menu -->
-        <div id="mobile-menu" class="hidden md:hidden fixed inset-x-4 top-20 bg-slate-900/90 backdrop-blur-2xl border border-white/10 rounded-3xl p-6 shadow-2xl z-40 transform scale-95 opacity-0 transition-all duration-300 origin-top">
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-x-4 top-20 bg-slate-900/95 backdrop-blur-md border border-white/10 rounded-3xl p-6 shadow-2xl z-40 transform scale-95 opacity-0 origin-top">
             <div class="flex flex-col gap-4">
                 <a href="#about" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">About</a>
                 <a href="#skills" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Skills</a>
@@ -296,7 +302,7 @@
                             </li>
                             <li class="flex justify-between items-center border-b border-white/5 pb-3">
                                 <span class="text-slate-400 font-medium text-sm">Current CGPA</span>
-                                <span class="text-indigo-400 font-bold text-sm bg-indigo-500/10 px-2 py-0.5 rounded">7.1 / 10</span>
+                                <span class="text-indigo-400 font-bold text-sm bg-indigo-500/10 px-2 py-0.5 rounded">8.0 / 10</span>
                             </li>
                             <li class="flex justify-between items-start">
                                 <span class="text-slate-400 font-medium text-sm">Core Focus</span>
@@ -361,7 +367,7 @@
                                 <img src="https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" alt="SQL" class="w-6 h-6">
                                 <span class="text-slate-200 font-medium text-sm">SQL / Databases</span>
                             </div>
-                            <span class="text-indigo-400 font-semibold text-xs bg-indigo-500/10 px-2.5 py-1 rounded-full border border-indigo-500/20">Competent</span>
+                            <span class="text-indigo-400 font-semibold text-xs bg-indigo-500/10 px-2.5 py-1 rounded-full border border-indigo-500/20">Advanced</span>
                         </div>
                     </div>
                 </div>
@@ -375,20 +381,6 @@
                         <h3 class="text-xl font-bold text-white">Databases & Web</h3>
                     </div>
                     <div class="space-y-4 flex-grow">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" alt="MongoDB" class="w-6 h-6">
-                                <span class="text-slate-200 font-medium text-sm">MongoDB</span>
-                            </div>
-                            <span class="text-indigo-400 font-semibold text-xs bg-indigo-500/10 px-2.5 py-1 rounded-full border border-indigo-500/20">Certified</span>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="w-6 h-6">
-                                <span class="text-slate-200 font-medium text-sm">React.js / Frontend</span>
-                            </div>
-                            <span class="text-slate-400 font-medium text-xs bg-white/5 px-2.5 py-1 rounded-full border border-white/5">Intermediate</span>
-                        </div>
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap-3">
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" class="w-6 h-6 filter invert" style="filter: brightness(0) invert(1);">
@@ -410,6 +402,20 @@
                             </div>
                             <span class="text-slate-400 font-medium text-xs bg-white/5 px-2.5 py-1 rounded-full border border-white/5">Proficient</span>
                         </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" alt="MongoDB" class="w-6 h-6">
+                                <span class="text-slate-200 font-medium text-sm">MongoDB</span>
+                            </div>
+                            <span class="text-indigo-400 font-semibold text-xs bg-indigo-500/10 px-2.5 py-1 rounded-full border border-indigo-500/20">Certified</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="w-6 h-6">
+                                <span class="text-slate-200 font-medium text-sm">React.js / Frontend</span>
+                            </div>
+                            <span class="text-slate-400 font-medium text-xs bg-white/5 px-2.5 py-1 rounded-full border border-white/5">Intermediate</span>
+                        </div>
                     </div>
                 </div>
 
@@ -422,6 +428,13 @@
                         <h3 class="text-xl font-bold text-white">AI & Core Domains</h3>
                     </div>
                     <div class="space-y-4 flex-grow">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-brands fa-git-alt text-red-500 text-xl w-6 text-center"></i>
+                                <span class="text-slate-200 font-medium text-sm">Git & GitHub</span>
+                            </div>
+                            <span class="text-indigo-400 font-semibold text-xs bg-indigo-500/10 px-2.5 py-1 rounded-full border border-indigo-500/20">Advanced</span>
+                        </div>
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap-3">
                                 <i class="fa-solid fa-robot text-teal-400 text-lg w-6 text-center"></i>
@@ -438,24 +451,10 @@
                         </div>
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap-3">
-                                <i class="fa-solid fa-chart-line text-slate-400 text-lg w-6 text-center"></i>
-                                <span class="text-slate-200 font-medium text-sm">Data Analysis (PCA, SVD)</span>
-                            </div>
-                            <span class="text-slate-400 font-medium text-xs bg-white/5 px-2.5 py-1 rounded-full border border-white/5">Theoretical</span>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <i class="fa-brands fa-git-alt text-red-500 text-xl w-6 text-center"></i>
-                                <span class="text-slate-200 font-medium text-sm">Git & GitHub</span>
-                            </div>
-                            <span class="text-slate-400 font-medium text-xs bg-white/5 px-2.5 py-1 rounded-full border border-white/5">Proficient</span>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
                                 <i class="fa-solid fa-cloud text-blue-400 text-lg w-6 text-center"></i>
                                 <span class="text-slate-200 font-medium text-sm">Vercel & Cloud</span>
                             </div>
-                            <span class="text-slate-400 font-medium text-xs bg-white/5 px-2.5 py-1 rounded-full border border-white/5">Proficient</span>
+                            <span class="text-indigo-400 font-semibold text-xs bg-indigo-500/10 px-2.5 py-1 rounded-full border border-indigo-500/20">Advanced</span>
                         </div>
                     </div>
                 </div>
@@ -582,11 +581,11 @@
                 </button>
             </div>
 
-            <!-- Certificates Grid -->
-            <div id="certificates-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-300">
+            <!-- Certificates Grid (Flex-wrap for Centering) -->
+            <div id="certificates-container" class="flex flex-wrap justify-center gap-6 transition-all duration-300">
                 
                 <!-- MongoDB Associate DBA -->
-                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="systems">
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] max-w-sm flex-shrink-0 flex-grow-0" data-category="systems">
                     <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKanodia/Images/main/certificates/MongoDB%20Associate%20Database%20Administrator%20certification%20course%20by%20FACE%20Prep.jpg', 'MongoDB Associate Database Administrator')">
                         <img src="https://raw.githubusercontent.com/AnshulKanodia/Images/main/certificates/MongoDB%20Associate%20Database%20Administrator%20certification%20course%20by%20FACE%20Prep.jpg" alt="MongoDB Associate DBA" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
@@ -600,14 +599,14 @@
                             <span>Issued: July 2026</span>
                             <span>Provider: FACE Prep</span>
                         </p>
-                        <a href="https://drive.google.com/file/d/1oMvOQWJBCCFHGEKtSizJmm8tr9Z7g3lu/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors">
+                        <a href="https://drive.google.com/file/d/1oMvOQWJBCCFHGEKtSizJmm8tr9Z7g3lu/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors font-medium">
                             Verify Credential <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Cloud Computing -->
-                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="systems">
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] max-w-sm flex-shrink-0 flex-grow-0" data-category="systems">
                     <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Cloud%20Computing%20and%20Distributed%20Systems.jpg', 'Cloud Computing and Distributed Systems')">
                         <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Cloud%20Computing%20and%20Distributed%20Systems.jpg" alt="Cloud Computing" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
@@ -621,14 +620,14 @@
                             <span>Issued: May 2026</span>
                             <span>Provider: NPTEL</span>
                         </p>
-                        <a href="https://nptel.ac.in/noc/E_Certificate/NOC26CS29S55280059103125567" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors">
+                        <a href="https://nptel.ac.in/noc/E_Certificate/NOC26CS29S55280059103125567" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors font-medium">
                             Verify Credential <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Open Source Software -->
-                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="prog">
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] max-w-sm flex-shrink-0 flex-grow-0" data-category="prog">
                     <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Open%20Source%20Software.png', 'Open Source Software')">
                         <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Open%20Source%20Software.png" alt="Open Source Software" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
@@ -642,14 +641,14 @@
                             <span>Issued: March 2026</span>
                             <span>Provider: Vityarthi</span>
                         </p>
-                        <a href="https://www.vityarthi.com/certificate/6nvbNUVz8ToX" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors">
+                        <a href="https://www.vityarthi.com/certificate/6nvbNUVz8ToX" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors font-medium">
                             Verify Credential <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Google AI Agents Course -->
-                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="ai-ml">
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] max-w-sm flex-shrink-0 flex-grow-0" data-category="ai-ml">
                     <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/5-Day%20AI%20Agents%20Intensive%20Course%20with%20Google.png', '5-Day AI Agents Intensive Course with Google')">
                         <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/5-Day%20AI%20Agents%20Intensive%20Course%20with%20Google.png" alt="AI Agents" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
@@ -663,14 +662,14 @@
                             <span>Issued: Dec 2025</span>
                             <span>Provider: Kaggle / Google</span>
                         </p>
-                        <a href="https://www.kaggle.com/certification/badges/anshulkan/105" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors">
+                        <a href="https://www.kaggle.com/certification/badges/anshulkan/105" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors font-medium">
                             Verify Credential <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Java Programming -->
-                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="prog">
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] max-w-sm flex-shrink-0 flex-grow-0" data-category="prog">
                     <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Programming%20In%20Java.jpg', 'Programming in Java')">
                         <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Programming%20In%20Java.jpg" alt="Programming in Java" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
@@ -684,14 +683,14 @@
                             <span>Issued: Dec 2025</span>
                             <span>Provider: Vityarthi</span>
                         </p>
-                        <a href="https://vityarthi.com/certificate/GzqIlK7i18mw" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors">
+                        <a href="https://vityarthi.com/certificate/GzqIlK7i18mw" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors font-medium">
                             Verify Credential <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Applied ML -->
-                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="ai-ml">
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] max-w-sm flex-shrink-0 flex-grow-0" data-category="ai-ml">
                     <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Applied%20Machine%20Learning%20In%20Python.jpg', 'Applied Machine Learning in Python')">
                         <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Applied%20Machine%20Learning%20In%20Python.jpg" alt="Applied ML" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
@@ -705,14 +704,14 @@
                             <span>Issued: Nov 2025</span>
                             <span>Provider: Coursera</span>
                         </p>
-                        <a href="https://www.coursera.org/account/accomplishments/verify/MQTC6XSZOYVV" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors">
+                        <a href="https://www.coursera.org/account/accomplishments/verify/MQTC6XSZOYVV" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors font-medium">
                             Verify Credential <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- IoT -->
-                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="systems">
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] max-w-sm flex-shrink-0 flex-grow-0" data-category="systems">
                     <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Introduction%20to%20Internet%20of%20Things.jpg', 'Introduction to Internet of Things')">
                         <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Introduction%20to%20Internet%20of%20Things.jpg" alt="IoT" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
@@ -726,14 +725,14 @@
                             <span>Issued: Nov 2025</span>
                             <span>Provider: NPTEL</span>
                         </p>
-                        <a href="https://www.linkedin.com/posts/anshulkanodia_i-am-glad-to-share-that-i-have-successfully-activity-7398283518998413312-guSj" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors">
+                        <a href="https://www.linkedin.com/posts/anshulkanodia_i-am-glad-to-share-that-i-have-successfully-activity-7398283518998413312-guSj" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors font-medium">
                             Verify Credential <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Operating System -->
-                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="systems">
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] max-w-sm flex-shrink-0 flex-grow-0" data-category="systems">
                     <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Operating%20System.png', 'Operating System')">
                         <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Operating%20System.png" alt="Operating System" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
@@ -747,14 +746,14 @@
                             <span>Issued: Sep 2025</span>
                             <span>Provider: Scaler</span>
                         </p>
-                        <a href="https://moonshot.scaler.com/s/sl/q5zSmGc4jx" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors">
+                        <a href="https://moonshot.scaler.com/s/sl/q5zSmGc4jx" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors font-medium">
                             Verify Credential <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Intro Generative AI -->
-                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="ai-ml">
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] max-w-sm flex-shrink-0 flex-grow-0" data-category="ai-ml">
                     <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/intro%20to%20generative%20ai.png', 'Introduction to Generative AI')">
                         <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/intro%20to%20generative%20ai.png" alt="Generative AI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
@@ -768,14 +767,14 @@
                             <span>Issued: Sep 2025</span>
                             <span>Provider: Google Cloud</span>
                         </p>
-                        <a href="https://www.cloudskillsboost.google/public_profiles/31437ed3-246f-4d32-bf35-2a05aa805d3c/badges/18405623" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors">
+                        <a href="https://www.cloudskillsboost.google/public_profiles/31437ed3-246f-4d32-bf35-2a05aa805d3c/badges/18405623" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors font-medium">
                             Verify Credential <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Fundamentals AI and ML -->
-                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="ai-ml">
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] max-w-sm flex-shrink-0 flex-grow-0" data-category="ai-ml">
                     <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Fundamentals%20of%20AI%20and%20ML.png', 'Fundamentals of AI and ML')">
                         <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Fundamentals%20of%20AI%20and%20ML.png" alt="Fundamentals AI ML" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
@@ -789,14 +788,14 @@
                             <span>Issued: Apr 2025</span>
                             <span>Provider: Vityarthi</span>
                         </p>
-                        <a href="https://vityarthi.com/certificate/vmfqZJEYrWMA" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors">
+                        <a href="https://vityarthi.com/certificate/vmfqZJEYrWMA" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors font-medium">
                             Verify Credential <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Mitigate Threats -->
-                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="systems">
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] max-w-sm flex-shrink-0 flex-grow-0" data-category="systems">
                     <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/mitigate-threats-and-vulnerabilities-with-security-.png', 'Mitigate Threats and Vulnerabilities')">
                         <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/mitigate-threats-and-vulnerabilities-with-security-.png" alt="Mitigate Threats" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
@@ -817,7 +816,7 @@
                 </div>
 
                 <!-- Python Essential -->
-                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="prog">
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] max-w-sm flex-shrink-0 flex-grow-0" data-category="prog">
                     <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/python%20essential.png', 'Python Essential')">
                         <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/python%20essential.png" alt="Python Essential" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
@@ -838,7 +837,7 @@
                 </div>
 
                 <!-- Matlab Onramp -->
-                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="prog">
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] max-w-sm flex-shrink-0 flex-grow-0" data-category="prog">
                     <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Matlab%20onramp.png', 'Matlab Onramp')">
                         <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Matlab%20onramp.png" alt="Matlab Onramp" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">

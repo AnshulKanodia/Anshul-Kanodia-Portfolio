@@ -153,13 +153,13 @@
 
         <!-- Project Title Header -->
         <div class="max-w-4xl mx-auto text-center mb-12">
-            <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">Desktop Voice Assistant (DVA)</h1>
-            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">A command-line voice assistant built with Python to enhance productivity and automate desktop tasks on Windows.</p>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">Desktop Voice Assistant</h1>
+            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">Command-Line OS Automation Utility designed for Windows Environments.</p>
         </div>
 
-        <!-- Project Main Banner -->
+        <!-- Project Banner Image -->
         <div class="max-w-4xl mx-auto mb-16 rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-slate-900 aspect-video flex items-center justify-center">
-            <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/Projects/DVA/main.jpg" alt="Project Banner" class="w-full h-full object-cover">
+            <img src="https://raw.githubusercontent.com/anshulkanodia/Images/main/Projects/DVA/main.jpg" onerror="this.src='https://placehold.co/1200x600/0f172a/f8fafc?text=Desktop+Voice+Assistant+UI'" alt="Project Banner" class="w-full h-full object-cover">
         </div>
 
         <!-- Project Content Body -->
@@ -173,7 +173,7 @@
                         <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Project Overview
                     </h3>
                     <p class="text-slate-300 leading-relaxed text-base md:text-lg">
-                        The <strong>Desktop Voice Assistant</strong> is a lightweight, terminal-based application designed to bring hands-free convenience to the local computer environment. Developed entirely in Python, this utility addresses the friction of traditional keyboard/mouse commands by interpreting natural speech commands to drive core operating system tasks. It streamlines workflows, supports accessibility requirements, and automates mundane operations.
+                        The <strong>Desktop Voice Assistant (DVA)</strong> is a modular productivity toolkit built in Python to streamline operating system automation via text and spoken commands. Instead of manually navigating complex directories, settings profiles, or trigger layouts, DVA hooks directly into speech recognition frameworks and the native Windows API to execute commands on the fly.
                     </p>
                 </section>
 
@@ -183,9 +183,9 @@
                         <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Core Capabilities
                     </h3>
                     <ul class="project-list text-slate-300 text-sm md:text-base">
-                        <li><strong>Information Retrieval:</strong> Executes voice commands to retrieve system statistics, local time, regional weather forecasts, or parse Google/Wikipedia indexes instantly.</li>
-                        <li><strong>Productivity Management:</strong> Manages local to-do logs and orchestrates interactive flows to capture details and send emails directly via user commands.</li>
-                        <li><strong>System & App Control:</strong> Launches applications (e.g. Notepad, browser windows), interfaces with Spotify to coordinate music selection, controls system volume levels, and manages computer power states.</li>
+                        <li><strong>System Automation:</strong> Executes voice-activated system tasks, including adjusting volumes, searching hard drives, opening tools, and triggering operations.</li>
+                        <li><strong>Speech Synthesis & Recognition:</strong> Utilizes speech recognition libraries paired with native TTS engines to support natural, voice-driven execution cycles.</li>
+                        <li><strong>Extensible Command Registry:</strong> Engineered with a modular script pattern, enabling developers to easily bind new commands to specific voice triggers.</li>
                     </ul>
                 </section>
 
@@ -197,37 +197,32 @@
                     <div class="flex flex-wrap gap-3">
                         <span class="text-sm font-semibold px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-slate-200">Python</span>
                         <span class="text-sm font-semibold px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-slate-200">SpeechRecognition Library</span>
-                        <span class="text-sm font-semibold px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-slate-200">pyttsx3 Offline TTS</span>
-                        <span class="text-sm font-semibold px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-slate-200">Windows Volume APIs (pycaw / comtypes)</span>
-                        <span class="text-sm font-semibold px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-slate-200">Spotipy API</span>
+                        <span class="text-sm font-semibold px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-slate-200">Pyttsx3 (Text-to-Speech)</span>
+                        <span class="text-sm font-semibold px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-slate-200">Windows OS API</span>
+                        <span class="text-sm font-semibold px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-slate-200">Subprocess Modules</span>
                     </div>
                 </section>
 
-                <!-- 4. Challenges & Solutions -->
-                <section class="space-y-6">
+                <!-- 4. Architecture & Logic -->
+                <section class="space-y-4">
                     <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2.5">
-                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Challenges & Solutions
+                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Project Architecture
                     </h3>
-                    
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-white/5 border border-white/5 p-6 rounded-2xl">
-                            <h4 class="font-bold text-white text-base mb-2 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation text-yellow-500 text-sm"></i> Multi-Step Interactive Workflows</h4>
-                            <p class="text-slate-300 text-sm">
-                                Standard loop layouts make handling stateful commands (such as formatting and sending an email in parts) very confusing, leading to thread blocks or inputs getting lost.
-                            </p>
-                            <p class="text-indigo-400 text-sm font-medium mt-3 border-t border-white/5 pt-3">
-                                <strong>Solution:</strong> Encapsulated individual multi-step operations in self-contained routines (e.g. <code>send_email()</code> function). This decoupled interactive states from the main loop and simplified maintenance.
-                            </p>
+                    <p class="text-slate-300 text-sm md:text-base">
+                        The assistant operates using a standard read-eval-print loop (REPL) structure customized for voice inputs:
+                    </p>
+                    <div class="bg-white/5 border border-white/5 p-6 rounded-2xl space-y-4 text-sm">
+                        <div class="flex items-start gap-3">
+                            <span class="h-6 w-6 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold flex-shrink-0">1</span>
+                            <p class="text-slate-300"><strong>Listening Loop:</strong> Spawns a background thread that captures raw microphone input and filters ambient noise dynamically.</p>
                         </div>
-                        
-                        <div class="bg-white/5 border border-white/5 p-6 rounded-2xl">
-                            <h4 class="font-bold text-white text-base mb-2 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation text-yellow-500 text-sm"></i> Ambient Noise Interference</h4>
-                            <p class="text-slate-300 text-sm">
-                                Short spoken words like "yes" or "no" are easily lost in noisy rooms, leading to command errors and misinterpretations.
-                            </p>
-                            <p class="text-indigo-400 text-sm font-medium mt-3 border-t border-white/5 pt-3">
-                                <strong>Solution:</strong> Configured <code>adjust_for_ambient_noise()</code> during initializations. This dynamically calibrates microphone gain thresholds to the surroundings, raising phrase recognition accuracy.
-                            </p>
+                        <div class="flex items-start gap-3">
+                            <span class="h-6 w-6 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold flex-shrink-0">2</span>
+                            <p class="text-slate-300"><strong>Command Dispatcher:</strong> Maps the transcribed string against custom regex patterns to determine the target action.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="h-6 w-6 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold flex-shrink-0">3</span>
+                            <p class="text-slate-300"><strong>Windows Shell Execution:</strong> Runs subprocess actions safely inside the terminal to trigger tasks without freezing the assistant's loop.</p>
                         </div>
                     </div>
                 </section>
