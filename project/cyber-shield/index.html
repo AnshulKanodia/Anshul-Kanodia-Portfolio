@@ -3,209 +3,301 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Detail | Cyber Shield</title>
+    <title>Project Details | Cyber Shield</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='50' fill='%236366f1'/%3e%3ctext x='50' y='50' font-size='50' fill='white' text-anchor='middle' dy='.3em' font-family='Plus Jakarta Sans, sans-serif' font-weight='bold'%3eAK%3c/text%3e%3c/svg%3e">
+    
+    <!-- Fonts & TailWind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Vercel Web Analytics -->
-    <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script src="/_vercel/insights/script.js"></script>
+    <!-- FontAwesome for professional icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --bg-color: #0a0c1c; /* Deep Midnight Blue */
-            --text-color: #a9b2d8; /* Soft blue-tinted white */
-            --text-white: #f0f4ff; /* Pure white */
-            --text-secondary-color: #818cb8; /* Lighter gray-blue */
-            --primary-color: #00d1ff; /* Electric Blue */
-            --primary-color-light: #33ddff; /* Lighter Electric Blue */
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-        }
-        .prose {
-            color: var(--text-color);
-        }
-        .prose h3 {
-            color: var(--primary-color-light);
-            font-weight: 600;
-            font-size: 1.75rem;
-            margin-top: 2rem;
-            margin-bottom: 0.75rem;
-        }
-        .prose ul {
-            list-style-type: none;
-            padding-left: 1rem;
-        }
-        .prose ul > li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .prose ul > li::before {
-            content: '⬢'; /* Hexagon bullet */
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-            font-size: 0.8em;
-            top: 0.3em;
-        }
-        .prose code {
-            color: var(--primary-color-light);
-            background-color: var(--bg-color);
-            padding: 0.2rem 0.4rem;
-            border-radius: 0.25rem;
-            font-weight: 600;
-            font-size: 0.9em;
-            border: 1px solid var(--primary-color);
+            --color-bg: #030014;
+            --color-card-bg: rgba(15, 23, 42, 0.4);
+            --color-border: rgba(255, 255, 255, 0.05);
+            --color-border-hover: rgba(99, 102, 241, 0.4);
+            --color-shadow-glow: rgba(99, 102, 241, 0.15);
         }
 
-        /* --- Hide Scrollbar Completely --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* SVG Grid pattern background */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+        }
+
+        /* Floating Blobs animation */
+        @keyframes orb-float {
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(-30px, 50px) scale(1.1); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .ambient-glow {
+            animation: orb-float 20s ease-in-out infinite alternate;
+        }
+
+        /* Frosted Glass card */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Custom list style */
+        .project-list li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .project-list li::before {
+            content: '⬢';
+            position: absolute;
+            left: 0;
+            color: #6366f1;
+            font-size: 0.75em;
+            top: 0.3em;
+        }
+
+        /* Hide Scrollbar */
         ::-webkit-scrollbar {
             display: none;
         }
         html, body {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
+    
+    <!-- Vercel Web Analytics -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js"></script>
 </head>
-<body class="text-gray-300">
-    <canvas id="particle-canvas" class="fixed top-0 left-0 w-full h-full z-0 pointer-events-none"></canvas>
+<body class="text-slate-300 antialiased bg-grid-pattern relative min-h-screen">
 
-    <main class="container mx-auto px-6 py-12 md:py-20 relative z-10">
-        <!-- Home Button -->
-        <a href="/" class="inline-flex items-center mb-12 text-lg font-semibold transition group" style="color: var(--primary-color-light);">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            Back to Portfolio
-        </a>
+    <!-- Ambient Glowing Blobs -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-[10%] left-[10%] w-[35rem] h-[35rem] rounded-full bg-indigo-500/5 blur-[120px] ambient-glow"></div>
+        <div class="absolute bottom-[20%] right-[10%] w-[35rem] h-[35rem] rounded-full bg-violet-600/5 blur-[120px] ambient-glow"></div>
+    </div>
 
-        <!-- Project Title -->
-        <div class="text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Cyber Shield (Toxicity Detection)</h1>
-            <p class="text-xl md:text-2xl" style="color: var(--text-secondary-color);">Context-Aware Cyberbullying Detection on Social Media using NLP and Synthetic Data Generation.</p>
-        </div>
-
-        <!-- Project Image -->
-        <img src="https://raw.githubusercontent.com/anshulkanodia/Images/main/Projects/CyberShield/main.jpg" onerror="this.src='https://placehold.co/1200x600/12162d/a9b2d8?text=Cyber+Shield+Project+Overview'" alt="Project Screenshot" class="w-full max-w-4xl mx-auto block rounded-lg shadow-2xl mb-16 border border-gray-700">
-
-        <!-- Project Content -->
-        <div class="max-w-4xl mx-auto prose lg:prose-lg">
-            <p><strong>Cyber Shield</strong> is an advanced Machine Learning project designed to tackle the growing issue of cyberbullying and toxic behavior in online communities. Traditional keyword-based filters often fail to understand sarcasm, slang, or nuanced context. This project leverages state-of-the-art Natural Language Processing (NLP) techniques to analyze the intent and context behind social media interactions, ensuring a safer digital environment.</p>
-
-            <h3>Core Capabilities</h3>
-            <ul>
-                <br><li><strong>Context-Aware Analysis:</strong> Utilizes Transformer-based architectures to understand the semantic meaning of sentences rather than just flagging isolated "bad words."</li>
-                <br><li><strong>Synthetic Data Pipeline:</strong> Implements advanced data generation techniques to dynamically create training examples, solving the critical issue of dataset class imbalance in toxic speech detection.</li>
-                <br><li><strong>Real-Time Inference:</strong> Designed with an efficient backend pipeline capable of rapidly analyzing text inputs to flag potential cyberbullying behavior in real-time.</li>
-            </ul>
-
-            <h3>Technology Stack</h3>
-            <ul>
-                <br><li><strong>Programming & Data:</strong> <code>Python</code>, <code>Pandas</code>, and <code>NumPy</code> for robust data manipulation and preprocessing.</li>
-                <br><li><strong>Machine Learning & NLP:</strong> Built using cutting-edge Transformer models (via Hugging Face) and <code>Scikit-Learn</code> to train, evaluate, and fine-tune the classification algorithms.</li>
-                <br><li><strong>Data Generation:</strong> Leveraged Large Language Models (LLMs) and synthetic data augmentation methods to balance the positive/negative interaction datasets.</li>
-            </ul>
-
-            <h3>Development Challenges & Solutions</h3>
-            <ul>
-                 <br><li><strong>Challenge:</strong> <em>Extreme Class Imbalance.</em> Datasets containing cyberbullying are inherently unbalanced (toxic comments are much rarer than normal comments), causing models to heavily bias toward predicting "safe" behavior.</li>
-                 <br><li><strong>Solution:</strong> Engineered a robust Synthetic Data Generation pipeline. By generating contextually accurate synthetic examples of toxic behavior, I balanced the training set, drastically improving the model's recall and F1-score for the minority class.</li>
-                 <br><li><strong>Challenge:</strong> <em>Context Ambiguity.</em> Words that are benign in one context can be used maliciously in another.</li>
-                 <br><li><strong>Solution:</strong> Shifted from traditional Bag-of-Words (BoW) models to deep learning Transformer architectures, which weigh the relationship of every word in a sentence against every other word, successfully capturing the true underlying intent.</li>
-            </ul>
-        </div>
-        
-        <!-- Final CTA with Two Buttons -->
-        <div class="text-center mt-16 flex flex-col sm:flex-row justify-center items-center gap-6">
-            <!-- Source Code Button -->
-            <a href="https://github.com/anshulkanodia/Cyber-Shield" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-white font-bold py-4 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105" style="background-color: var(--bg-secondary-color); border: 2px solid var(--primary-color);">
-               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                   <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-               </svg>
-               View Source Code
+    <!-- Floating Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 transition-all duration-300">
+        <div class="max-w-6xl mx-auto flex justify-between items-center bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-full py-3 px-6 shadow-xl shadow-black/30">
+            <a href="/" class="flex items-center gap-3 group">
+                <div class="h-8 w-8 rounded-full overflow-hidden border-2 border-indigo-500 shadow-lg shadow-indigo-500/30 transition-transform duration-300 group-hover:scale-110">
+                    <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/Profile/main.jpg" alt="Logo" class="h-full w-full object-cover">
+                </div>
+                <span class="text-white font-semibold text-lg tracking-wide hover:text-indigo-400 transition-colors">Anshul Kanodia</span>
             </a>
             
-            <!-- Download Report Button -->
-            <a href="/project/cyber-shield/Report.pdf" download="CyberShield_Report.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-white font-bold py-4 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105" style="background-color: var(--primary-color); box-shadow: 0 0 20px rgba(0, 209, 255, 0.4);">
-               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-               </svg>
-               Download Report
+            <nav class="hidden md:flex items-center gap-1">
+                <a href="/#about" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">About</a>
+                <a href="/#skills" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Skills</a>
+                <a href="/#projects" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300 text-indigo-400 bg-white/10">Projects</a>
+                <a href="/#certificates" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Certificates</a>
+                <a href="/resume" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Resume</a>
+                <a href="/#contact" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Contact</a>
+            </nav>
+
+            <button id="mobile-menu-button" class="md:hidden text-slate-300 hover:text-white focus:outline-none relative w-8 h-8 flex flex-col justify-center items-center gap-1.5 z-50">
+                <span class="w-6 h-0.5 bg-current transition-all duration-300" id="hamburger-top"></span>
+                <span class="w-6 h-0.5 bg-current transition-all duration-300" id="hamburger-mid"></span>
+                <span class="w-6 h-0.5 bg-current transition-all duration-300" id="hamburger-bot"></span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-x-4 top-20 bg-slate-900/90 backdrop-blur-2xl border border-white/10 rounded-3xl p-6 shadow-2xl z-40 transform scale-95 opacity-0 transition-all duration-300 origin-top">
+            <div class="flex flex-col gap-4">
+                <a href="/#about" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">About</a>
+                <a href="/#skills" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Skills</a>
+                <a href="/#projects" class="mobile-nav-link text-lg font-semibold text-indigo-400 py-2 border-b border-white/5">Projects</a>
+                <a href="/#certificates" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Certificates</a>
+                <a href="/resume" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Resume</a>
+                <a href="/#contact" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 md:px-8 pt-28 pb-20 relative z-10">
+        
+        <!-- Controls panel: Back -->
+        <div class="max-w-4xl mx-auto flex justify-between items-center mb-8 gap-6">
+            <a href="/" class="inline-flex items-center text-sm md:text-base font-semibold text-indigo-400 hover:text-indigo-300 transition-colors group">
+                <i class="fa-solid fa-arrow-left mr-2 transition-transform group-hover:-translate-x-1"></i>
+                Back to Portfolio
             </a>
-       </div>
+        </div>
+
+        <!-- Project Title Header -->
+        <div class="max-w-4xl mx-auto text-center mb-12">
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">Cyber Shield</h1>
+            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">Context-Aware Cyberbullying Detection on Social Media using NLP and Synthetic Data Generation.</p>
+        </div>
+
+        <!-- Project Main Screenshot Banner -->
+        <div class="max-w-4xl mx-auto mb-16 rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-slate-900 aspect-video flex items-center justify-center">
+            <img src="https://raw.githubusercontent.com/anshulkanodia/Images/main/Projects/CyberShield/main.jpg" onerror="this.src='https://placehold.co/1200x600/0f172a/f8fafc?text=Cyber+Shield+Project+Overview'" alt="Project Banner" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Project Content Body -->
+        <div class="max-w-4xl mx-auto glass-card p-8 md:p-12 rounded-3xl border border-white/5 shadow-2xl">
+            
+            <div class="space-y-10">
+                
+                <!-- 1. Description -->
+                <section class="space-y-4">
+                    <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2.5">
+                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Project Overview
+                    </h3>
+                    <p class="text-slate-300 leading-relaxed text-base md:text-lg">
+                        <strong>Cyber Shield</strong> is an advanced Machine Learning implementation engineered to combat toxic comments and cyberbullying across digital interactions. Traditional filters rely strictly on dictionary blocklists and keyword matches, failing to interpret slang, syntactic subtleties, or contextual sarcasm. Cyber Shield remedies this by utilizing deep Transformer architectures to understand semantic sentence weights and detect nuances.
+                    </p>
+                </section>
+
+                <!-- 2. Core Capabilities -->
+                <section class="space-y-4">
+                    <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2.5">
+                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Core Capabilities
+                    </h3>
+                    <ul class="project-list text-slate-300 text-sm md:text-base">
+                        <li><strong>Contextual Understanding:</strong> Uses transformer-based architectures to construct contextual word vectors, resolving semantic intent behind sentences.</li>
+                        <li><strong>Synthetic Dataset Generation:</strong> Features custom synthetic augmentation procedures to construct additional minor-class toxic samples, restoring set balance.</li>
+                        <li><strong>Inference Optimization:</strong> Programmed with clean pipeline hooks for processing, preprocessing, and classification tasks immediately.</li>
+                    </ul>
+                </section>
+
+                <!-- 3. Tech Stack -->
+                <section class="space-y-4">
+                    <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2.5">
+                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Technology Stack
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="text-sm font-semibold px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-slate-200">Python</span>
+                        <span class="text-sm font-semibold px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-slate-200">Hugging Face Transformers</span>
+                        <span class="text-sm font-semibold px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-slate-200">Scikit-Learn</span>
+                        <span class="text-sm font-semibold px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-slate-200">Pandas / NumPy</span>
+                        <span class="text-sm font-semibold px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-slate-200">LLM Data Augmentation</span>
+                    </div>
+                </section>
+
+                <!-- 4. Challenges & Solutions -->
+                <section class="space-y-6">
+                    <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2.5">
+                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Challenges & Solutions
+                    </h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white/5 border border-white/5 p-6 rounded-2xl">
+                            <h4 class="font-bold text-white text-base mb-2 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation text-yellow-500 text-sm"></i> Extreme Class Imbalance</h4>
+                            <p class="text-slate-300 text-sm">
+                                Standard online text datasets feature very small ratios of toxic speech compared to safe messages. Training a standard classifier directly leads the model to output safe labels universally.
+                            </p>
+                            <p class="text-indigo-400 text-sm font-medium mt-3 border-t border-white/5 pt-3">
+                                <strong>Solution:</strong> Formulated an LLM-assisted Synthetic Data Generation engine. Augmented datasets dynamically to achieve balanced distributions, increasing validation Recall and F1 statistics.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white/5 border border-white/5 p-6 rounded-2xl">
+                            <h4 class="font-bold text-white text-base mb-2 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation text-yellow-500 text-sm"></i> Semantic Ambiguity</h4>
+                            <p class="text-slate-300 text-sm">
+                                Harmless words are frequently combined in malicious orders, bypassing traditional keyword blockers that look at single token values out of order.
+                            </p>
+                            <p class="text-indigo-400 text-sm font-medium mt-3 border-t border-white/5 pt-3">
+                                <strong>Solution:</strong> Implemented deep Transformers instead of Bag-of-Words metrics. The self-attention mechanisms compute weights between all word slots, flagging malicious setups successfully.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Footer Buttons CTA -->
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-12 border-t border-white/10 pt-8">
+                <a href="https://github.com/anshulkanodia/Cyber-Shield" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto flex items-center justify-center bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold py-4 px-8 rounded-full transition-all">
+                    <i class="fa-brands fa-github text-lg mr-2"></i> View Source Code
+                </a>
+                
+                <a href="/project/cyber-shield/Report.pdf" download="CyberShield_Report.pdf" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto flex items-center justify-center bg-gradient-to-r from-indigo-500 to-violet-500 text-white font-bold py-4 px-8 rounded-full shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 transition-all">
+                    <i class="fa-regular fa-file-pdf text-lg mr-2"></i> Download Report
+                </a>
+            </div>
+
+        </div>
 
     </main>
 
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-8 text-center text-xs text-slate-500">
+        <p>&copy; <span id="year"></span> Anshul Kanodia. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
     <script>
-        // --- Particle Background ---
-        const canvas = document.getElementById('particle-canvas');
-        const ctx = canvas.getContext('2d');
-        let particlesArray;
+        // Set Current Year
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-        function setupCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = document.body.scrollHeight;
-            const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
-            
-            let r = parseInt(primaryColor.slice(1, 3), 16);
-            let g = parseInt(primaryColor.slice(3, 5), 16);
-            let b = parseInt(primaryColor.slice(5, 7), 16);
-            
-            particlesArray = [];
-            let numberOfParticles = (canvas.height * canvas.width) / 9000;
-            for (let i = 0; i < numberOfParticles; i++) {
-                let size = (Math.random() * 2) + 1;
-                let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
-                let y = (Math.random() * ((document.body.scrollHeight - size * 2) - (size * 2)) + size * 2);
-                let directionX = (Math.random() * .4) - .2;
-                let directionY = (Math.random() * .4) - .2;
-                let color = `rgba(${r}, ${g}, ${b}, 0.8)`;
+        // Mobile Hamburger menu toggle script
+        const mobileMenuBtn = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const hamTop = document.getElementById("hamburger-top");
+        const hamMid = document.getElementById("hamburger-mid");
+        const hamBot = document.getElementById("hamburger-bot");
 
-                particlesArray.push({x, y, directionX, directionY, size, color});
+        mobileMenuBtn.addEventListener("click", () => {
+            const isClosed = mobileMenu.classList.contains("hidden");
+            if (isClosed) {
+                mobileMenu.classList.remove("hidden");
+                setTimeout(() => {
+                    mobileMenu.classList.remove("scale-95", "opacity-0");
+                }, 10);
+                hamTop.classList.add("rotate-45", "translate-y-2");
+                hamMid.classList.add("opacity-0");
+                hamBot.classList.add("-rotate-45", "-translate-y-2");
+            } else {
+                mobileMenu.classList.add("scale-95", "opacity-0");
+                setTimeout(() => {
+                    mobileMenu.classList.add("hidden");
+                }, 300);
+                hamTop.classList.remove("rotate-45", "translate-y-2");
+                hamMid.classList.remove("opacity-0");
+                hamBot.classList.remove("-rotate-45", "-translate-y-2");
             }
-        }
-
-        function animateParticles() {
-            requestAnimationFrame(animateParticles);
-            ctx.clearRect(0,0,innerWidth, document.body.scrollHeight);
-
-            for (let i = 0; i < particlesArray.length; i++) {
-                let particle = particlesArray[i];
-                ctx.beginPath();
-                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2, false);
-                ctx.fillStyle = particle.color;
-                ctx.fill();
-
-                if(particle.x + particle.size > canvas.width || particle.x - particle.size < 0) {
-                    particle.directionX = -particle.directionX;
-                }
-                if (particle.y + particle.size > canvas.height || particle.y - particle.size < 0) {
-                    particle.directionY = -particle.directionY;
-                }
-                particle.x += particle.directionX;
-                particle.y += particle.directionY;
-            }
-        }
-
-        window.addEventListener('resize', () => {
-            setupCanvas();
         });
 
-        // Use a slight delay to ensure the body's scrollHeight is calculated correctly
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                setupCanvas();
-                animateParticles();
-            }, 100);
+        // Close dropdown when nav links clicked
+        document.querySelectorAll(".mobile-nav-link").forEach(link => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.add("scale-95", "opacity-0");
+                setTimeout(() => {
+                    mobileMenu.classList.add("hidden");
+                }, 300);
+                hamTop.classList.remove("rotate-45", "translate-y-2");
+                hamMid.classList.remove("opacity-0");
+                hamBot.classList.remove("-rotate-45", "-translate-y-2");
+            });
         });
     </script>
 </body>

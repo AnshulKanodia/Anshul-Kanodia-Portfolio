@@ -4,38 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume | Anshul Kanodia</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='50' fill='%236366f1'/%3e%3ctext x='50' y='50' font-size='50' fill='white' text-anchor='middle' dy='.3em' font-family='Plus Jakarta Sans, sans-serif' font-weight='bold'%3eAK%3c/text%3e%3c/svg%3e">
+    
+    <!-- Fonts & TailWind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for professional icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         :root {
-            --bg-color: #0a0c1c; 
-            --bg-secondary-color: #12162d; 
-            --text-color: #a9b2d8; 
-            --text-white: #f0f4ff; 
-            --text-secondary-color: #818cb8; 
-            --primary-color: #00d1ff; 
-            --primary-color-light: #33ddff;
+            --color-bg: #030014;
+            --color-card-bg: rgba(15, 23, 42, 0.4);
+            --color-border: rgba(255, 255, 255, 0.05);
+            --color-border-hover: rgba(99, 102, 241, 0.4);
+            --color-shadow-glow: rgba(99, 102, 241, 0.15);
         }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--color-bg);
+            overflow-x: hidden;
         }
-        .prose ul > li {
+
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* SVG Grid pattern background */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+        }
+
+        /* Floating Blobs animation */
+        @keyframes orb-float {
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(-30px, 50px) scale(1.1); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .ambient-glow {
+            animation: orb-float 20s ease-in-out infinite alternate;
+        }
+
+        /* Frosted Glass Resume container */
+        .resume-glass-card {
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Resume section list style */
+        .resume-list li {
             position: relative;
             padding-left: 1.5rem;
             margin-bottom: 0.5rem;
         }
-        .prose ul > li::before {
-            content: '⬢'; 
+        .resume-list li::before {
+            content: '⬢';
             position: absolute;
             left: 0;
-            color: var(--primary-color);
-            font-size: 0.8em;
+            color: #6366f1;
+            font-size: 0.75em;
             top: 0.3em;
         }
+
+        /* Print Media Styles Optimization */
+        @media print {
+            body {
+                background: white !important;
+                background-image: none !important;
+                color: #0f172a !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .resume-glass-card {
+                background: transparent !important;
+                border: none !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                color: #0f172a !important;
+                margin-top: 0 !important;
+            }
+            h1, h2, h3, h4, p, span, li, strong, a {
+                color: #0f172a !important;
+            }
+            a {
+                text-decoration: underline !important;
+            }
+            .border-gray-700\/50, .border-gray-700\/30 {
+                border-color: #cbd5e1 !important;
+            }
+            .resume-list li::before {
+                color: #3b82f6 !important;
+            }
+            .text-indigo-400, .text-indigo-300 {
+                color: #2563eb !important;
+            }
+            img {
+                filter: grayscale(1) !important;
+                border-color: #cbd5e1 !important;
+            }
+        }
+
+        /* Hide Scrollbar */
         ::-webkit-scrollbar {
             display: none;
         }
@@ -45,6 +129,7 @@
         }
     </style>
     
+    <!-- Vercel Analytics -->
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
@@ -54,234 +139,281 @@
     </script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
 </head>
-<body class="text-gray-300">
-    <canvas id="particle-canvas" class="fixed top-0 left-0 w-full h-full z-0 pointer-events-none"></canvas>
+<body class="text-slate-300 antialiased bg-grid-pattern relative min-h-screen">
 
-    <header class="bg-gray-900/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-md shadow-black/20" style="background-color: color-mix(in srgb, var(--bg-color) 80%, transparent);">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="/" class="text-2xl font-bold text-white flex items-center">
-                <img src="https://raw.githubusercontent.com/anshulkanodia/Images/main/Profile/main.jpg" alt="Logo" class="h-9 w-9 rounded-full mr-3 object-cover border-2" style="background-color: var(--bg-secondary-color); border-color: var(--primary-color);">
-                <span>Anshul Kanodia</span>
+    <!-- Ambient Glowing Blobs -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0 no-print">
+        <div class="absolute top-[10%] left-[10%] w-[35rem] h-[35rem] rounded-full bg-indigo-500/5 blur-[120px] ambient-glow"></div>
+        <div class="absolute bottom-[20%] right-[10%] w-[35rem] h-[35rem] rounded-full bg-violet-600/5 blur-[120px] ambient-glow"></div>
+    </div>
+
+    <!-- Floating Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 transition-all duration-300 no-print">
+        <div class="max-w-6xl mx-auto flex justify-between items-center bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-full py-3 px-6 shadow-xl shadow-black/30">
+            <a href="/" class="flex items-center gap-3 group">
+                <div class="h-8 w-8 rounded-full overflow-hidden border-2 border-indigo-500 shadow-lg shadow-indigo-500/30 transition-transform duration-300 group-hover:scale-110">
+                    <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/Profile/main.jpg" alt="Logo" class="h-full w-full object-cover">
+                </div>
+                <span class="text-white font-semibold text-lg tracking-wide hover:text-indigo-400 transition-colors">Anshul Kanodia</span>
             </a>
-            <nav class="hidden md:flex space-x-8">
-                <a href="/#about" class="text-gray-300 transition duration-300 hover:text-[var(--primary-color-light)]">About</a>
-                <a href="/#skills" class="text-gray-300 transition duration-300 hover:text-[var(--primary-color-light)]">Skills</a>
-                <a href="/#projects" class="text-gray-300 transition duration-300 hover:text-[var(--primary-color-light)]">Projects</a>
-                <a href="/#certificates" class="text-gray-300 transition duration-300 hover:text-[var(--primary-color-light)]">Certificates</a>
-                <a href="/resume" class="text-[var(--primary-color-light)] transition duration-300 font-semibold border-b-2 border-[var(--primary-color)]">Resume</a>
-                <a href="/#know-more" class="text-gray-300 transition duration-300 hover:text-[var(--primary-color-light)]">Find Me</a>
-                <a href="/#contact" class="text-gray-300 transition duration-300 hover:text-[var(--primary-color-light)]">Contact</a>
+            
+            <nav class="hidden md:flex items-center gap-1">
+                <a href="/#about" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">About</a>
+                <a href="/#skills" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Skills</a>
+                <a href="/#projects" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Projects</a>
+                <a href="/#certificates" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Certificates</a>
+                <a href="/resume" class="text-indigo-400 bg-white/10 text-sm font-semibold px-4 py-2 rounded-full">Resume</a>
+                <a href="/#contact" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Contact</a>
             </nav>
-            <button id="mobile-menu-button" class="md:hidden focus:outline-none relative z-50">
-                <svg class="w-6 h-6 text-white" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                    <path d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
+
+            <button id="mobile-menu-button" class="md:hidden text-slate-300 hover:text-white focus:outline-none relative w-8 h-8 flex flex-col justify-center items-center gap-1.5 z-50">
+                <span class="w-6 h-0.5 bg-current transition-all duration-300" id="hamburger-top"></span>
+                <span class="w-6 h-0.5 bg-current transition-all duration-300" id="hamburger-mid"></span>
+                <span class="w-6 h-0.5 bg-current transition-all duration-300" id="hamburger-bot"></span>
             </button>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 relative z-50 bg-gray-900 shadow-xl">
-            <a href="/#about" class="block py-2 text-gray-300 hover:text-[var(--primary-color-light)]">About</a>
-            <a href="/#skills" class="block py-2 text-gray-300 hover:text-[var(--primary-color-light)]">Skills</a>
-            <a href="/#projects" class="block py-2 text-gray-300 hover:text-[var(--primary-color-light)]">Projects</a>
-            <a href="/#certificates" class="block py-2 text-gray-300 hover:text-[var(--primary-color-light)]">Certificates</a>
-            <a href="/resume" class="block py-2 text-[var(--primary-color-light)] font-semibold">Resume</a>
-            <a href="/#know-more" class="block py-2 text-gray-300 hover:text-[var(--primary-color-light)]">Find Me</a>
-            <a href="/#contact" class="block py-2 text-gray-300 hover:text-[var(--primary-color-light)]">Contact</a>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-x-4 top-20 bg-slate-900/90 backdrop-blur-2xl border border-white/10 rounded-3xl p-6 shadow-2xl z-40 transform scale-95 opacity-0 transition-all duration-300 origin-top">
+            <div class="flex flex-col gap-4">
+                <a href="/#about" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">About</a>
+                <a href="/#skills" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Skills</a>
+                <a href="/#projects" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Projects</a>
+                <a href="/#certificates" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Certificates</a>
+                <a href="/resume" class="mobile-nav-link text-lg font-semibold text-indigo-400 py-2 border-b border-white/5">Resume</a>
+                <a href="/#contact" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2">Contact</a>
+            </div>
         </div>
     </header>
 
-    <main class="container mx-auto px-6 pt-28 pb-12 relative z-10">
+    <main class="container mx-auto px-4 md:px-8 pt-28 pb-20 relative z-10">
         
-        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center mb-8 gap-6">
-            <a href="/" class="inline-flex items-center text-lg font-semibold transition group" style="color: var(--primary-color-light);">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                </svg>
+        <!-- Controls panel: Back and Download -->
+        <div class="max-w-4xl mx-auto flex justify-between items-center mb-8 gap-6 no-print">
+            <a href="/" class="inline-flex items-center text-sm md:text-base font-semibold text-indigo-400 hover:text-indigo-300 transition-colors group">
+                <i class="fa-solid fa-arrow-left mr-2 transition-transform group-hover:-translate-x-1"></i>
                 Back to Portfolio
             </a>
 
-            <a href="/Anshul%20Kanodia.pdf" download class="inline-flex items-center bg-[var(--primary-color)] text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-[0_0_15px_rgba(0,209,255,0.4)]">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                </svg>
-                Download PDF
-            </a>
+            <div class="flex gap-4">
+                <!-- Trigger browser print -->
+                <button onclick="window.print()" class="inline-flex items-center bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold py-3 px-6 rounded-full transition duration-300 text-sm">
+                    <i class="fa-solid fa-print mr-2"></i> Print Resume
+                </button>
+                
+                <a href="/Anshul%20Kanodia.pdf" download class="inline-flex items-center bg-gradient-to-r from-indigo-500 to-violet-500 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-[0_0_15px_rgba(99,102,241,0.35)] text-sm">
+                    <i class="fa-solid fa-download mr-2"></i> Download PDF
+                </a>
+            </div>
         </div>
 
-        <div class="max-w-4xl mx-auto bg-gray-900/40 backdrop-blur-md p-8 md:p-12 rounded-2xl shadow-2xl border border-gray-800 prose lg:prose-lg">
+        <!-- Main Resume Document -->
+        <div class="max-w-4xl mx-auto resume-glass-card p-8 md:p-12 rounded-3xl border border-white/5 shadow-2xl relative">
             
-            <div class="border-b border-gray-700/50 pb-8 mb-8 text-center md:text-left flex flex-col md:flex-row items-center md:items-start gap-8">
-                <img src="https://raw.githubusercontent.com/anshulkanodia/Images/main/Profile/main.jpg" alt="Anshul Kanodia" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-[var(--primary-color)]">
+            <!-- Header Block -->
+            <div class="border-b border-white/10 pb-8 mb-8 flex flex-col md:flex-row items-center md:items-start gap-8">
+                <!-- Profile Avatar -->
+                <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/Profile/main.jpg" alt="Anshul Kanodia" class="w-32 h-32 md:w-36 md:h-36 rounded-full object-cover border-4 border-indigo-500/80 shadow-lg shadow-indigo-500/10 bg-slate-800">
                 
-                <div class="flex-1">
-                    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-2 !mt-0">Anshul Kanodia</h1>
-                    <p class="text-lg font-medium text-[var(--primary-color-light)] !mt-0 mb-4">Computer Science Engineering Student</p>
+                <div class="flex-1 text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-2 tracking-tight">Anshul Kanodia</h1>
+                    <p class="text-lg font-semibold text-indigo-400 mb-4">Computer Science Engineering Undergraduate</p>
                     
-                    <div class="flex flex-wrap justify-center md:justify-start gap-y-2 gap-x-6 text-sm text-[var(--text-secondary-color)]">
-                        <span>New Delhi, India</span>
-                        <span>+91-8368535805</span>
-                        <span>anshulkanodia3560@gmail.com</span>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-y-2.5 gap-x-6 text-sm text-slate-400">
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-indigo-400"></i> New Delhi, India</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-phone text-indigo-400"></i> +91-8368535805</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-envelope text-indigo-400"></i> anshulkanodia3560@gmail.com</span>
                     </div>
                     
-                    <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-4 text-sm font-semibold">
-                        <a href="https://linkedin.com/in/anshulkanodia" target="_blank" class="text-[var(--text-white)] hover:text-[var(--primary-color)] transition-colors">linkedin.com/in/anshulkanodia</a>
-                        <a href="https://github.com/anshulkanodia" target="_blank" class="text-[var(--text-white)] hover:text-[var(--primary-color)] transition-colors">github.com/anshulkanodia</a>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-4 text-xs font-semibold">
+                        <a href="https://linkedin.com/in/anshulkanodia" target="_blank" class="text-slate-300 hover:text-white transition-colors bg-white/5 px-3 py-1.5 rounded-lg border border-white/5 flex items-center gap-1.5">
+                            <i class="fa-brands fa-linkedin text-blue-500"></i> linkedin.com/in/anshulkanodia
+                        </a>
+                        <a href="https://github.com/anshulkanodia" target="_blank" class="text-slate-300 hover:text-white transition-colors bg-white/5 px-3 py-1.5 rounded-lg border border-white/5 flex items-center gap-1.5">
+                            <i class="fa-brands fa-github text-white"></i> github.com/anshulkanodia
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <div>
-                <h3 class="text-2xl font-bold text-[var(--primary-color-light)] !mb-4 border-b border-gray-700/30 inline-block">Professional Summary</h3>
-                <p>Computer Science Engineering student (B.Tech, 2028) with a strong foundation in backend development and system architecture. I have worked on independent projects involving NLP and system automation. I am looking to utilize my weekends to gain practical industry experience and contribute to dynamic engineering teams while continuing my studies.</p>
-            </div>
-
-            <div class="mt-8">
-                <h3 class="text-2xl font-bold text-[var(--primary-color-light)] !mb-4 border-b border-gray-700/30 inline-block">Education</h3>
-                <div class="mb-4">
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
-                        <h4 class="text-xl font-bold text-white !my-0">VIT Bhopal University</h4>
-                        <span class="text-[var(--text-secondary-color)] text-sm mt-1 sm:mt-0">Expected Graduation: May 2028</span>
-                    </div>
-                    <p class="text-sm italic !mt-1 !mb-2">Bhopal, Madhya Pradesh</p>
-                    <p class="font-semibold text-gray-200 !my-0">Bachelor of Technology in Computer Science and Engineering</p>
-                    <p class="text-sm !my-1"><strong>CGPA:</strong> 7.1</p>
-                    <p class="text-sm !my-1"><strong>Key Coursework:</strong> Data Structures & Algorithms, Database Management Systems (DBMS), Object-Oriented Programming (OOP), Operating Systems.</p>
-                </div>
-            </div>
-
-            <div class="mt-8">
-                <h3 class="text-2xl font-bold text-[var(--primary-color-light)] !mb-4 border-b border-gray-700/30 inline-block">Technical Skills</h3>
-                <ul class="!pl-0 list-none">
-                    <li><strong>Core Focus:</strong> Backend Development (API Design, Server-side Logic), System Architecture.</li>
-                    <li><strong>Secondary Focus:</strong> Frontend Development (Responsive Design, UI Integration).</li>
-                    <li><strong>Languages:</strong> Python (Advanced), Java, C++, C, SQL, HTML/CSS, JavaScript.</li>
-                    <li><strong>Tools & Platforms:</strong> Git, GitHub, Vercel, VS Code.</li>
-                    <li><strong>Domains:</strong> Machine Learning, Natural Language Processing (NLP), Data Analysis (PCA, SVD).</li>
-                </ul>
-            </div>
-
-            <div class="mt-8">
-                <h3 class="text-2xl font-bold text-[var(--primary-color-light)] !mb-4 border-b border-gray-700/30 inline-block">Technical Projects</h3>
+            <!-- Sections -->
+            <div class="space-y-8 text-sm md:text-base leading-relaxed text-slate-300">
                 
-                <div class="mb-6">
-                    <h4 class="text-xl font-bold text-white !my-0">Context-Aware Cyberbullying Detection on Social Media</h4>
-                    <p class="text-sm text-[var(--primary-color)] font-semibold !my-1">Python, Machine Learning (Transformers), NLP, Synthetic Data Generation</p>
-                    <ul class="!mt-2">
-                        <li><strong>Description:</strong> Developing an advanced ML model to detect toxic behavior and cyberbullying in social media interactions.</li>
-                        <li><strong>Impact:</strong> Utilizing synthetic data generation to address class imbalance and improve the model's ability to detect context-specific toxicity, enhancing online safety mechanisms.</li>
+                <!-- 1. Summary -->
+                <section>
+                    <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                        <span class="w-1.5 h-5 bg-indigo-500 rounded-full"></span> Professional Summary
+                    </h3>
+                    <p class="text-slate-300">
+                        Computer Science Engineering undergraduate (B.Tech, Expected Graduation: 2028) with a strong foundation in backend development, systems automation, and natural language processing. Experienced in training NLP machine learning models (Transformers) and constructing custom speech automation systems. Seeking hands-on opportunities, weekend internships, and collaborative development tasks to design scalable features.
+                    </p>
+                </section>
+
+                <!-- 2. Education -->
+                <section>
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span class="w-1.5 h-5 bg-indigo-500 rounded-full"></span> Education
+                    </h3>
+                    <div class="bg-white/5 border border-white/5 p-6 rounded-2xl">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-1">
+                            <h4 class="text-lg font-bold text-white">VIT Bhopal University</h4>
+                            <span class="text-indigo-400 font-semibold text-sm">Graduation: May 2028</span>
+                        </div>
+                        <p class="text-xs text-slate-400 italic mb-3">Bhopal, Madhya Pradesh</p>
+                        <p class="font-medium text-slate-200">Bachelor of Technology in Computer Science and Engineering</p>
+                        <p class="text-sm mt-2 text-slate-300">
+                            <strong>CGPA:</strong> <span class="text-indigo-400 font-bold bg-indigo-500/10 px-2 py-0.5 rounded">7.1 / 10</span>
+                        </p>
+                        <p class="text-xs text-slate-400 mt-3 border-t border-white/5 pt-3">
+                            <strong>Key Coursework:</strong> Data Structures & Algorithms, Object-Oriented Programming (OOP), Database Management Systems (DBMS), Operating Systems.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- 3. Skills -->
+                <section>
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span class="w-1.5 h-5 bg-indigo-500 rounded-full"></span> Technical Skills
+                    </h3>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="bg-white/5 border border-white/5 p-4 rounded-xl">
+                            <strong class="block text-white mb-2 text-sm uppercase tracking-wider text-indigo-400">Languages</strong>
+                            <p class="text-sm">Python (Advanced), C++, Java, C, SQL (MySQL), HTML5/CSS3, JavaScript (ES6+).</p>
+                        </div>
+                        <div class="bg-white/5 border border-white/5 p-4 rounded-xl">
+                            <strong class="block text-white mb-2 text-sm uppercase tracking-wider text-indigo-400">Frameworks & Tools</strong>
+                            <p class="text-sm">Git, GitHub, Vercel, VS Code, React.js, Express.js, MongoDB.</p>
+                        </div>
+                        <div class="bg-white/5 border border-white/5 p-4 rounded-xl sm:col-span-2">
+                            <strong class="block text-white mb-2 text-sm uppercase tracking-wider text-indigo-400">Core Expertise</strong>
+                            <p class="text-sm">Machine Learning, NLP (Transformers), Data Analysis, API Integration, Operating System Configurations, OS Automation.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. Projects -->
+                <section>
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span class="w-1.5 h-5 bg-indigo-500 rounded-full"></span> Technical Projects
+                    </h3>
+                    <div class="space-y-6">
+                        <!-- Project 1 -->
+                        <div class="border-l-2 border-indigo-500 pl-4 py-1">
+                            <h4 class="text-lg font-bold text-white">Context-Aware Cyberbullying Detection (Cyber Shield)</h4>
+                            <span class="block text-xs font-semibold text-indigo-400 mt-1 mb-2">Python, NLP Transformers, Synthetic Data Pipeline</span>
+                            <ul class="resume-list text-slate-300 text-sm">
+                                <li>Designed and deployed an NLP-based classification model to capture toxicity and harassment in internet comments, outperforming basic keyword blockers.</li>
+                                <li>Configured a synthetic data generation workflow to balance datasets, increasing validation recall for extreme minority classes.</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Project 2 -->
+                        <div class="border-l-2 border-indigo-500 pl-4 py-1">
+                            <h4 class="text-lg font-bold text-white">Desktop Voice Assistant (DVA)</h4>
+                            <span class="block text-xs font-semibold text-indigo-400 mt-1 mb-2">Python, Speech Synthesis, Windows API, Automation Scripts</span>
+                            <ul class="resume-list text-slate-300 text-sm">
+                                <li>Built a lightweight, terminal-based voice assistant to increase user productivity.</li>
+                                <li>Integrated speech recognition libraries with the Windows OS API, allowing voice commands to trigger browser actions, files discovery, and custom commands.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div class="border-l-2 border-indigo-500 pl-4 py-1">
+                            <h4 class="text-lg font-bold text-white">Personal Portfolio Website</h4>
+                            <span class="block text-xs font-semibold text-indigo-400 mt-1 mb-2">Frontend Stack, Glassmorphic UI/UX, Vercel Pipelines</span>
+                            <ul class="resume-list text-slate-300 text-sm">
+                                <li>Built a high-performance web portfolio featuring a modern layout design, responsive structure, and interactive certificate categorizations.</li>
+                                <li>Optimized for speed and SEO; deployed seamlessly via Vercel integration with GitHub.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. Achievements -->
+                <section>
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span class="w-1.5 h-5 bg-indigo-500 rounded-full"></span> Certifications
+                    </h3>
+                    <ul class="resume-list text-slate-300 text-sm">
+                        <li><strong>MongoDB Associate Database Administrator</strong> - FACE Prep (July 2026)</li>
+                        <li><strong>Cloud Computing and Distributed Systems</strong> - NPTEL (May 2026)</li>
+                        <li><strong>Open Source Software Module</strong> - Vityarthi (Mar 2026)</li>
+                        <li><strong>5-Day AI Agents Intensive Course</strong> - Kaggle / Google (Dec 2025)</li>
+                        <li><strong>Programming in Java Specialization</strong> - Vityarthi (Dec 2025)</li>
+                        <li><strong>Applied Machine Learning in Python</strong> - Coursera (Nov 2025)</li>
+                        <li><strong>Introduction to Internet of Things</strong> - Nptel (Nov 2025)</li>
+                        <li><strong>Operating System Architecture</strong> - Scaler (Sep 2025)</li>
+                        <li><strong>Introduction to Generative AI</strong> - Google Cloud (Sep 2025)</li>
                     </ul>
-                </div>
+                    <p class="text-xs text-slate-500 italic mt-3 no-print">* A full list of certifications can be interactive checked and filtered on the main Portfolio site.</p>
+                </section>
 
-                <div class="mb-6">
-                    <h4 class="text-xl font-bold text-white !my-0">Desktop Voice Assistant (DVA)</h4>
-                    <p class="text-sm text-[var(--primary-color)] font-semibold !my-1">Python, Speech Recognition Libraries, OS Automation</p>
-                    <ul class="!mt-2">
-                        <li><strong>Description:</strong> Built a command-line based voice assistant capable of executing system commands, web searches, and routine automation tasks via voice input.</li>
-                        <li><strong>Impact:</strong> Streamlined daily workflows by reducing manual input for repetitive tasks, demonstrating strong system development skills.</li>
-                    </ul>
-                </div>
+                <!-- 6. Leadership -->
+                <section>
+                    <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                        <span class="w-1.5 h-5 bg-indigo-500 rounded-full"></span> Extracurricular & Leadership
+                    </h3>
+                    <div class="bg-white/5 border border-white/5 p-4 rounded-xl">
+                        <h4 class="font-bold text-white text-sm sm:text-base">Technical Committee Member | Student Chapters & Clubs</h4>
+                        <p class="text-xs text-slate-400 italic mb-2">VIT Bhopal University</p>
+                        <p class="text-sm">Collaborated in designing and executing technical frameworks, coding hackathons, and workshop requirements for university student clubs, coordinating with cross-functional committees.</p>
+                    </div>
+                </section>
 
-                <div class="mb-4">
-                    <h4 class="text-xl font-bold text-white !my-0">Personal Developer Portfolio</h4>
-                    <p class="text-sm text-[var(--primary-color)] font-semibold !my-1">Web Technologies, Vercel Deployment</p>
-                    <ul class="!mt-2">
-                        <li><strong>Link:</strong> <a href="https://anshulkanodia.vercel.app" class="hover:underline text-[var(--primary-color-light)]">anshulkanodia.vercel.app</a></li>
-                        <li><strong>Description:</strong> Designed and deployed a responsive personal portfolio to showcase technical projects and backend capabilities.</li>
-                        <li><strong>Impact:</strong> Established a professional online presence with a focus on clean UI and accessible project documentation.</li>
-                    </ul>
-                </div>
             </div>
-
-            <div class="mt-8">
-                <h3 class="text-2xl font-bold text-[var(--primary-color-light)] !mb-4 border-b border-gray-700/30 inline-block">Leadership & Extracurricular Experience</h3>
-                <div>
-                    <h4 class="text-xl font-bold text-white !my-0">Technical Team Member | Student Chapters & Clubs</h4>
-                    <p class="text-sm text-[var(--primary-color)] font-semibold !my-1">Active Member, Technical Committee</p>
-                    <p class="!mt-2">Contributing to the technical requirements of multiple student clubs at VIT Bhopal.</p>
-                </div>
-            </div>
-
-            <div class="mt-8">
-                <h3 class="text-2xl font-bold text-[var(--primary-color-light)] !mb-4 border-b border-gray-700/30 inline-block">Certifications & Achievements</h3>
-                <ul class="!pl-0 list-none">
-                    <li><strong>Open Source Software</strong> - Vityarthi (Mar 2026)</li>
-                    <li><strong>5-Day AI Agents Intensive Course</strong> - Kaggle (Dec 2025)</li>
-                    <li><strong>Programming in Java</strong> - Vityarthi (Dec 2025)</li>
-                    <li><strong>Applied Machine Learning in Python</strong> - Coursera (Nov 2025)</li>
-                    <li><strong>Introduction to Internet of Things</strong> - Nptel (Nov 2025)</li>
-                    <li><strong>Operating System</strong> - Scaler (Sep 2025)</li>
-                    <li><strong>Introduction to Generative AI</strong> - Google Cloud Skills Boost (Sep 2025)</li>
-                </ul>
-                <p class="text-sm text-[var(--text-secondary-color)] italic mt-4">* Refer to LinkedIn and the main Portfolio for a verified comprehensive list.</p>
-            </div>
-
+            
         </div>
     </main>
 
+    <!-- Footer no-print -->
+    <footer class="border-t border-white/5 py-8 mt-16 text-center text-xs text-slate-500 no-print">
+        <p>&copy; <span id="year"></span> Anshul Kanodia. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
     <script>
-        // Mobile Menu Toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+        // Set Current Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Hamburger menu toggle script
+        const mobileMenuBtn = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const hamTop = document.getElementById("hamburger-top");
+        const hamMid = document.getElementById("hamburger-mid");
+        const hamBot = document.getElementById("hamburger-bot");
+
+        mobileMenuBtn.addEventListener("click", () => {
+            const isClosed = mobileMenu.classList.contains("hidden");
+            if (isClosed) {
+                mobileMenu.classList.remove("hidden");
+                setTimeout(() => {
+                    mobileMenu.classList.remove("scale-95", "opacity-0");
+                }, 10);
+                hamTop.classList.add("rotate-45", "translate-y-2");
+                hamMid.classList.add("opacity-0");
+                hamBot.classList.add("-rotate-45", "-translate-y-2");
+            } else {
+                mobileMenu.classList.add("scale-95", "opacity-0");
+                setTimeout(() => {
+                    mobileMenu.classList.add("hidden");
+                }, 300);
+                hamTop.classList.remove("rotate-45", "translate-y-2");
+                hamMid.classList.remove("opacity-0");
+                hamBot.classList.remove("-rotate-45", "-translate-y-2");
+            }
         });
 
-        // --- Particle Background ---
-        const canvas = document.getElementById('particle-canvas');
-        const ctx = canvas.getContext('2d');
-        let particlesArray;
-
-        function setupCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = document.body.scrollHeight;
-            const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
-            
-            let r = parseInt(primaryColor.slice(1, 3), 16);
-            let g = parseInt(primaryColor.slice(3, 5), 16);
-            let b = parseInt(primaryColor.slice(5, 7), 16);
-            
-            particlesArray = [];
-            let numberOfParticles = (canvas.height * canvas.width) / 9000;
-            for (let i = 0; i < numberOfParticles; i++) {
-                let size = (Math.random() * 2) + 1;
-                let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
-                let y = (Math.random() * ((document.body.scrollHeight - size * 2) - (size * 2)) + size * 2);
-                let directionX = (Math.random() * .4) - .2;
-                let directionY = (Math.random() * .4) - .2;
-                let color = `rgba(${r}, ${g}, ${b}, 0.8)`;
-
-                particlesArray.push({x, y, directionX, directionY, size, color});
-            }
-        }
-
-        function animateParticles() {
-            requestAnimationFrame(animateParticles);
-            ctx.clearRect(0,0,innerWidth, document.body.scrollHeight);
-
-            for (let i = 0; i < particlesArray.length; i++) {
-                let particle = particlesArray[i];
-                ctx.beginPath();
-                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2, false);
-                ctx.fillStyle = particle.color;
-                ctx.fill();
-
-                if(particle.x + particle.size > canvas.width || particle.x - particle.size < 0) {
-                    particle.directionX = -particle.directionX;
-                }
-                if (particle.y + particle.size > canvas.height || particle.y - particle.size < 0) {
-                    particle.directionY = -particle.directionY;
-                }
-                particle.x += particle.directionX;
-                particle.y += particle.directionY;
-            }
-        }
-
-        window.addEventListener('resize', () => {
-            setupCanvas();
-        });
-
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                setupCanvas();
-                animateParticles();
-            }, 100);
+        // Close dropdown when nav links clicked
+        document.querySelectorAll(".mobile-nav-link").forEach(link => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.add("scale-95", "opacity-0");
+                setTimeout(() => {
+                    mobileMenu.classList.add("hidden");
+                }, 300);
+                hamTop.classList.remove("rotate-45", "translate-y-2");
+                hamMid.classList.remove("opacity-0");
+                hamBot.classList.remove("-rotate-45", "-translate-y-2");
+            });
         });
     </script>
 </body>

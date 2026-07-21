@@ -4,103 +4,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anshul Kanodia | Portfolio</title>
-    <link rel="icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='50' fill='%2300d1ff'/%3e%3ctext x='50' y='50' font-size='50' fill='white' text-anchor='middle' dy='.3em' font-family='Inter, sans-serif' font-weight='bold'%3eAK%3c/text%3e%3c/svg%3e">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='50' fill='%236366f1'/%3e%3ctext x='50' y='50' font-size='50' fill='white' text-anchor='middle' dy='.3em' font-family='Plus Jakarta Sans, sans-serif' font-weight='bold'%3eAK%3c/text%3e%3c/svg%3e">
+    
+    <!-- Fonts & TailWind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for professional icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         :root {
-            --bg-color: #0a0c1c;
-            --bg-secondary-color: #12162d;
-            --bg-tertiary-color: #1a203f;
-            --bg-card-color: #12162d;
-            --bg-card-secondary-color: #0a0c1c;
-            --text-color: #a9b2d8;
-            --text-secondary-color: #818cb8;
-            --text-white: #f0f4ff;
-            --primary-color: #00d1ff;
-            --primary-color-hover: #00a2c7;
-            --primary-color-light: #33ddff;
-            --shadow-color: rgba(0, 209, 255, 0.25);
+            --color-bg: #030014;
+            --color-card-bg: rgba(15, 23, 42, 0.4);
+            --color-border: rgba(255, 255, 255, 0.05);
+            --color-border-hover: rgba(99, 102, 241, 0.4);
+            --color-shadow-glow: rgba(99, 102, 241, 0.15);
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--color-bg);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* Ambient Glow Animations */
+        @keyframes orb-float-1 {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+
+        @keyframes orb-float-2 {
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(-40px, 60px) scale(1.15); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+
+        .ambient-glow-1 {
+            animation: orb-float-1 25s ease-in-out infinite alternate;
+        }
+
+        .ambient-glow-2 {
+            animation: orb-float-2 20s ease-in-out infinite alternate;
+        }
+
+        /* Glassmorphic elements */
+        .glass-card {
+            background: var(--color-card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--color-border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: var(--color-border-hover);
+            box-shadow: 0 10px 30px -10px var(--color-shadow-glow);
+            transform: translateY(-4px);
+        }
+
+        /* Rotating Border Animation for Avatar */
+        @keyframes spin-slow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
-        .section-title {
-            font-size: 2.25rem;
-            font-weight: 700;
-            color: var(--text-white);
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.125rem;
-            color: var(--primary-color-light);
-            font-weight: 600;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        /* Rotating border animation */
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .rotating-border-container::before {
+        .avatar-glow::before {
             content: '';
             position: absolute;
-            z-index: -1;
             inset: -4px;
+            background: linear-gradient(45deg, #6366f1, #a855f7, #06b6d4, #6366f1);
             border-radius: 50%;
-            background: conic-gradient(
-                from 90deg at 50% 50%,
-                var(--primary-color), 
-                var(--primary-color-light), 
-                var(--primary-color), 
-                transparent 50%, 
-                transparent
-            );
-            animation: rotate 4s linear infinite;
-        }
-        
-        /* Wave animation for cards */
-        .glow-card {
-            position: relative;
-            overflow: hidden;
-        }
-        .glow-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -200%;
-            width: 75%;
-            height: 100%;
-            transform: skewX(-25deg);
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.8s;
-        }
-        .glow-card:hover::after {
-            left: 200%;
+            z-index: -1;
+            animation: spin-slow 8s linear infinite;
         }
 
-        /* --- Hide Scrollbar Completely --- */
-        ::-webkit-scrollbar {
-            display: none;
+        /* SVG Grid pattern background */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
         }
-        html, body {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+
+        /* Hide Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030014;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(99, 102, 241, 0.3);
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(99, 102, 241, 0.5);
+        }
+
+        /* Fade-in scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Typed cursor pulse */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .typed-cursor {
+            display: inline-block;
+            width: 2px;
+            background-color: #6366f1;
+            margin-left: 2px;
+            animation: blink 0.8s infinite;
         }
     </style>
-    
+
     <!-- Vercel Web Analytics & Speed Insights -->
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -110,596 +147,1105 @@
         window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
     </script>
     <script src="/_vercel/speed-insights/script.js"></script>
-
 </head>
-<body class="text-gray-300">
-    <!-- Added pointer-events-none so the canvas NEVER blocks clicks -->
-    <canvas id="particle-canvas" class="fixed top-0 left-0 w-full h-full z-0 pointer-events-none"></canvas>
-    
-    <!-- Header & Navigation -->
-    <header class="bg-gray-900/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-md shadow-black/20" style="background-color: color-mix(in srgb, var(--bg-color) 80%, transparent);">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#home" class="text-2xl font-bold text-white flex items-center">
-                <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/Profile/main.jpg" alt="Logo" class="h-9 w-9 rounded-full mr-3 object-cover border-2" style="background-color: var(--bg-secondary-color); border-color: var(--primary-color);">
-                <span>Anshul Kanodia</span>
+<body class="text-slate-300 antialiased bg-grid-pattern relative min-h-screen">
+
+    <!-- Ambient Glowing Blobs -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-[10%] left-[5%] w-[35rem] h-[35rem] rounded-full bg-indigo-500/10 blur-[120px] ambient-glow-1"></div>
+        <div class="absolute bottom-[20%] right-[5%] w-[40rem] h-[40rem] rounded-full bg-violet-600/10 blur-[130px] ambient-glow-2"></div>
+        <div class="absolute top-[50%] left-[40%] w-[30rem] h-[30rem] rounded-full bg-teal-500/5 blur-[100px] ambient-glow-1"></div>
+    </div>
+
+    <!-- Floating Glassmorphic Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 transition-all duration-300" id="header-nav">
+        <div class="max-w-6xl mx-auto flex justify-between items-center bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-full py-3 px-6 shadow-xl shadow-black/30">
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="h-8 w-8 rounded-full overflow-hidden border-2 border-indigo-500 shadow-lg shadow-indigo-500/30 transition-transform duration-300 group-hover:scale-110">
+                    <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/Profile/main.jpg" alt="Logo" class="h-full w-full object-cover">
+                </div>
+                <span class="text-white font-semibold text-lg tracking-wide hover:text-indigo-400 transition-colors">Anshul Kanodia</span>
             </a>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#about" class="text-gray-300 transition duration-300 hover:text-[var(--primary-color-light)]">About</a>
-                <a href="#skills" class="text-gray-300 transition duration-300 hover:text-[var(--primary-color-light)]">Skills</a>
-                <a href="#projects" class="text-gray-300 transition duration-300 hover:text-[var(--primary-color-light)]">Projects</a>
-                <a href="#certificates" class="text-gray-300 transition duration-300 hover:text-[var(--primary-color-light)]">Certificates</a>
-                <!-- Added Resume Link -->
-                <a href="/resume" class="text-gray-300 transition duration-300 hover:text-[var(--primary-color-light)] font-semibold border-b-2 border-transparent hover:border-[var(--primary-color)]">Resume</a>
-                <a href="#know-more" class="text-gray-300 transition duration-300 hover:text-[var(--primary-color-light)]">Find Me</a>
-                <a href="#contact" class="text-gray-300 transition duration-300 hover:text-[var(--primary-color-light)]">Contact</a>
+            
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-1">
+                <a href="#about" class="nav-link text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">About</a>
+                <a href="#skills" class="nav-link text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Skills</a>
+                <a href="#projects" class="nav-link text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Projects</a>
+                <a href="#certificates" class="nav-link text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Certificates</a>
+                <a href="#know-more" class="nav-link text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Socials</a>
+                <a href="#contact" class="nav-link text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300 mr-2">Contact</a>
+                
+                <!-- Resume Button -->
+                <a href="/resume" class="bg-gradient-to-r from-indigo-500 to-violet-500 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:shadow-lg hover:shadow-indigo-500/35 transition-all duration-300 transform hover:-translate-y-0.5">
+                    Resume <i class="fa-solid fa-arrow-up-right-from-square ml-1.5 text-xs"></i>
+                </a>
             </nav>
-            <button id="mobile-menu-button" class="md:hidden focus:outline-none relative z-50">
-                <svg class="w-6 h-6 text-white" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                    <path d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none relative w-8 h-8 flex flex-col justify-center items-center gap-1.5 z-50">
+                <span class="w-6 h-0.5 bg-current transition-all duration-300" id="hamburger-top"></span>
+                <span class="w-6 h-0.5 bg-current transition-all duration-300" id="hamburger-mid"></span>
+                <span class="w-6 h-0.5 bg-current transition-all duration-300" id="hamburger-bot"></span>
             </button>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 relative z-50">
-            <a href="#about" class="block py-2 text-gray-300 hover:text-[var(--primary-color-light)]">About</a>
-            <a href="#skills" class="block py-2 text-gray-300 hover:text-[var(--primary-color-light)]">Skills</a>
-            <a href="#projects" class="block py-2 text-gray-300 hover:text-[var(--primary-color-light)]">Projects</a>
-            <a href="#certificates" class="block py-2 text-gray-300 hover:text-[var(--primary-color-light)]">Certificates</a>
-            <!-- Added Resume Link -->
-            <a href="/resume" class="block py-2 text-gray-300 hover:text-[var(--primary-color-light)] font-semibold">Resume</a>
-            <a href="#know-more" class="block py-2 text-gray-300 hover:text-[var(--primary-color-light)]">Find Me</a>
-            <a href="#contact" class="block py-2 text-gray-300 hover:text-[var(--primary-color-light)]">Contact</a>
+
+        <!-- Mobile Glassmorphic Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-x-4 top-20 bg-slate-900/90 backdrop-blur-2xl border border-white/10 rounded-3xl p-6 shadow-2xl z-40 transform scale-95 opacity-0 transition-all duration-300 origin-top">
+            <div class="flex flex-col gap-4">
+                <a href="#about" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">About</a>
+                <a href="#skills" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Skills</a>
+                <a href="#projects" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Projects</a>
+                <a href="#certificates" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Certificates</a>
+                <a href="#know-more" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Socials</a>
+                <a href="#contact" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Contact</a>
+                <a href="/resume" class="flex justify-center items-center bg-gradient-to-r from-indigo-500 to-violet-500 text-white text-base font-semibold py-3 rounded-2xl shadow-xl mt-2">
+                    View Resume <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-sm"></i>
+                </a>
+            </div>
         </div>
     </header>
 
-    <main class="relative z-10">
+    <main class="relative z-10 max-w-6xl mx-auto px-4 md:px-8">
+        
         <!-- Hero Section -->
-        <section id="home" class="h-screen flex flex-col items-center justify-center text-center px-6" style="z-index: 1; position: relative;">
-            <div class="relative w-48 h-48 md:w-64 md:h-64 mb-6 rotating-border-container">
-                 <img id="hero-photo" src="https://raw.githubusercontent.com/AnshulKan/Images/main/Profile/main.jpg" alt="Anshul Kanodia" class="relative w-full h-full rounded-full object-cover shadow-2xl" style="box-shadow: 0 0 45px var(--shadow-color);">
+        <section id="home" class="min-h-screen flex flex-col justify-center items-center pt-28 pb-16 text-center">
+            
+            <!-- Pulse Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-semibold uppercase tracking-wider mb-8 animate-fade-in">
+                <span class="relative flex h-2.5 w-2.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+                Open to Internships & Projects
             </div>
-            <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-2">Hi, I'm Anshul Kanodia</h1>
-            <p class="text-xl md:text-2xl font-semibold mb-8" style="color: var(--primary-color-light);">AI & System Development Enthusiast | Aspiring Software Engineer</p>
-             <a href="#about" id="scroll-down-arrow" class="absolute bottom-10 animate-bounce p-3 rounded-full transition-opacity duration-300" style="background-color: var(--bg-secondary-color);">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" style="color: var(--primary-color-light);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+
+            <!-- Avatar -->
+            <div class="relative w-40 h-40 md:w-48 md:h-48 mb-8 avatar-glow flex justify-center items-center">
+                <img id="hero-photo" src="https://raw.githubusercontent.com/AnshulKan/Images/main/Profile/main.jpg" alt="Anshul Kanodia" class="w-full h-full rounded-full object-cover border-4 border-slate-900 shadow-2xl relative z-10 bg-slate-800">
+            </div>
+
+            <!-- Title -->
+            <h1 class="text-4xl md:text-7xl font-extrabold text-white tracking-tight mb-4 leading-tight">
+                Hi, I'm <span class="bg-gradient-to-r from-indigo-400 via-violet-500 to-teal-400 bg-clip-text text-transparent">Anshul Kanodia</span>
+            </h1>
+
+            <!-- Typing Animation Subtitle -->
+            <p class="text-xl md:text-3xl font-medium mb-12 h-10 text-slate-400">
+                <span id="typed-roles" class="text-indigo-400 font-semibold"></span><span class="typed-cursor"></span>
+            </p>
+
+            <!-- Hero CTAs -->
+            <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+                <a href="#projects" class="w-full sm:w-auto flex items-center justify-center bg-gradient-to-r from-indigo-500 to-violet-500 text-white font-bold py-4 px-8 rounded-full shadow-lg shadow-indigo-500/30 hover:shadow-indigo-500/50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    Explore My Work <i class="fa-solid fa-arrow-down ml-2 text-sm"></i>
+                </a>
+                <a href="#contact" class="w-full sm:w-auto flex items-center justify-center bg-white/5 border border-white/10 hover:border-indigo-500/30 text-white hover:bg-white/10 font-bold py-4 px-8 rounded-full transition-all duration-300 backdrop-blur-md transform hover:-translate-y-1">
+                    Get in Touch <i class="fa-solid fa-envelope ml-2 text-sm"></i>
+                </a>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <a href="#about" id="scroll-down-arrow" class="absolute bottom-10 animate-bounce p-3 rounded-full bg-slate-900/60 border border-white/5 text-indigo-400 hover:text-white transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
             </a>
         </section>
 
         <!-- About Me Section -->
-        <section id="about" class="py-16 md:py-24">
-            <div class="container mx-auto px-6">
-                <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">My Background</p>
-                <div class="max-w-4xl mx-auto text-center text-lg" style="color: var(--text-color);">
-                    <p class="mb-4">I am Anshul Kanodia, a Computer Science Engineering undergraduate at VIT Bhopal, passionate about Artificial Intelligence and System Development. My core skills include Python, C++, Java, SQL and problem-solving, with a strong interest in building efficient systems and intelligent solutions.</p>
-                    <p>I enjoy exploring the intersection of AI technologies and software development, working on projects that not only solve real-world problems but also enhance user experience. My short-term goal is to gain industry exposure through internships, while my long-term vision is to grow as a software engineer specializing in AI-driven system development.</p>
+        <section id="about" class="py-24 border-t border-white/5 reveal">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">About Me</h2>
+                <div class="h-1.5 w-16 bg-gradient-to-r from-indigo-500 to-violet-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                <!-- Text block -->
+                <div class="md:col-span-7 space-y-6 text-lg text-slate-300 leading-relaxed">
+                    <p>
+                        I am a Computer Science Engineering student at <strong class="text-white font-semibold">VIT Bhopal University</strong> (B.Tech, Class of 2028), heavily focused on Artificial Intelligence, Machine Learning, and System Architecture. I have a passion for engineering fast, resilient backend services and intelligent predictive systems.
+                    </p>
+                    <p>
+                        I love exploring the intersection of deep learning and system automation. My experience spans designing state-of-the-art NLP models (like Transformers for toxicity detection) and building lightweight desktop utilities to automate repetitive actions.
+                    </p>
+                    <p>
+                        I am actively seeking weekend internships and engineering roles where I can contribute code immediately, solve hard design challenges, and expand my industry understanding.
+                    </p>
+                </div>
+                
+                <!-- Quick Specs Card -->
+                <div class="md:col-span-5">
+                    <div class="glass-card rounded-3xl p-8 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-indigo-500/10 rounded-bl-full pointer-events-none"></div>
+                        <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2.5">
+                            <i class="fa-solid fa-graduation-cap text-indigo-400"></i> Education & Profile
+                        </h3>
+                        <ul class="space-y-4">
+                            <li class="flex justify-between items-start border-b border-white/5 pb-3">
+                                <span class="text-slate-400 font-medium text-sm">University</span>
+                                <span class="text-white text-right font-semibold text-sm">VIT Bhopal University</span>
+                            </li>
+                            <li class="flex justify-between items-start border-b border-white/5 pb-3">
+                                <span class="text-slate-400 font-medium text-sm">Degree</span>
+                                <span class="text-white text-right font-semibold text-sm">B.Tech in CSE</span>
+                            </li>
+                            <li class="flex justify-between items-center border-b border-white/5 pb-3">
+                                <span class="text-slate-400 font-medium text-sm">Expected Grad</span>
+                                <span class="text-white font-semibold text-sm">May 2028</span>
+                            </li>
+                            <li class="flex justify-between items-center border-b border-white/5 pb-3">
+                                <span class="text-slate-400 font-medium text-sm">Current CGPA</span>
+                                <span class="text-indigo-400 font-bold text-sm bg-indigo-500/10 px-2 py-0.5 rounded">7.1 / 10</span>
+                            </li>
+                            <li class="flex justify-between items-start">
+                                <span class="text-slate-400 font-medium text-sm">Core Focus</span>
+                                <span class="text-white text-right font-semibold text-sm">Backend & AI Systems</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="py-16 md:py-24">
-             <div class="container mx-auto px-6">
-                <h2 class="section-title">My Tech Stack</h2>
-                <p class="section-subtitle">Technologies I Use</p>
-                <div class="max-w-5xl mx-auto flex flex-wrap justify-center gap-8 text-center">
-                    <div class="p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-40 glow-card" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 20px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
-                        <img src="https://www.vectorlogo.zone/logos/python/python-icon.svg" alt="Python" class="h-16 w-16 mx-auto mb-2">
-                        <p class="font-semibold text-white">Python</p>
+        <!-- Tech Stack & Skills Section -->
+        <section id="skills" class="py-24 border-t border-white/5 reveal">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">Tech Stack & Expertise</h2>
+                <div class="h-1.5 w-16 bg-gradient-to-r from-indigo-500 to-violet-500 mx-auto rounded-full"></div>
+                <p class="text-slate-400 mt-4 max-w-lg mx-auto text-sm md:text-base">Technologies, tools, and paradigms I utilize to construct products.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Box 1: Programming Languages -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col h-full">
+                    <div class="flex items-center gap-3.5 mb-6">
+                        <div class="h-11 w-11 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-xl shadow-lg">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Languages</h3>
                     </div>
-                    <div class="p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-40 glow-card" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 20px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
-                         <img src="https://www.vectorlogo.zone/logos/isocpp/isocpp-icon.svg" alt="C++" class="h-16 w-16 mx-auto mb-2">
-                        <p class="font-semibold text-white">C++</p>
+                    <div class="space-y-4 flex-grow">
+                        <!-- Skill row -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://www.vectorlogo.zone/logos/python/python-icon.svg" alt="Python" class="w-6 h-6">
+                                <span class="text-slate-200 font-medium text-sm">Python</span>
+                            </div>
+                            <span class="text-indigo-400 font-semibold text-xs bg-indigo-500/10 px-2.5 py-1 rounded-full border border-indigo-500/20">Advanced</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://www.vectorlogo.zone/logos/isocpp/isocpp-icon.svg" alt="C++" class="w-6 h-6">
+                                <span class="text-slate-200 font-medium text-sm">C++</span>
+                            </div>
+                            <span class="text-indigo-400 font-semibold text-xs bg-indigo-500/10 px-2.5 py-1 rounded-full border border-indigo-500/20">Competent</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://www.vectorlogo.zone/logos/java/java-icon.svg" alt="Java" class="w-6 h-6">
+                                <span class="text-slate-200 font-medium text-sm">Java</span>
+                            </div>
+                            <span class="text-slate-400 font-medium text-xs bg-white/5 px-2.5 py-1 rounded-full border border-white/5">Intermediate</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" class="w-6 h-6">
+                                <span class="text-slate-200 font-medium text-sm">C</span>
+                            </div>
+                            <span class="text-slate-400 font-medium text-xs bg-white/5 px-2.5 py-1 rounded-full border border-white/5">Academic</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" alt="SQL" class="w-6 h-6">
+                                <span class="text-slate-200 font-medium text-sm">SQL / Databases</span>
+                            </div>
+                            <span class="text-indigo-400 font-semibold text-xs bg-indigo-500/10 px-2.5 py-1 rounded-full border border-indigo-500/20">Competent</span>
+                        </div>
                     </div>
-                    <div class="p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-40 glow-card" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 20px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
-                         <img src="https://www.vectorlogo.zone/logos/java/java-icon.svg" alt="Java" class="h-16 w-16 mx-auto mb-2">
-                        <p class="font-semibold text-white">Java</p>
-                    </div> 
-                    <div class="p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-40 glow-card" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 20px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" class="h-16 w-16 mx-auto mb-2">
-                        <p class="font-semibold text-white">C</p>
-                    </div>
-                    <div class="p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-40 glow-card" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 20px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
-                         <img src="https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" alt="SQL" class="h-16 w-16 mx-auto mb-2">
-                        <p class="font-semibold text-white">SQL</p>
-                    </div>
-                    <div class="p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-40 glow-card" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 20px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
-                        <img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" alt="MongoDB" class="h-16 w-16 mx-auto mb-2">
-                        <p class="font-semibold text-white">MongoDB</p>
-                    </div>
-                    <div class="p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-40 glow-card" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 20px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="MERN Stack" class="h-16 w-16 mx-auto mb-2">
-                        <p class="font-semibold text-white">MERN Stack</p>
-                    </div>           
                 </div>
+
+                <!-- Box 2: Databases & Web Stack -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col h-full">
+                    <div class="flex items-center gap-3.5 mb-6">
+                        <div class="h-11 w-11 rounded-2xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400 text-xl shadow-lg">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Databases & Web</h3>
+                    </div>
+                    <div class="space-y-4 flex-grow">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" alt="MongoDB" class="w-6 h-6">
+                                <span class="text-slate-200 font-medium text-sm">MongoDB</span>
+                            </div>
+                            <span class="text-indigo-400 font-semibold text-xs bg-indigo-500/10 px-2.5 py-1 rounded-full border border-indigo-500/20">Certified</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="w-6 h-6">
+                                <span class="text-slate-200 font-medium text-sm">React.js / Frontend</span>
+                            </div>
+                            <span class="text-slate-400 font-medium text-xs bg-white/5 px-2.5 py-1 rounded-full border border-white/5">Intermediate</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" class="w-6 h-6 filter invert" style="filter: brightness(0) invert(1);">
+                                <span class="text-slate-200 font-medium text-sm">Express.js / Node</span>
+                            </div>
+                            <span class="text-slate-400 font-medium text-xs bg-white/5 px-2.5 py-1 rounded-full border border-white/5">Intermediate</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-brands fa-html5 text-orange-500 text-xl w-6 text-center"></i>
+                                <span class="text-slate-200 font-medium text-sm">HTML5 / CSS3</span>
+                            </div>
+                            <span class="text-slate-400 font-medium text-xs bg-white/5 px-2.5 py-1 rounded-full border border-white/5">Proficient</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-brands fa-js text-yellow-500 text-xl w-6 text-center"></i>
+                                <span class="text-slate-200 font-medium text-sm">JavaScript (ES6+)</span>
+                            </div>
+                            <span class="text-slate-400 font-medium text-xs bg-white/5 px-2.5 py-1 rounded-full border border-white/5">Proficient</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Box 3: Domains & Frameworks -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col h-full">
+                    <div class="flex items-center gap-3.5 mb-6">
+                        <div class="h-11 w-11 rounded-2xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 text-xl shadow-lg">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">AI & Core Domains</h3>
+                    </div>
+                    <div class="space-y-4 flex-grow">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-robot text-teal-400 text-lg w-6 text-center"></i>
+                                <span class="text-slate-200 font-medium text-sm">Machine Learning</span>
+                            </div>
+                            <span class="text-indigo-400 font-semibold text-xs bg-indigo-500/10 px-2.5 py-1 rounded-full border border-indigo-500/20">Applied</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-comments-dollar text-teal-400 text-lg w-6 text-center"></i>
+                                <span class="text-slate-200 font-medium text-sm">NLP & Transformers</span>
+                            </div>
+                            <span class="text-indigo-400 font-semibold text-xs bg-indigo-500/10 px-2.5 py-1 rounded-full border border-indigo-500/20">Applied</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-chart-line text-slate-400 text-lg w-6 text-center"></i>
+                                <span class="text-slate-200 font-medium text-sm">Data Analysis (PCA, SVD)</span>
+                            </div>
+                            <span class="text-slate-400 font-medium text-xs bg-white/5 px-2.5 py-1 rounded-full border border-white/5">Theoretical</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-brands fa-git-alt text-red-500 text-xl w-6 text-center"></i>
+                                <span class="text-slate-200 font-medium text-sm">Git & GitHub</span>
+                            </div>
+                            <span class="text-slate-400 font-medium text-xs bg-white/5 px-2.5 py-1 rounded-full border border-white/5">Proficient</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-cloud text-blue-400 text-lg w-6 text-center"></i>
+                                <span class="text-slate-200 font-medium text-sm">Vercel & Cloud</span>
+                            </div>
+                            <span class="text-slate-400 font-medium text-xs bg-white/5 px-2.5 py-1 rounded-full border border-white/5">Proficient</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-16 md:py-24">
-            <div class="container mx-auto px-6">
-                <h2 class="section-title">Featured Projects</h2>
-                <p class="section-subtitle">My Recent Work</p>
-                <div class="flex flex-wrap justify-center items-stretch gap-8">
+        <section id="projects" class="py-24 border-t border-white/5 reveal">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">Featured Projects</h2>
+                <div class="h-1.5 w-16 bg-gradient-to-r from-indigo-500 to-violet-500 mx-auto rounded-full"></div>
+                <p class="text-slate-400 mt-4 max-w-lg mx-auto text-sm md:text-base">Selected systems and models I've developed, showing architecture and impact.</p>
+            </div>
 
-                    <!-- Project Card 1: Cyber Shield -->
-                    <div data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1" class="group w-full max-w-md rounded-lg shadow-lg overflow-hidden glow-card reveal-hidden" style="background-color: var(--bg-card-secondary-color); transition-delay: 200ms;">
-                        <div class="overflow-hidden">
-                            <!-- Note: I added a fallback image in case you haven't uploaded the Cyber Shield image to your GitHub yet! -->
-                            <img src="https://raw.githubusercontent.com/anshulkanodia/Images/main/Projects/CyberShield/main.jpg" onerror="this.src='https://placehold.co/600x400/12162d/a9b2d8?text=Cyber+Shield+Project'" alt="Cyber Shield Project" class="w-full h-56 object-contain project-image group-hover:scale-105 transition-transform duration-500 ease-out" style="transform: translateZ(30px);">
-                        </div>
-                        <div class="p-6 text-center" style="transform: translateZ(20px);">
-                            <h3 class="text-xl font-bold mb-2 text-white">Cyber Shield (Toxicity Detection)</h3>
-                            <p class="mb-6" style="color: var(--text-secondary-color);">An advanced NLP machine learning model to detect context-aware toxic behavior and cyberbullying in social media interactions.</p>
-                            
-                            <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm md:text-base">
-                                <a href="/project/cyber-shield" class="font-semibold hover:underline relative z-10" style="color: var(--primary-color-light);">More Info</a>
-                                <span class="text-gray-600">|</span>
-                                <a href="https://github.com/anshulkanodia/Cyber-Shield" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline relative z-10" style="color: var(--primary-color-light);">Source Code</a>
-                                <span class="text-gray-600">|</span>
-                                <a href="/project/cyber-shield/Report.pdf" download="CyberShield_Report.pdf" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline relative z-10" style="color: var(--primary-color-light);">Download Report</a>
-                            </div>
-                        </div>
+            <div class="grid md:grid-cols-2 gap-8 items-stretch">
+                
+                <!-- Project 1: Cyber Shield -->
+                <div class="glass-card rounded-3xl overflow-hidden flex flex-col group h-full">
+                    <!-- Project Image -->
+                    <div class="relative overflow-hidden aspect-video bg-slate-900 border-b border-white/5">
+                        <img src="https://raw.githubusercontent.com/anshulkanodia/Images/main/Projects/CyberShield/main.jpg" onerror="this.src='https://placehold.co/600x400/0f172a/f8fafc?text=Cyber+Shield+Project'" alt="Cyber Shield Project" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
                     </div>
-
-                    <!-- Project Card 2: DVA -->
-                    <div data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1" class="group w-full max-w-md rounded-lg shadow-lg overflow-hidden glow-card reveal-hidden" style="background-color: var(--bg-card-secondary-color);">
-                        <div class="overflow-hidden">
-                            <!-- Image subtly zooms when parent is hovered -->
-                            <img src="https://raw.githubusercontent.com/anshulkanodia/Images/main/Projects/DVA/main.jpg" alt="Desktop Voice Assistant" class="w-full h-56 object-contain project-image group-hover:scale-105 transition-transform duration-500 ease-out" style="transform: translateZ(30px);">
+                    
+                    <!-- Content -->
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-indigo-400 transition-colors">Cyber Shield</h3>
+                        <p class="text-slate-400 text-sm font-medium mb-4">Context-Aware Toxicity Detection Model</p>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6 flex-grow">
+                            An advanced Natural Language Processing system that analyzes social media comments for context-specific toxic behaviors. Built a robust pipeline utilizing synthetic data generation techniques (addressing class imbalance) and fine-tuned Transformer architectures to understand context and syntax instead of just flagging keywords.
+                        </p>
+                        
+                        <!-- Tags -->
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">Python</span>
+                            <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-violet-500/10 text-violet-300 border border-violet-500/20">Transformers (NLP)</span>
+                            <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-teal-500/10 text-teal-300 border border-teal-500/20">Synthetic Data</span>
+                            <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-500/10 text-slate-300 border border-white/5">HuggingFace</span>
                         </div>
-                        <div class="p-6 text-center" style="transform: translateZ(20px);">
-                            <h3 class="text-xl font-bold mb-2 text-white">Desktop Voice Assistant (DVA)</h3>
-                            <p class="mb-6" style="color: var(--text-secondary-color);">A command-line voice assistant built with Python to enhance productivity and automate desktop tasks on Windows.</p>
-                            
-                            <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm md:text-base">
-                                <a href="/project/desktop-voice-assistant" class="font-semibold hover:underline relative z-10" style="color: var(--primary-color-light);">More Info</a>
-                                <span class="text-gray-600">|</span>
-                                <a href="https://github.com/anshulkanodia/Desktop-Voice-Assistant" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline relative z-10" style="color: var(--primary-color-light);">Source Code</a>
-                                <span class="text-gray-600">|</span>
-                                <a href="/project/desktop-voice-assistant/Report.pdf" download="DVA_Project_Report.pdf" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline relative z-10" style="color: var(--primary-color-light);">Download Report</a>
-                            </div>
+
+                        <!-- Action buttons -->
+                        <div class="flex flex-wrap gap-4 border-t border-white/5 pt-6 mt-auto">
+                            <a href="/project/cyber-shield" class="text-indigo-400 font-semibold hover:text-indigo-300 text-sm flex items-center gap-1.5 transition-colors">
+                                View Details <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </a>
+                            <span class="text-slate-600">|</span>
+                            <a href="https://github.com/anshulkanodia/Cyber-Shield" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white font-semibold text-sm flex items-center gap-1.5 transition-colors">
+                                <i class="fa-brands fa-github text-base"></i> Code
+                            </a>
+                            <span class="text-slate-600">|</span>
+                            <a href="/project/cyber-shield/Report.pdf" download="CyberShield_Report.pdf" target="_blank" rel="noopener noreferrer" class="text-teal-400 hover:text-teal-300 font-semibold text-sm flex items-center gap-1.5 transition-colors">
+                                <i class="fa-regular fa-file-pdf text-base"></i> Report
+                            </a>
                         </div>
-                    </div>
-
-
                     </div>
                 </div>
+
+                <!-- Project 2: DVA -->
+                <div class="glass-card rounded-3xl overflow-hidden flex flex-col group h-full">
+                    <!-- Project Image -->
+                    <div class="relative overflow-hidden aspect-video bg-slate-900 border-b border-white/5">
+                        <img src="https://raw.githubusercontent.com/anshulkanodia/Images/main/Projects/DVA/main.jpg" onerror="this.src='https://placehold.co/600x400/0f172a/f8fafc?text=Desktop+Voice+Assistant'" alt="Desktop Voice Assistant" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-indigo-400 transition-colors">Desktop Voice Assistant</h3>
+                        <p class="text-slate-400 text-sm font-medium mb-4">Command-Line OS Automation Utility</p>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6 flex-grow">
+                            Designed and coded a desktop voice assistant in Python configured for Windows environments. It streamlines user productivity workflows by performing rapid text/speech searches, orchestrating system settings adjustments, initiating programs, and automating redundant operations through robust terminal configurations.
+                        </p>
+                        
+                        <!-- Tags -->
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">Python</span>
+                            <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-violet-500/10 text-violet-300 border border-violet-500/20">Speech Recognition</span>
+                            <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-teal-500/10 text-teal-300 border border-teal-500/20">OS Automation</span>
+                            <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-500/10 text-slate-300 border border-white/5">Windows API</span>
+                        </div>
+
+                        <!-- Action buttons -->
+                        <div class="flex flex-wrap gap-4 border-t border-white/5 pt-6 mt-auto">
+                            <a href="/project/desktop-voice-assistant" class="text-indigo-400 font-semibold hover:text-indigo-300 text-sm flex items-center gap-1.5 transition-colors">
+                                View Details <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </a>
+                            <span class="text-slate-600">|</span>
+                            <a href="https://github.com/anshulkanodia/Desktop-Voice-Assistant" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white font-semibold text-sm flex items-center gap-1.5 transition-colors">
+                                <i class="fa-brands fa-github text-base"></i> Code
+                            </a>
+                            <span class="text-slate-600">|</span>
+                            <a href="/project/desktop-voice-assistant/Report.pdf" download="DVA_Project_Report.pdf" target="_blank" rel="noopener noreferrer" class="text-teal-400 hover:text-teal-300 font-semibold text-sm flex items-center gap-1.5 transition-colors">
+                                <i class="fa-regular fa-file-pdf text-base"></i> Report
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
         <!-- Certificates Section -->
-        <section id="certificates" class="py-16 md:py-24">
-            <div class="container mx-auto px-6">
-                <h2 class="section-title">Certificates</h2>
-                <p class="section-subtitle">My Credentials</p>
-                 <div class="flex flex-wrap justify-center items-stretch gap-8">
+        <section id="certificates" class="py-24 border-t border-white/5 reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">Certifications</h2>
+                <div class="h-1.5 w-16 bg-gradient-to-r from-indigo-500 to-violet-500 mx-auto rounded-full"></div>
+                <p class="text-slate-400 mt-4 max-w-lg mx-auto text-sm md:text-base">Courses, modules, and specializations I have successfully completed.</p>
+            </div>
 
-                <!-- Certificate (July 2026) -->
-                <div class="group w-full max-w-md rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 glow-card" style="background-color: var(--bg-card-secondary-color);">
-                    <div class="overflow-hidden">
-                        <img src="https://raw.githubusercontent.com/AnshulKanodia/Images/main/certificates/MongoDB%20Associate%20Database%20Administrator%20certification%20course%20by%20FACE%20Prep.jpg" alt="Certificate Image" class="w-full h-56 object-contain certificate-image group-hover:scale-105 transition-transform duration-300 ease-in-out">
-                    </div>
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold mb-2 text-white">MongoDB Associate Database Administrator certification course</h3>
-                        <p class="mb-2" style="color: var(--text-secondary-color);">Issued by: Face Prep</p>
-                        <p class="mb-4 text-sm" style="color: var(--text-secondary-color);">Issued: July 2026</p>
-                        <div class="flex justify-center">
-                            <a href="https://drive.google.com/file/d/1oMvOQWJBCCFHGEKtSizJmm8tr9Z7g3lu/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline" style="color: var(--primary-color-light);">View Credential</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Certificate (Mar 2026) -->
-                <div class="group w-full max-w-md rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 glow-card" style="background-color: var(--bg-card-secondary-color);">
-                    <div class="overflow-hidden">
-                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Cloud%20Computing%20and%20Distributed%20Systems.jpg" alt="Certificate Image" class="w-full h-56 object-contain certificate-image group-hover:scale-105 transition-transform duration-300 ease-in-out">
-                    </div>
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold mb-2 text-white">Cloud Computing and Distributed Systems</h3>
-                        <p class="mb-2" style="color: var(--text-secondary-color);">Issued by: NPTEL</p>
-                        <p class="mb-4 text-sm" style="color: var(--text-secondary-color);">Issued: May 2026</p>
-                        <div class="flex justify-center">
-                            <a href="https://nptel.ac.in/noc/E_Certificate/NOC26CS29S55280059103125567" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline" style="color: var(--primary-color-light);">View Credential</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Certificate (Mar 2026) -->
-                <div class="group w-full max-w-md rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 glow-card" style="background-color: var(--bg-card-secondary-color);">
-                    <div class="overflow-hidden">
-                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Open%20Source%20Software.png" alt="Certificate Image" class="w-full h-56 object-contain certificate-image group-hover:scale-105 transition-transform duration-300 ease-in-out">
-                    </div>
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold mb-2 text-white">Open Source Software</h3>
-                        <p class="mb-2" style="color: var(--text-secondary-color);">Issued by: Vityarthi</p>
-                        <p class="mb-4 text-sm" style="color: var(--text-secondary-color);">Issued: Mar 2026</p>
-                        <div class="flex justify-center">
-                            <a href="https://www.vityarthi.com/certificate/6nvbNUVz8ToX" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline" style="color: var(--primary-color-light);">View Credential</a>
-                        </div>
-                    </div>
-                </div>                     
-                <!-- Certificate (Dec 2025) -->
-                <div class="group w-full max-w-md rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 glow-card" style="background-color: var(--bg-card-secondary-color);">
-                    <div class="overflow-hidden">
-                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/5-Day%20AI%20Agents%20Intensive%20Course%20with%20Google.png" alt="Certificate Image" class="w-full h-56 object-contain certificate-image group-hover:scale-105 transition-transform duration-300 ease-in-out">
-                    </div>
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold mb-2 text-white">5-Day AI Agents Intensive Course with Google</h3>
-                        <p class="mb-2" style="color: var(--text-secondary-color);">Issued by: Kaggle</p>
-                        <p class="mb-4 text-sm" style="color: var(--text-secondary-color);">Issued: Dec 2025</p>
-                        <div class="flex justify-center">
-                            <a href="https://www.kaggle.com/certification/badges/anshulkan/105" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline" style="color: var(--primary-color-light);">View Credential</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Certificate (Dec 2025) -->
-                <div class="group w-full max-w-md rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 glow-card" style="background-color: var(--bg-card-secondary-color);">
-                    <div class="overflow-hidden">
-                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Programming%20In%20Java.jpg" alt="Certificate Image" class="w-full h-56 object-contain certificate-image group-hover:scale-105 transition-transform duration-300 ease-in-out">
-                    </div>
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold mb-2 text-white">Programming in Java</h3>
-                        <p class="mb-2" style="color: var(--text-secondary-color);">Issued by: Vityarthi</p>
-                        <p class="mb-4 text-sm" style="color: var(--text-secondary-color);">Issued: Dec 2025</p>
-                        <div class="flex justify-center">
-                            <a href="https://vityarthi.com/certificate/GzqIlK7i18mw" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline" style="color: var(--primary-color-light);">View Credential</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Certificate (Nov 2025) -->
-                <div class="group w-full max-w-md rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 glow-card" style="background-color: var(--bg-card-secondary-color);">
-                    <div class="overflow-hidden">
-                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Applied%20Machine%20Learning%20In%20Python.jpg" alt="Certificate Image" class="w-full h-56 object-contain certificate-image group-hover:scale-105 transition-transform duration-300 ease-in-out">
-                    </div>
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold mb-2 text-white">Applied Machine Learning in Python</h3>
-                        <p class="mb-2" style="color: var(--text-secondary-color);">Issued by: Coursera</p>
-                        <p class="mb-4 text-sm" style="color: var(--text-secondary-color);">Issued: Nov 2025</p>
-                        <div class="flex justify-center">
-                            <a href="https://www.coursera.org/account/accomplishments/verify/MQTC6XSZOYVV" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline" style="color: var(--primary-color-light);">View Credential</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Certificate (Nov 2025) -->
-                <div class="group w-full max-w-md rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 glow-card" style="background-color: var(--bg-card-secondary-color);">
-                    <div class="overflow-hidden">
-                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Introduction%20to%20Internet%20of%20Things.jpg" alt="Certificate Image" class="w-full h-56 object-contain certificate-image group-hover:scale-105 transition-transform duration-300 ease-in-out">
-                    </div>
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold mb-2 text-white">Introduction to Internet of Things</h3>
-                        <p class="mb-2" style="color: var(--text-secondary-color);">Issued by: Nptel</p>
-                        <p class="mb-4 text-sm" style="color: var(--text-secondary-color);">Issued: Nov 2025</p>
-                        <div class="flex justify-center">
-                            <a href="https://www.linkedin.com/posts/anshulkanodia_i-am-glad-to-share-that-i-have-successfully-activity-7398283518998413312-guSj?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFIAxZ8BjezdEuUhkZG1Sz7DgDZgXqvbyfE" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline" style="color: var(--primary-color-light);">View Credential</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Certificate (Sep 2025) -->
-                <div class="group w-full max-w-md rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 glow-card" style="background-color: var(--bg-card-secondary-color);">
-                    <div class="overflow-hidden">
-                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Operating%20System.png" alt="Certificate Image" class="w-full h-56 object-contain certificate-image group-hover:scale-105 transition-transform duration-300 ease-in-out">
-                    </div>
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold mb-2 text-white">Operating System</h3>
-                        <p class="mb-2" style="color: var(--text-secondary-color);">Issued by: Scaler</p>
-                        <p class="mb-4 text-sm" style="color: var(--text-secondary-color);">Issued: Sep 2025</p>
-                        <div class="flex justify-center">
-                            <a href="https://moonshot.scaler.com/s/sl/q5zSmGc4jx" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline" style="color: var(--primary-color-light);">View Credential</a>
-                        </div>
-                    </div>
-                </div>
+            <!-- Tabs Controls -->
+            <div class="flex flex-wrap justify-center gap-2.5 mb-12">
+                <button onclick="filterCertificates('all')" id="tab-all" class="cert-tab px-5 py-2.5 rounded-full text-sm font-semibold border transition-all duration-300 bg-gradient-to-r from-indigo-500 to-violet-500 text-white border-transparent">
+                    All Certs
+                </button>
+                <button onclick="filterCertificates('ai-ml')" id="tab-ai-ml" class="cert-tab px-5 py-2.5 rounded-full text-sm font-semibold border border-white/10 text-slate-400 hover:text-white hover:border-white/20 transition-all duration-300">
+                    AI & Machine Learning
+                </button>
+                <button onclick="filterCertificates('systems')" id="tab-systems" class="cert-tab px-5 py-2.5 rounded-full text-sm font-semibold border border-white/10 text-slate-400 hover:text-white hover:border-white/20 transition-all duration-300">
+                    Systems, Cloud & DB
+                </button>
+                <button onclick="filterCertificates('prog')" id="tab-prog" class="cert-tab px-5 py-2.5 rounded-full text-sm font-semibold border border-white/10 text-slate-400 hover:text-white hover:border-white/20 transition-all duration-300">
+                    Core Dev & Tools
+                </button>
+            </div>
 
-                <!-- Certificate (Sep 2025) -->
-                <div class="group w-full max-w-md rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 glow-card" style="background-color: var(--bg-card-secondary-color);">
-                    <div class="overflow-hidden">
-                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/intro%20to%20generative%20ai.png" alt="Certificate Image" class="w-full h-56 object-contain certificate-image group-hover:scale-105 transition-transform duration-300 ease-in-out">
-                    </div>
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold mb-2 text-white">Introduction to Generative AI</h3>
-                        <p class="mb-2" style="color: var(--text-secondary-color);">Issued by: Google</p>
-                        <p class="mb-4 text-sm" style="color: var(--text-secondary-color);">Issued: Sep 2025</p>
-                        <div class="flex justify-center">
-                            <a href="https://www.cloudskillsboost.google/public_profiles/31437ed3-246f-4d32-bf35-2a05aa805d3c/badges/18405623" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline" style="color: var(--primary-color-light);">View Credential</a>
-                        </div>
-                    </div>
-                </div>
+            <!-- Certificates Grid -->
+            <div id="certificates-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-300">
                 
-                <!-- Certificate (Apr 2025) -->
-                <div class="group w-full max-w-md rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 glow-card" style="background-color: var(--bg-card-secondary-color);">
-                    <div class="overflow-hidden">
-                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Fundamentals%20of%20AI%20and%20ML.png" alt="Certificate Image" class="w-full h-56 object-contain certificate-image group-hover:scale-105 transition-transform duration-300 ease-in-out">
-                    </div>
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold mb-2 text-white">Fundamentals of AI and ML</h3>
-                        <p class="mb-2" style="color: var(--text-secondary-color);">Issued by: Vityarthi</p>
-                        <p class="mb-4 text-sm" style="color: var(--text-secondary-color);">Issued: Apr 2025</p>
-                        <div class="flex justify-center">
-                            <a href="https://vityarthi.com/certificate/vmfqZJEYrWMA" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline" style="color: var(--primary-color-light);">View Credential</a>
+                <!-- MongoDB Associate DBA -->
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="systems">
+                    <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKanodia/Images/main/certificates/MongoDB%20Associate%20Database%20Administrator%20certification%20course%20by%20FACE%20Prep.jpg', 'MongoDB Associate Database Administrator')">
+                        <img src="https://raw.githubusercontent.com/AnshulKanodia/Images/main/certificates/MongoDB%20Associate%20Database%20Administrator%20certification%20course%20by%20FACE%20Prep.jpg" alt="MongoDB Associate DBA" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                            <span class="text-white bg-indigo-500/90 text-xs font-semibold px-4 py-2 rounded-full"><i class="fa-solid fa-magnifying-glass-plus mr-1.5"></i> View Fullscreen</span>
                         </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-indigo-400">Database Administration</span>
+                        <h4 class="text-base font-bold text-white mt-1.5 mb-1 group-hover:text-indigo-300 transition-colors">MongoDB Associate DBA Course</h4>
+                        <p class="text-slate-400 text-xs flex justify-between mt-3 border-t border-white/5 pt-3">
+                            <span>Issued: July 2026</span>
+                            <span>Provider: FACE Prep</span>
+                        </p>
+                        <a href="https://drive.google.com/file/d/1oMvOQWJBCCFHGEKtSizJmm8tr9Z7g3lu/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors">
+                            Verify Credential <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Certificate (Mar 2025) -->
-                <div class="group w-full max-w-md rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 glow-card" style="background-color: var(--bg-card-secondary-color);">
-                    <div class="overflow-hidden">
-                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/mitigate-threats-and-vulnerabilities-with-security-.png" alt="Certificate Image" class="w-full h-56 object-contain certificate-image group-hover:scale-105 transition-transform duration-300 ease-in-out">
-                    </div>
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold mb-2 text-white">Mitigate Threats and Vulnerabilities</h3>
-                        <p class="mb-2" style="color: var(--text-secondary-color);">Issued by: Google</p>
-                        <p class="mb-4 text-sm" style="color: var(--text-secondary-color);">Issued: Mar 2025</p>
-                        <div class="flex justify-center">
-                            <a href="https://www.cloudskillsboost.google/public_profiles/31437ed3-246f-4d32-bf35-2a05aa805d3c/badges/14460318" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline" style="color: var(--primary-color-light);">View Credential</a>
+                <!-- Cloud Computing -->
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="systems">
+                    <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Cloud%20Computing%20and%20Distributed%20Systems.jpg', 'Cloud Computing and Distributed Systems')">
+                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Cloud%20Computing%20and%20Distributed%20Systems.jpg" alt="Cloud Computing" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                            <span class="text-white bg-indigo-500/90 text-xs font-semibold px-4 py-2 rounded-full"><i class="fa-solid fa-magnifying-glass-plus mr-1.5"></i> View Fullscreen</span>
                         </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-indigo-400">Cloud & Architecture</span>
+                        <h4 class="text-base font-bold text-white mt-1.5 mb-1 group-hover:text-indigo-300 transition-colors">Cloud & Distributed Systems</h4>
+                        <p class="text-slate-400 text-xs flex justify-between mt-3 border-t border-white/5 pt-3">
+                            <span>Issued: May 2026</span>
+                            <span>Provider: NPTEL</span>
+                        </p>
+                        <a href="https://nptel.ac.in/noc/E_Certificate/NOC26CS29S55280059103125567" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors">
+                            Verify Credential <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Certificate (Sep 2024) -->
-                <div class="group w-full max-w-md rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 glow-card" style="background-color: var(--bg-card-secondary-color);">
-                    <div class="overflow-hidden">
-                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/python%20essential.png" alt="Certificate Image" class="w-full h-56 object-contain certificate-image group-hover:scale-105 transition-transform duration-300 ease-in-out">
-                    </div>
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold mb-2 text-white">Python Essential</h3>
-                        <p class="mb-2" style="color: var(--text-secondary-color);">Issued by: Vityarthi</p>
-                        <p class="mb-4 text-sm" style="color: var(--text-secondary-color);">Issued: Sep 2024</p>
-                        <div class="flex justify-center">
-                            <a href="https://vityarthi.com/certificate/71bf6b6b35" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline" style="color: var(--primary-color-light);">View Credential</a>
+                <!-- Open Source Software -->
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="prog">
+                    <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Open%20Source%20Software.png', 'Open Source Software')">
+                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Open%20Source%20Software.png" alt="Open Source Software" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                            <span class="text-white bg-indigo-500/90 text-xs font-semibold px-4 py-2 rounded-full"><i class="fa-solid fa-magnifying-glass-plus mr-1.5"></i> View Fullscreen</span>
                         </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-indigo-400">Software Engineering</span>
+                        <h4 class="text-base font-bold text-white mt-1.5 mb-1 group-hover:text-indigo-300 transition-colors">Open Source Software Module</h4>
+                        <p class="text-slate-400 text-xs flex justify-between mt-3 border-t border-white/5 pt-3">
+                            <span>Issued: March 2026</span>
+                            <span>Provider: Vityarthi</span>
+                        </p>
+                        <a href="https://www.vityarthi.com/certificate/6nvbNUVz8ToX" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors">
+                            Verify Credential <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Certificate (Aug 2024) -->
-                <div class="group w-full max-w-md rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 glow-card" style="background-color: var(--bg-card-secondary-color);">
-                    <div class="overflow-hidden">
-                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Matlab%20onramp.png" alt="Certificate Image" class="w-full h-56 object-contain certificate-image group-hover:scale-105 transition-transform duration-300 ease-in-out">
-                    </div>
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold mb-2 text-white">Matlab Onramp</h3>
-                        <p class="mb-2" style="color: var(--text-secondary-color);">Issued by: MathWorks</p>
-                        <p class="mb-4 text-sm" style="color: var(--text-secondary-color);">Issued: Aug 2024</p>
-                        <div class="flex justify-center">
-                            <a href="https://matlabacademy.mathworks.com/progress/share/certificate.html?id=41526101-408f-4072-89cb-d440a4648a2a" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline" style="color: var(--primary-color-light);">View Credential</a>
+                <!-- Google AI Agents Course -->
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="ai-ml">
+                    <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/5-Day%20AI%20Agents%20Intensive%20Course%20with%20Google.png', '5-Day AI Agents Intensive Course with Google')">
+                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/5-Day%20AI%20Agents%20Intensive%20Course%20with%20Google.png" alt="AI Agents" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                            <span class="text-white bg-indigo-500/90 text-xs font-semibold px-4 py-2 rounded-full"><i class="fa-solid fa-magnifying-glass-plus mr-1.5"></i> View Fullscreen</span>
                         </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-indigo-400">Artificial Intelligence</span>
+                        <h4 class="text-base font-bold text-white mt-1.5 mb-1 group-hover:text-indigo-300 transition-colors">AI Agents Intensive Course</h4>
+                        <p class="text-slate-400 text-xs flex justify-between mt-3 border-t border-white/5 pt-3">
+                            <span>Issued: Dec 2025</span>
+                            <span>Provider: Kaggle / Google</span>
+                        </p>
+                        <a href="https://www.kaggle.com/certification/badges/anshulkan/105" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors">
+                            Verify Credential <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                        </a>
                     </div>
                 </div>
 
+                <!-- Java Programming -->
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="prog">
+                    <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Programming%20In%20Java.jpg', 'Programming in Java')">
+                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Programming%20In%20Java.jpg" alt="Programming in Java" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                            <span class="text-white bg-indigo-500/90 text-xs font-semibold px-4 py-2 rounded-full"><i class="fa-solid fa-magnifying-glass-plus mr-1.5"></i> View Fullscreen</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-indigo-400">Development Foundations</span>
+                        <h4 class="text-base font-bold text-white mt-1.5 mb-1 group-hover:text-indigo-300 transition-colors">Programming in Java</h4>
+                        <p class="text-slate-400 text-xs flex justify-between mt-3 border-t border-white/5 pt-3">
+                            <span>Issued: Dec 2025</span>
+                            <span>Provider: Vityarthi</span>
+                        </p>
+                        <a href="https://vityarthi.com/certificate/GzqIlK7i18mw" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors">
+                            Verify Credential <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                        </a>
+                    </div>
                 </div>
+
+                <!-- Applied ML -->
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="ai-ml">
+                    <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Applied%20Machine%20Learning%20In%20Python.jpg', 'Applied Machine Learning in Python')">
+                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Applied%20Machine%20Learning%20In%20Python.jpg" alt="Applied ML" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                            <span class="text-white bg-indigo-500/90 text-xs font-semibold px-4 py-2 rounded-full"><i class="fa-solid fa-magnifying-glass-plus mr-1.5"></i> View Fullscreen</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-indigo-400">Machine Learning</span>
+                        <h4 class="text-base font-bold text-white mt-1.5 mb-1 group-hover:text-indigo-300 transition-colors">Applied Machine Learning in Python</h4>
+                        <p class="text-slate-400 text-xs flex justify-between mt-3 border-t border-white/5 pt-3">
+                            <span>Issued: Nov 2025</span>
+                            <span>Provider: Coursera</span>
+                        </p>
+                        <a href="https://www.coursera.org/account/accomplishments/verify/MQTC6XSZOYVV" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors">
+                            Verify Credential <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- IoT -->
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="systems">
+                    <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Introduction%20to%20Internet%20of%20Things.jpg', 'Introduction to Internet of Things')">
+                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Introduction%20to%20Internet%20of%20Things.jpg" alt="IoT" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                            <span class="text-white bg-indigo-500/90 text-xs font-semibold px-4 py-2 rounded-full"><i class="fa-solid fa-magnifying-glass-plus mr-1.5"></i> View Fullscreen</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-indigo-400">IoT & Edge</span>
+                        <h4 class="text-base font-bold text-white mt-1.5 mb-1 group-hover:text-indigo-300 transition-colors">Introduction to IoT</h4>
+                        <p class="text-slate-400 text-xs flex justify-between mt-3 border-t border-white/5 pt-3">
+                            <span>Issued: Nov 2025</span>
+                            <span>Provider: NPTEL</span>
+                        </p>
+                        <a href="https://www.linkedin.com/posts/anshulkanodia_i-am-glad-to-share-that-i-have-successfully-activity-7398283518998413312-guSj" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors">
+                            Verify Credential <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Operating System -->
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="systems">
+                    <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Operating%20System.png', 'Operating System')">
+                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Operating%20System.png" alt="Operating System" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                            <span class="text-white bg-indigo-500/90 text-xs font-semibold px-4 py-2 rounded-full"><i class="fa-solid fa-magnifying-glass-plus mr-1.5"></i> View Fullscreen</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-indigo-400">Core Systems</span>
+                        <h4 class="text-base font-bold text-white mt-1.5 mb-1 group-hover:text-indigo-300 transition-colors">Operating System Architecture</h4>
+                        <p class="text-slate-400 text-xs flex justify-between mt-3 border-t border-white/5 pt-3">
+                            <span>Issued: Sep 2025</span>
+                            <span>Provider: Scaler</span>
+                        </p>
+                        <a href="https://moonshot.scaler.com/s/sl/q5zSmGc4jx" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors">
+                            Verify Credential <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Intro Generative AI -->
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="ai-ml">
+                    <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/intro%20to%20generative%20ai.png', 'Introduction to Generative AI')">
+                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/intro%20to%20generative%20ai.png" alt="Generative AI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                            <span class="text-white bg-indigo-500/90 text-xs font-semibold px-4 py-2 rounded-full"><i class="fa-solid fa-magnifying-glass-plus mr-1.5"></i> View Fullscreen</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-indigo-400">Artificial Intelligence</span>
+                        <h4 class="text-base font-bold text-white mt-1.5 mb-1 group-hover:text-indigo-300 transition-colors">Introduction to Generative AI</h4>
+                        <p class="text-slate-400 text-xs flex justify-between mt-3 border-t border-white/5 pt-3">
+                            <span>Issued: Sep 2025</span>
+                            <span>Provider: Google Cloud</span>
+                        </p>
+                        <a href="https://www.cloudskillsboost.google/public_profiles/31437ed3-246f-4d32-bf35-2a05aa805d3c/badges/18405623" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors">
+                            Verify Credential <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fundamentals AI and ML -->
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="ai-ml">
+                    <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Fundamentals%20of%20AI%20and%20ML.png', 'Fundamentals of AI and ML')">
+                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Fundamentals%20of%20AI%20and%20ML.png" alt="Fundamentals AI ML" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                            <span class="text-white bg-indigo-500/90 text-xs font-semibold px-4 py-2 rounded-full"><i class="fa-solid fa-magnifying-glass-plus mr-1.5"></i> View Fullscreen</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-indigo-400">Artificial Intelligence</span>
+                        <h4 class="text-base font-bold text-white mt-1.5 mb-1 group-hover:text-indigo-300 transition-colors">Fundamentals of AI & ML</h4>
+                        <p class="text-slate-400 text-xs flex justify-between mt-3 border-t border-white/5 pt-3">
+                            <span>Issued: Apr 2025</span>
+                            <span>Provider: Vityarthi</span>
+                        </p>
+                        <a href="https://vityarthi.com/certificate/vmfqZJEYrWMA" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors">
+                            Verify Credential <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mitigate Threats -->
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="systems">
+                    <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/mitigate-threats-and-vulnerabilities-with-security-.png', 'Mitigate Threats and Vulnerabilities')">
+                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/mitigate-threats-and-vulnerabilities-with-security-.png" alt="Mitigate Threats" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                            <span class="text-white bg-indigo-500/90 text-xs font-semibold px-4 py-2 rounded-full"><i class="fa-solid fa-magnifying-glass-plus mr-1.5"></i> View Fullscreen</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-indigo-400">Cybersecurity</span>
+                        <h4 class="text-base font-bold text-white mt-1.5 mb-1 group-hover:text-indigo-300 transition-colors">Mitigate Threats & Vulnerabilities</h4>
+                        <p class="text-slate-400 text-xs flex justify-between mt-3 border-t border-white/5 pt-3">
+                            <span>Issued: March 2025</span>
+                            <span>Provider: Google</span>
+                        </p>
+                        <a href="https://www.cloudskillsboost.google/public_profiles/31437ed3-246f-4d32-bf35-2a05aa805d3c/badges/14460318" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors font-medium">
+                            Verify Credential <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Python Essential -->
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="prog">
+                    <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/python%20essential.png', 'Python Essential')">
+                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/python%20essential.png" alt="Python Essential" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                            <span class="text-white bg-indigo-500/90 text-xs font-semibold px-4 py-2 rounded-full"><i class="fa-solid fa-magnifying-glass-plus mr-1.5"></i> View Fullscreen</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-indigo-400">Development Foundations</span>
+                        <h4 class="text-base font-bold text-white mt-1.5 mb-1 group-hover:text-indigo-300 transition-colors">Python Essential Core</h4>
+                        <p class="text-slate-400 text-xs flex justify-between mt-3 border-t border-white/5 pt-3">
+                            <span>Issued: Sep 2024</span>
+                            <span>Provider: Vityarthi</span>
+                        </p>
+                        <a href="https://vityarthi.com/certificate/71bf6b6b35" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors font-medium">
+                            Verify Credential <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Matlab Onramp -->
+                <div class="cert-card glass-card rounded-2xl overflow-hidden group" data-category="prog">
+                    <div class="aspect-video bg-slate-900 border-b border-white/5 relative overflow-hidden flex items-center justify-center cursor-pointer" onclick="openCertificateModal('https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Matlab%20onramp.png', 'Matlab Onramp')">
+                        <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/certificates/Matlab%20onramp.png" alt="Matlab Onramp" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                            <span class="text-white bg-indigo-500/90 text-xs font-semibold px-4 py-2 rounded-full"><i class="fa-solid fa-magnifying-glass-plus mr-1.5"></i> View Fullscreen</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-indigo-400">Engineering Tools</span>
+                        <h4 class="text-base font-bold text-white mt-1.5 mb-1 group-hover:text-indigo-300 transition-colors">Matlab Onramp Certificate</h4>
+                        <p class="text-slate-400 text-xs flex justify-between mt-3 border-t border-white/5 pt-3">
+                            <span>Issued: Aug 2024</span>
+                            <span>Provider: MathWorks</span>
+                        </p>
+                        <a href="https://matlabacademy.mathworks.com/progress/share/certificate.html?id=41526101-408f-4072-89cb-d440a4648a2a" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white py-2 rounded-lg mt-4 border border-white/5 transition-colors font-medium">
+                            Verify Credential <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </section>
 
         <!-- Find Me Online Section -->
-        <section id="know-more" class="py-16 md:py-24">
-            <div class="container mx-auto px-6">
-                <h2 class="section-title">Find Me Online</h2>
-                <p class="section-subtitle">Connect With Me</p>
-                <div class="max-w-5xl mx-auto flex flex-wrap justify-center gap-8 text-center">
-                    <!-- LinkedIn Card -->
-                    <a href="https://www.linkedin.com/in/anshulkanodia/" target="_blank" rel="noopener noreferrer" class="block p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-40 glow-card" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 20px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="h-16 w-16 mx-auto mb-2">
-                        <p class="font-semibold text-white">LinkedIn</p>
-                    </a>
-                    <!-- GitHub Card -->
-                    <a href="https://github.com/AnshulKanodia" target="_blank" rel="noopener noreferrer" class="block p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-40 glow-card" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 20px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" class="h-16 w-16 mx-auto mb-2" style="filter: invert(1);">
-                        <p class="font-semibold text-white">GitHub</p>
-                    </a>
-                     <!-- Google Cloud Card -->
-                    <a href="https://www.cloudskillsboost.google/public_profiles/31437ed3-246f-4d32-bf35-2a05aa805d3c" target="_blank" rel="noopener noreferrer" class="block p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-40 glow-card" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 20px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
-                        <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="Google Cloud" class="h-16 w-16 mx-auto mb-2">
-                        <p class="font-semibold text-white">Google Cloud</p>
-                    </a>
-                    <!-- Instagram Card -->
-                    <a href="https://www.instagram.com/anshul_kanodia/" target="_blank" rel="noopener noreferrer" class="block p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-40 glow-card" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 20px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
-                        <img src="https://www.vectorlogo.zone/logos/instagram/instagram-icon.svg" alt="Instagram" class="h-16 w-16 mx-auto mb-2">
-                        <p class="font-semibold text-white">Instagram</p>
-                    </a>
-                    <!-- Gmail Card -->
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=anshulkanodia3560@gmail.com" target="_blank" rel="noopener noreferrer" class="block p-4 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-40 glow-card" style="background-color: var(--bg-card-secondary-color); box-shadow: 0 0 15px transparent;" onmouseover="this.style.boxShadow='0 0 20px var(--shadow-color)';" onmouseout="this.style.boxShadow='0 0 15px transparent';">
-                        <img src="https://www.vectorlogo.zone/logos/gmail/gmail-icon.svg" alt="Gmail" class="h-16 w-16 mx-auto mb-2">
-                        <p class="font-semibold text-white">Gmail</p>
-                    </a>
-                </div>
+        <section id="know-more" class="py-24 border-t border-white/5 reveal">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">Find Me Online</h2>
+                <div class="h-1.5 w-16 bg-gradient-to-r from-indigo-500 to-violet-500 mx-auto rounded-full"></div>
+                <p class="text-slate-400 mt-4 max-w-lg mx-auto text-sm md:text-base">Connect with me on professional platforms and networks.</p>
             </div>
-        </section>
-        
-        <!-- Contact Section -->
-        <section id="contact" class="py-16 md:py-24">
-            <div class="container mx-auto px-6">
-                <h2 class="section-title">Contact Me</h2>
-                <p class="section-subtitle">Get in Touch</p>
 
-                <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-8 md:gap-16">
-                    <!-- Contact Form -->
-                    <div class="w-full">
-                        <form id="contact-form" action="https://formspree.io/f/mdkwzlej" method="POST" onsubmit="return handleFormSubmit(event, this);">
-                            <div class="mb-4">
-                                <label for="name" class="block text-sm font-medium mb-1" style="color: var(--text-color);">Name</label>
-                                <input type="text" id="name" name="name" placeholder="Your Name" class="w-full px-4 py-2 rounded-md focus:ring-2 focus:outline-none transition" style="background-color: var(--bg-secondary-color); border: 1px solid var(--primary-color); color: var(--text-white); --tw-ring-color: var(--primary-color-light);" required>
-                            </div>
-                            <div class="mb-4">
-                                <label for="email" class="block text-sm font-medium mb-1" style="color: var(--text-color);">Email</label>
-                                <input type="email" id="email" name="email" placeholder="Your Email Address" class="w-full px-4 py-2 rounded-md focus:ring-2 focus:outline-none transition" style="background-color: var(--bg-secondary-color); border: 1px solid var(--primary-color); color: var(--text-white); --tw-ring-color: var(--primary-color-light);" required>
-                            </div>
-                            <div class="mb-4">
-                                <label for="message" class="block text-sm font-medium mb-1" style="color: var(--text-color);">Message</label>
-                                <textarea id="message" name="message" rows="4" placeholder="Your Message Here..." class="w-full px-4 py-2 rounded-md focus:ring-2 focus:outline-none transition" style="background-color: var(--bg-secondary-color); border: 1px solid var(--primary-color); color: var(--text-white); --tw-ring-color: var(--primary-color-light);" required></textarea>
-                            </div>
-                            <button type="submit" id="submit-btn" class="w-full text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105" style="background-color: var(--primary-color);">Send Message</button>
-                        </form>
-                        <p id="form-message" class="mt-4 text-center font-bold" style="color: var(--primary-color-light);">&nbsp;</p>
+            <div class="flex flex-wrap justify-center gap-6 md:gap-8 max-w-4xl mx-auto">
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/anshulkanodia/" target="_blank" rel="noopener noreferrer" class="glass-card flex flex-col items-center justify-center p-6 rounded-2xl w-36 hover:scale-105 hover:border-blue-500/40 hover:shadow-blue-500/10 hover:shadow-lg">
+                    <i class="fa-brands fa-linkedin text-blue-500 text-4xl mb-3"></i>
+                    <span class="text-white font-semibold text-sm">LinkedIn</span>
+                </a>
+                <!-- GitHub -->
+                <a href="https://github.com/AnshulKanodia" target="_blank" rel="noopener noreferrer" class="glass-card flex flex-col items-center justify-center p-6 rounded-2xl w-36 hover:scale-105 hover:border-slate-300/40 hover:shadow-slate-300/10 hover:shadow-lg">
+                    <i class="fa-brands fa-github text-white text-4xl mb-3"></i>
+                    <span class="text-white font-semibold text-sm">GitHub</span>
+                </a>
+                <!-- Google Cloud -->
+                <a href="https://www.cloudskillsboost.google/public_profiles/31437ed3-246f-4d32-bf35-2a05aa805d3c" target="_blank" rel="noopener noreferrer" class="glass-card flex flex-col items-center justify-center p-6 rounded-2xl w-36 hover:scale-105 hover:border-yellow-500/40 hover:shadow-yellow-500/10 hover:shadow-lg">
+                    <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="GCP" class="h-9 w-9 mb-3">
+                    <span class="text-white font-semibold text-sm">Google Cloud</span>
+                </a>
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/anshul_kanodia/" target="_blank" rel="noopener noreferrer" class="glass-card flex flex-col items-center justify-center p-6 rounded-2xl w-36 hover:scale-105 hover:border-pink-500/40 hover:shadow-pink-500/10 hover:shadow-lg">
+                    <i class="fa-brands fa-instagram text-pink-500 text-4xl mb-3"></i>
+                    <span class="text-white font-semibold text-sm">Instagram</span>
+                </a>
+                <!-- Gmail -->
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=anshulkanodia3560@gmail.com" target="_blank" rel="noopener noreferrer" class="glass-card flex flex-col items-center justify-center p-6 rounded-2xl w-36 hover:scale-105 hover:border-red-500/40 hover:shadow-red-500/10 hover:shadow-lg">
+                    <i class="fa-solid fa-envelope text-red-500 text-4xl mb-3"></i>
+                    <span class="text-white font-semibold text-sm">Gmail</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 border-t border-white/5 reveal">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">Get In Touch</h2>
+                <div class="h-1.5 w-16 bg-gradient-to-r from-indigo-500 to-violet-500 mx-auto rounded-full"></div>
+                <p class="text-slate-400 mt-4 max-w-lg mx-auto text-sm md:text-base">Drop a line to discuss collaborations, opportunities or code.</p>
+            </div>
+
+            <div class="grid md:grid-cols-12 gap-12 max-w-5xl mx-auto items-stretch">
+                <!-- Contact info -->
+                <div class="md:col-span-5 flex flex-col justify-between py-2">
+                    <div class="space-y-8">
+                        <h3 class="text-2xl font-bold text-white leading-tight">Let's build something amazing together</h3>
+                        <p class="text-slate-400 text-base leading-relaxed">
+                            I am open to projects, code review and internship operations. Feel free to shoot me an email directly or submit this contact form.
+                        </p>
                     </div>
-                     <!-- Contact Info -->
-                    <div class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left">
-                        <h3 class="text-2xl font-bold text-white mb-4">Or reach out directly</h3>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=anshulkanodia3560@gmail.com" target="_blank" rel="noopener noreferrer" class="flex items-center text-lg hover:underline transition-colors" style="color: var(--primary-color-light);">
-                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                            </svg>
-                            anshulkanodia3560@gmail.com
+
+                    <div class="mt-12 space-y-6">
+                        <a href="mailto:anshulkanodia3560@gmail.com" class="flex items-center gap-4 group p-4 rounded-2xl hover:bg-white/5 border border-transparent hover:border-white/5 transition-all">
+                            <div class="h-12 w-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="block text-slate-500 text-xs font-semibold uppercase tracking-wider">Email Me Directly</span>
+                                <span class="text-white font-medium text-sm md:text-base group-hover:text-indigo-300 transition-colors">anshulkanodia3560@gmail.com</span>
+                            </div>
                         </a>
+                        
+                        <div class="flex items-center gap-4 p-4">
+                            <div class="h-12 w-12 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 text-xl">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <span class="block text-slate-500 text-xs font-semibold uppercase tracking-wider">Location</span>
+                                <span class="text-white font-medium text-sm md:text-base">New Delhi, India</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="md:col-span-7">
+                    <div class="glass-card rounded-3xl p-8 border border-white/10">
+                        <form id="contact-form" action="https://formspree.io/f/mdkwzlej" method="POST" onsubmit="return handleFormSubmit(event, this);">
+                            <div class="mb-5">
+                                <label for="name" class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your Name" class="w-full px-4 py-3 bg-slate-950/50 border border-white/10 rounded-xl focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/15 focus:outline-none transition-all text-white text-sm" required>
+                            </div>
+                            <div class="mb-5">
+                                <label for="email" class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="email@example.com" class="w-full px-4 py-3 bg-slate-950/50 border border-white/10 rounded-xl focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/15 focus:outline-none transition-all text-white text-sm" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Message</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." class="w-full px-4 py-3 bg-slate-950/50 border border-white/10 rounded-xl focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/15 focus:outline-none transition-all text-white text-sm resize-none" required></textarea>
+                            </div>
+                            
+                            <button type="submit" id="submit-btn" class="w-full bg-gradient-to-r from-indigo-500 to-violet-500 text-white font-bold py-4 rounded-xl shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 transition-all duration-300 transform hover:-translate-y-0.5 flex justify-center items-center gap-2">
+                                Send Message <i class="fa-solid fa-paper-plane text-xs"></i>
+                            </button>
+                        </form>
+                        <p id="form-message" class="mt-4 text-center text-sm font-semibold text-emerald-400">&nbsp;</p>
                     </div>
                 </div>
             </div>
         </section>
-    
+
     </main>
 
-    <footer class="relative z-10 text-white py-6" style="background-color: var(--bg-color);">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; <span id="year"></span> Anshul Kanodia. All Rights Reserved.</p>
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-12 bg-slate-950/50 backdrop-blur-md mt-16 relative z-10">
+        <div class="max-w-6xl mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <p class="text-white font-semibold text-base mb-1">Anshul Kanodia</p>
+                <p class="text-slate-500 text-xs">AI & Systems Development Enthusiast</p>
+            </div>
+            
+            <p class="text-slate-500 text-xs text-center">&copy; <span id="year"></span> Anshul Kanodia. All Rights Reserved.</p>
+            
+            <div class="flex items-center gap-4 text-slate-400">
+                <a href="https://github.com/AnshulKanodia" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors text-lg"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/anshulkanodia/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors text-lg"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:anshulkanodia3560@gmail.com" class="hover:text-white transition-colors text-lg"><i class="fa-solid fa-envelope"></i></a>
+            </div>
         </div>
     </footer>
 
-    <!-- SCRIPT 1: Background Animation and UI Logic -->
+    <!-- Fullscreen Certificate Image Modal -->
+    <div id="cert-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 md:p-8 opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeCertificateModal()">
+        <!-- Modal Card Wrapper -->
+        <div class="relative max-w-4xl w-full bg-slate-900/60 border border-white/10 rounded-2xl overflow-hidden shadow-2xl p-2 flex flex-col items-center" onclick="event.stopPropagation();">
+            <!-- Modal Header / Controls -->
+            <div class="w-full flex justify-between items-center px-4 py-3 border-b border-white/5">
+                <h4 id="cert-modal-title" class="text-white font-semibold text-sm md:text-base truncate pr-8">Certificate Viewer</h4>
+                <button onclick="closeCertificateModal()" class="text-slate-400 hover:text-white text-xl p-1.5 focus:outline-none transition-colors"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <!-- Image Frame -->
+            <div class="w-full flex justify-center items-center p-4 bg-slate-950/40 rounded-xl overflow-hidden min-h-[300px]">
+                <img id="cert-modal-img" src="" alt="Certificate Preview" class="max-h-[75vh] w-auto object-contain rounded border border-white/5 shadow-2xl">
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
     <script>
-        // --- Particle Background ---
-        const canvas = document.getElementById('particle-canvas');
-        const ctx = canvas.getContext('2d');
-        let particlesArray;
+        // --- 1. Typed Roles Subtitle Script ---
+        const roles = [
+            "AI & System Development Enthusiast",
+            "Aspiring Software Engineer",
+            "Passionate Machine Learning Developer",
+            "VIT Bhopal Undergraduate"
+        ];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typedRolesEl = document.getElementById("typed-roles");
 
-        function setupCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
-            const textColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim();
-            
-            // Convert hex to rgba for particles
-            let r = parseInt(primaryColor.slice(1, 3), 16);
-            let g = parseInt(primaryColor.slice(3, 5), 16);
-            let b = parseInt(primaryColor.slice(5, 7), 16);
-            
-            particlesArray = [];
-            let numberOfParticles = (canvas.height * canvas.width) / 9000;
-            for (let i = 0; i < numberOfParticles; i++) {
-                let size = (Math.random() * 2) + 1;
-                let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
-                let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
-                let directionX = (Math.random() * .4) - .2;
-                let directionY = (Math.random() * .4) - .2;
-                let color = `rgba(${r}, ${g}, ${b}, 0.8)`;
-
-                particlesArray.push({x, y, directionX, directionY, size, color});
+        function typeEffect() {
+            const currentRole = roles[roleIndex];
+            if (isDeleting) {
+                charIndex--;
+            } else {
+                charIndex++;
             }
-        }
 
-        function animateParticles() {
-            requestAnimationFrame(animateParticles);
-            ctx.clearRect(0,0,innerWidth, innerHeight);
+            typedRolesEl.textContent = currentRole.substring(0, charIndex);
 
-            for (let i = 0; i < particlesArray.length; i++) {
-                let particle = particlesArray[i];
-                ctx.beginPath();
-                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2, false);
-                ctx.fillStyle = particle.color;
-                ctx.fill();
+            let typingSpeed = isDeleting ? 30 : 60;
 
-                if(particle.x + particle.size > canvas.width || particle.x - particle.size < 0) {
-                    particle.directionX = -particle.directionX;
-                }
-                if (particle.y + particle.size > canvas.height || particle.y - particle.size < 0) {
-                    particle.directionY = -particle.directionY;
-                }
-                particle.x += particle.directionX;
-                particle.y += particle.directionY;
+            if (!isDeleting && charIndex === currentRole.length) {
+                typingSpeed = 2000; // Hold role for 2s
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                typingSpeed = 500; // Pause before typing next role
             }
-            connectParticles();
-        }
 
-        function connectParticles() {
-            let opacityValue = 1;
-            for (let a = 0; a < particlesArray.length; a++) {
-                for (let b = a; b < particlesArray.length; b++) {
-                    let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x))
-                    + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
-
-                    if (distance < (canvas.width/7) * (canvas.height/7)) {
-                        opacityValue = 1 - (distance/20000);
-                        let dx = particlesArray[a].x - particlesArray[b].x;
-                        let dy = particlesArray[a].y - particlesArray[b].y;
-                        let primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
-                        let r = parseInt(primaryColor.slice(1, 3), 16);
-                        let g = parseInt(primaryColor.slice(3, 5), 16);
-                        let b = parseInt(primaryColor.slice(5, 7), 16);
-
-                        ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${opacityValue})`;
-                        ctx.lineWidth = 1;
-                        ctx.beginPath();
-                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-                        ctx.stroke();
-                    }
-                }
-            }
+            setTimeout(typeEffect, typingSpeed);
         }
         
-        window.addEventListener('resize', () => {
-            setupCanvas();
+        // Start typing effect on load
+        document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(typeEffect, 1000);
         });
 
-        setupCanvas();
-        animateParticles();
+        // --- 2. Mobile Menu Toggle ---
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        
+        // Hamburger parts
+        const hamTop = document.getElementById("hamburger-top");
+        const hamMid = document.getElementById("hamburger-mid");
+        const hamBot = document.getElementById("hamburger-bot");
 
-
-        // --- Mobile Menu Toggle ---
-        document.getElementById('mobile-menu-button').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+        mobileMenuBtn.addEventListener("click", () => {
+            const isClosed = mobileMenu.classList.contains("hidden");
+            if (isClosed) {
+                // Open menu
+                mobileMenu.classList.remove("hidden");
+                setTimeout(() => {
+                    mobileMenu.classList.remove("scale-95", "opacity-0");
+                }, 10);
+                
+                // Toggle Hamburger icon to X
+                hamTop.classList.add("rotate-45", "translate-y-2");
+                hamMid.classList.add("opacity-0");
+                hamBot.classList.add("-rotate-45", "-translate-y-2");
+            } else {
+                // Close menu
+                mobileMenu.classList.add("scale-95", "opacity-0");
+                setTimeout(() => {
+                    mobileMenu.classList.add("hidden");
+                }, 300);
+                
+                // Reset Hamburger icon
+                hamTop.classList.remove("rotate-45", "translate-y-2");
+                hamMid.classList.remove("opacity-0");
+                hamBot.classList.remove("-rotate-45", "-translate-y-2");
+            }
         });
 
-        // --- Hide scroll arrow on scroll ---
-        const scrollArrow = document.getElementById('scroll-down-arrow');
-        if (scrollArrow) {
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    scrollArrow.classList.add('opacity-0', 'pointer-events-none');
-                } else {
-                    scrollArrow.classList.remove('opacity-0', 'pointer-events-none');
-                }
+        // Close mobile menu when clicking links
+        document.querySelectorAll(".mobile-nav-link").forEach(link => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.add("scale-95", "opacity-0");
+                setTimeout(() => {
+                    mobileMenu.classList.add("hidden");
+                }, 300);
+                hamTop.classList.remove("rotate-45", "translate-y-2");
+                hamMid.classList.remove("opacity-0");
+                hamBot.classList.remove("-rotate-45", "-translate-y-2");
             });
-        }
+        });
 
-        // --- Set Current Year ---
-        document.getElementById('year').textContent = new Date().getFullYear();
+        // --- 3. Hide Scroll Arrow & Change Header Nav styling on scroll ---
+        const scrollArrow = document.getElementById('scroll-down-arrow');
+        const headerNav = document.getElementById('header-nav');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                if (scrollArrow) scrollArrow.classList.add('opacity-0', 'pointer-events-none');
+                headerNav.classList.add('py-2');
+            } else {
+                if (scrollArrow) scrollArrow.classList.remove('opacity-0', 'pointer-events-none');
+                headerNav.classList.remove('py-2');
+            }
+        });
 
-        // --- Clean URL & Smooth Scroll Interceptor ---
+        // --- 4. Smooth Scrolling Interceptor ---
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault(); // Stop the URL from changing
-
-                // Scroll to the targeted section smoothly
+                e.preventDefault();
                 const targetId = this.getAttribute('href').substring(1);
                 if (targetId) {
                     const targetElement = document.getElementById(targetId);
-                    
                     if (targetElement) {
                         targetElement.scrollIntoView({
                             behavior: 'smooth'
                         });
                     }
                 }
-                
-                // Automatically close the mobile menu if it's open
-                const mobileMenu = document.getElementById('mobile-menu');
-                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // --- 5. Active Navigation Indicator ---
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 120)) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove("text-white", "bg-white/10");
+                if (link.getAttribute("href") === `#${current}`) {
+                    link.classList.add("text-white", "bg-white/10");
                 }
             });
         });
+
+        // --- 6. Set Current Year ---
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // --- 7. Reveal Elements on Scroll ---
+        const reveals = document.querySelectorAll(".reveal");
         
-        // --- BULLETPROOF Contact Form Handler ---
+        function revealElements() {
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveal.getBoundingClientRect().top;
+                const elementVisible = 100;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add("active");
+                }
+            });
+        }
+        
+        window.addEventListener("scroll", revealElements);
+        // Trigger once initially
+        revealElements();
+
+        // --- 8. Certificate Filtering Logic ---
+        function filterCertificates(category) {
+            const cards = document.querySelectorAll(".cert-card");
+            
+            // Toggle active classes on tabs
+            document.querySelectorAll(".cert-tab").forEach(tab => {
+                tab.classList.remove("bg-gradient-to-r", "from-indigo-500", "to-violet-500", "text-white", "border-transparent");
+                tab.classList.add("border-white/10", "text-slate-400", "hover:text-white", "hover:border-white/20");
+            });
+
+            const activeTab = document.getElementById(`tab-${category}`);
+            if (activeTab) {
+                activeTab.classList.remove("border-white/10", "text-slate-400", "hover:text-white", "hover:border-white/20");
+                activeTab.classList.add("bg-gradient-to-r", "from-indigo-500", "to-violet-500", "text-white", "border-transparent");
+            }
+
+            // Animate card heights/visibility
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute("data-category");
+                
+                if (category === "all" || cardCategory === category) {
+                    card.style.display = "block";
+                    setTimeout(() => {
+                        card.style.opacity = "1";
+                        card.style.transform = "scale(1)";
+                    }, 50);
+                } else {
+                    card.style.opacity = "0";
+                    card.style.transform = "scale(0.95)";
+                    setTimeout(() => {
+                        card.style.display = "none";
+                    }, 200);
+                }
+            });
+        }
+
+        // --- 9. Fullscreen Certificate Viewer Modal ---
+        const certModal = document.getElementById("cert-modal");
+        const certModalImg = document.getElementById("cert-modal-img");
+        const certModalTitle = document.getElementById("cert-modal-title");
+
+        function openCertificateModal(imgSrc, titleText) {
+            certModalImg.src = imgSrc;
+            certModalTitle.textContent = titleText;
+            
+            certModal.classList.remove("pointer-events-none", "opacity-0");
+            certModal.classList.add("opacity-100");
+            document.body.style.overflow = "hidden"; // Prevent background scroll
+        }
+
+        function closeCertificateModal() {
+            certModal.classList.remove("opacity-100");
+            certModal.classList.add("pointer-events-none", "opacity-0");
+            document.body.style.overflow = ""; // Restore background scroll
+        }
+
+        // Close on ESC keypress
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                closeCertificateModal();
+            }
+        });
+
+        // --- 10. AJAX Form Submission for Formspree ---
         async function handleFormSubmit(event, formElement) {
-            event.preventDefault(); // Physically stops the native Formspree redirect and page reload
+            event.preventDefault();
             
             const submitBtn = document.getElementById('submit-btn');
             const status = document.getElementById('form-message');
             const data = new FormData(formElement);
             
             status.textContent = 'Sending message...';
+            status.className = 'mt-4 text-center text-sm font-semibold text-indigo-400';
+            
             if (submitBtn) {
                 submitBtn.disabled = true;
                 submitBtn.style.opacity = '0.7';
-                submitBtn.textContent = 'Sending...';
+                submitBtn.innerHTML = 'Sending... <i class="fa-solid fa-spinner animate-spin"></i>';
             }
             
             try {
@@ -710,7 +1256,8 @@
                 });
                 
                 if (response.ok) {
-                    status.textContent = "Thank you for your message! I'll get back to you soon.";
+                    status.textContent = "Thank you! Your message was sent successfully.";
+                    status.className = 'mt-4 text-center text-sm font-semibold text-emerald-400';
                     formElement.reset();
                 } else {
                     const responseData = await response.json();
@@ -719,19 +1266,20 @@
                     } else {
                         status.textContent = "Oops! There was a problem submitting your form.";
                     }
+                    status.className = 'mt-4 text-center text-sm font-semibold text-red-400';
                 }
             } catch (error) {
-                status.textContent = "Oops! There was a network problem submitting your form.";
+                status.textContent = "Oops! Network error. Please try again.";
+                status.className = 'mt-4 text-center text-sm font-semibold text-red-400';
             } finally {
-                // Re-enable the button
                 if (submitBtn) {
                     submitBtn.disabled = false;
                     submitBtn.style.opacity = '1';
-                    submitBtn.textContent = 'Send Message';
+                    submitBtn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane text-xs"></i>';
                 }
             }
             
-            return false; // Double prevention mechanism
+            return false;
         }
     </script>
 </body>
