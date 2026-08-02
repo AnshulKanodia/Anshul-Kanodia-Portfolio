@@ -44,11 +44,14 @@ Form Handling: Formspree API
 
 📁 root
  ├── 📄 index.html                        # Main landing page
- ├── 📄 style.css                         # Main landing page stylesheet
- ├── 📄 main.js                           # Main landing page interactive logic
- ├── 📄 validate_portfolio.py             # Python asset & link validator utility
- ├── 📄 resume.md                         # Markdown text resume
- ├── 📁 resume/
+ ├── 📄 README.md                         # Project documentation
+ ├── 📁 assets/                           # Main landing page support assets
+ │    ├── 📄 main.jpg                     # Profile avatar logo image
+ │    ├── 📄 style.css                    # Main landing page stylesheet
+ │    ├── 📄 main.js                      # Main landing page interactive logic
+ │    ├── 📄 validate_portfolio.py        # Python asset & link validator utility
+ │    └── 📄 resume.md                    # Markdown text resume
+ ├── 📁 resume/                           # Resume page files
  │    ├── 📄 index.html                   # Interactive glassmorphic resume page (tabs view)
  │    ├── 📄 resume.css                   # Resume page stylesheet
  │    ├── 📄 resume.js                    # Resume tab & menu logic

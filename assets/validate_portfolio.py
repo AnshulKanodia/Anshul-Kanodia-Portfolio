@@ -81,7 +81,8 @@ def validate_html_files(root_dir):
     return True
 
 if __name__ == '__main__':
-    project_root = os.path.dirname(os.path.abspath(__file__))
+    # Go one folder level up since this script lives in assets/
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     success = validate_html_files(project_root)
     if not success:
         sys.exit(1)
