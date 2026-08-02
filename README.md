@@ -43,22 +43,19 @@ Form Handling: Formspree API
 ```
 
 📁 root
- ├── 📁 css/
- │    ├── 📄 style.css                    # Main portfolio stylesheet
- │    └── 📄 resume.css                   # Resume page stylesheet
- ├── 📁 js/
- │    ├── 📄 main.js                      # Main landing page interactive logic
- │    ├── 📄 resume.js                    # Resume tab & menu logic
- │    └── 📄 project.js                   # Shared project page menu logic
- ├── 📁 scripts/
- │    └── 📄 validate_portfolio.py        # Python asset & link validator utility
- ├── 📄 index.html                        # Main landing page (About, Skills, Contact)
+ ├── 📄 index.html                        # Main landing page
+ ├── 📄 style.css                         # Main landing page stylesheet
+ ├── 📄 main.js                           # Main landing page interactive logic
+ ├── 📄 validate_portfolio.py             # Python asset & link validator utility
  ├── 📄 resume.md                         # Markdown text resume
  ├── 📁 resume/
  │    ├── 📄 index.html                   # Interactive glassmorphic resume page (tabs view)
+ │    ├── 📄 resume.css                   # Resume page stylesheet
+ │    ├── 📄 resume.js                    # Resume tab & menu logic
  │    ├── 📄 Anshul Kanodia CV.pdf        # Downloadable academic CV PDF
  │    └── 📄 Anshul Kanodia Resume.pdf    # Downloadable resume PDF
  └── 📁 project/
+      ├── 📄 project.js                   # Shared project page menu logic
       ├── 📁 geocraft/
       │    ├── 📄 index.html              # Detailed GeoCraft project breakdown
       │    └── 📄 geocraftReport.pdf      # Downloadable GeoCraft project report
