@@ -30,7 +30,10 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--color-bg);
             overflow-x: hidden;
+            color: #d1d5db;
+            transition: background-color 0.3s, color 0.3s;
         }
+
 
         h1, h2, h3, h4, .font-display {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -63,6 +66,7 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
+
         /* Resume section list style */
         .resume-list li {
             position: relative;
@@ -78,15 +82,29 @@
             top: 0.3em;
         }
 
+        .chip {
+            transition: all 0.2s ease-in-out;
+        }
+        .chip:hover {
+            transform: translateY(-2px);
+        }
+
         /* Print Media Styles Optimization */
         @media print {
-            body {
+            .no-print {
+                display: none !important;
+            }
+            body, body.light {
                 background: white !important;
                 background-image: none !important;
                 color: #0f172a !important;
+                font-size: 11pt !important;
             }
-            .no-print {
+            #pdf-view-container {
                 display: none !important;
+            }
+            #interactive-resume-container {
+                display: block !important;
             }
             .resume-glass-card {
                 background: transparent !important;
@@ -104,7 +122,7 @@
             a {
                 text-decoration: underline !important;
             }
-            .border-gray-700\/50, .border-gray-700\/30 {
+            .border-gray-700\/50, .border-gray-700\/30, .border-white\/10 {
                 border-color: #cbd5e1 !important;
             }
             .resume-list li::before {
@@ -116,6 +134,24 @@
             img {
                 filter: grayscale(1) !important;
                 border-color: #cbd5e1 !important;
+            }
+            .print-full-width {
+                width: 100% !important;
+                max-width: 100% !important;
+                flex: 1 1 100% !important;
+            }
+            .print-grid {
+                display: block !important;
+            }
+            .print-border {
+                border-bottom: 1px solid #cbd5e1 !important;
+                padding-bottom: 1rem !important;
+                margin-bottom: 1rem !important;
+            }
+            .print-badge {
+                border: 1px solid #374151 !important;
+                background: transparent !important;
+                color: black !important;
             }
         }
 
@@ -145,7 +181,7 @@
     </script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
 </head>
-<body class="text-slate-300 antialiased bg-grid-pattern relative min-h-screen">
+<body class="text-slate-300 antialiased bg-grid-pattern relative min-h-screen pb-16">
 
     <!-- Ambient Glowing Blobs -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none z-0 no-print">
@@ -192,183 +228,263 @@
         </div>
     </header>
 
-    <main class="container mx-auto px-4 md:px-8 pt-28 pb-20 relative z-10">
+    <main class="container mx-auto px-4 md:px-8 pt-28 pb-10 relative z-10">
         
-        <!-- Controls panel: Back and Download -->
-        <div class="max-w-4xl mx-auto flex justify-between items-center mb-8 gap-6 no-print">
+        <!-- Controls panel: Back and Download (Non-Printable) -->
+        <div class="max-w-4xl mx-auto flex justify-between items-center mb-8 gap-4 no-print flex-wrap">
             <a href="/" class="inline-flex items-center text-sm md:text-base font-semibold text-indigo-400 hover:text-indigo-300 transition-colors group">
                 <i class="fa-solid fa-arrow-left mr-2 transition-transform group-hover:-translate-x-1"></i>
                 Back to Portfolio
             </a>
 
-            <div class="flex gap-4">
-                <!-- Trigger browser print -->
-                <button onclick="window.print()" class="inline-flex items-center bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold py-3 px-6 rounded-full transition duration-300 text-sm">
-                    <i class="fa-solid fa-print mr-2"></i> Print Resume
-                </button>
+            <div class="flex items-center gap-3">
                 
-                <a href="/Anshul%20Kanodia.pdf" download class="inline-flex items-center bg-gradient-to-r from-indigo-500 to-violet-500 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-[0_0_15px_rgba(99,102,241,0.35)] text-sm">
-                    <i class="fa-solid fa-download mr-2"></i> Download PDF
-                </a>
-            </div>
-        </div>
-
-        <!-- Main Resume Document -->
-        <div class="max-w-4xl mx-auto resume-glass-card p-8 md:p-12 rounded-3xl border border-white/5 shadow-2xl relative">
-            
-            <!-- Header Block -->
-            <div class="border-b border-white/10 pb-8 mb-8 flex flex-col md:flex-row items-center md:items-start gap-8">
-                <!-- Profile Avatar -->
-                <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/Profile/main.jpg" alt="Anshul Kanodia" class="w-32 h-32 md:w-36 md:h-36 rounded-full object-cover border-4 border-indigo-500/80 shadow-lg shadow-indigo-500/10 bg-slate-800">
-                
-                <div class="flex-1 text-center md:text-left">
-                    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-2 tracking-tight">Anshul Kanodia</h1>
-                    <p class="text-lg font-semibold text-indigo-400 mb-4">Computer Science Engineering Undergraduate</p>
-                    
-                    <div class="flex flex-wrap justify-center md:justify-start gap-y-2.5 gap-x-6 text-sm text-slate-400">
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-indigo-400"></i> New Delhi, India</span>
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-phone text-indigo-400"></i> +91-8368535805</span>
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-envelope text-indigo-400"></i> anshulkanodia3560@gmail.com</span>
-                    </div>
-                    
-                    <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-4 text-xs font-semibold">
-                        <a href="https://linkedin.com/in/anshulkanodia" target="_blank" class="text-slate-300 hover:text-white transition-colors bg-white/5 px-3 py-1.5 rounded-lg border border-white/5 flex items-center gap-1.5">
-                            <i class="fa-brands fa-linkedin text-blue-500"></i> linkedin.com/in/anshulkanodia
-                        </a>
-                        <a href="https://github.com/anshulkanodia" target="_blank" class="text-slate-300 hover:text-white transition-colors bg-white/5 px-3 py-1.5 rounded-lg border border-white/5 flex items-center gap-1.5">
-                            <i class="fa-brands fa-github text-white"></i> github.com/anshulkanodia
-                        </a>
+                <!-- Download options dropup/dropdown -->
+                <div class="relative inline-block text-left group/dropdown">
+                    <button class="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-teal-500 hover:from-indigo-600 hover:to-teal-600 text-white font-bold py-3 px-6 rounded-full shadow-[0_0_15px_rgba(99,102,241,0.3)] transition duration-300 text-sm">
+                        <i class="fa-solid fa-download"></i>
+                        <span>Download Options</span>
+                        <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div class="absolute right-0 mt-2 w-48 rounded-xl bg-slate-900 border border-white/10 shadow-2xl origin-top-right divide-y divide-white/5 focus:outline-none hidden group-hover/dropdown:block hover:block z-50">
+                        <div class="py-1">
+                            <a href="Anshul Kanodia Resume.pdf" download="Anshul Kanodia Resume.pdf" class="flex items-center gap-2 px-4 py-2.5 text-sm text-slate-300 hover:bg-indigo-600 hover:text-white transition-colors">
+                                <i class="fa-regular fa-file-pdf text-indigo-400 w-4 text-center"></i> Download Resume
+                            </a>
+                            <a href="Anshul Kanodia CV.pdf" download="Anshul Kanodia CV.pdf" class="flex items-center gap-2 px-4 py-2.5 text-sm text-slate-300 hover:bg-indigo-600 hover:text-white transition-colors">
+                                <i class="fa-regular fa-file-pdf text-teal-400 w-4 text-center"></i> Download CV
+                            </a>
+                        </div>
+                        <div class="py-1">
+                            <button onclick="window.print()" class="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-slate-300 hover:bg-indigo-600 hover:text-white transition-colors text-left">
+                                <i class="fa-solid fa-print text-indigo-400 w-4 text-center"></i> Print/Save Resume
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Sections -->
-            <div class="space-y-8 text-sm md:text-base leading-relaxed text-slate-300">
+        <!-- Navigation Tabs (Non-Printable) -->
+        <div class="no-print mb-8 flex justify-center">
+            <div class="bg-slate-900/60 dark:bg-darkCard backdrop-blur-md border border-white/10 p-1.5 rounded-full flex gap-1">
+                <button id="btn-interactive-tab" onclick="switchTab('interactive')" class="flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-gradient-to-r from-indigo-500 to-teal-500 text-white shadow-lg">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    <span>Resume</span>
+                </button>
+                <button id="btn-pdf-tab" onclick="switchTab('pdf')" class="flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 text-slate-400 hover:text-white">
+                    <i class="fa-regular fa-file-pdf"></i>
+                    <span>CV</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 1. Interactive Resume Tab Content -->
+        <div id="interactive-resume-container" class="tab-content transition-all duration-300 max-w-4xl mx-auto">
+            <div class="resume-glass-card p-8 md:p-12 rounded-3xl border border-white/5 shadow-2xl relative">
                 
-                <!-- 1. Summary -->
-                <section>
-                    <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                        <span class="w-1.5 h-5 bg-indigo-500 rounded-full"></span> Professional Summary
-                    </h3>
-                    <p class="text-slate-300">
-                        Computer Science Engineering undergraduate (B.Tech, Expected Graduation: 2028) with a strong foundation in backend development, systems automation, and natural language processing. Experienced in training NLP machine learning models (Transformers) and constructing custom speech automation systems. Seeking hands-on opportunities, weekend internships, and collaborative development tasks to design scalable features.
-                    </p>
-                </section>
-
-                <!-- 2. Education -->
-                <section>
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                        <span class="w-1.5 h-5 bg-indigo-500 rounded-full"></span> Education
-                    </h3>
-                    <div class="bg-white/5 border border-white/5 p-6 rounded-2xl">
-                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-1">
-                            <h4 class="text-lg font-bold text-white">VIT Bhopal University</h4>
-                            <span class="text-indigo-400 font-semibold text-sm">Graduation: May 2028</span>
-                        </div>
-                        <p class="text-xs text-slate-400 italic mb-3">Bhopal, Madhya Pradesh</p>
-                        <p class="font-medium text-slate-200">Bachelor of Technology in Computer Science and Engineering</p>
-                        <p class="text-sm mt-2 text-slate-300">
-                            <strong>CGPA:</strong> <span class="text-indigo-400 font-bold bg-indigo-500/10 px-2 py-0.5 rounded">8.0 / 10</span>
-                        </p>
-                        <p class="text-xs text-slate-400 mt-3 border-t border-white/5 pt-3">
-                            <strong>Key Coursework:</strong> Data Structures & Algorithms, Object-Oriented Programming (OOP), Database Management Systems (DBMS), Operating Systems.
-                        </p>
-                    </div>
-                </section>
-
-                <!-- 3. Skills -->
-                <section>
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                        <span class="w-1.5 h-5 bg-indigo-500 rounded-full"></span> Technical Skills
-                    </h3>
-                    <div class="grid sm:grid-cols-2 gap-4">
-                        <div class="bg-white/5 border border-white/5 p-4 rounded-xl">
-                            <strong class="block text-white mb-2 text-sm uppercase tracking-wider text-indigo-400">Languages</strong>
-                            <p class="text-sm">C, C++, HTML5/CSS3, Java, JavaScript (ES6+), Python (Advanced), SQL (MySQL).</p>
-                        </div>
-                        <div class="bg-white/5 border border-white/5 p-4 rounded-xl">
-                            <strong class="block text-white mb-2 text-sm uppercase tracking-wider text-indigo-400">Frameworks & Tools</strong>
-                            <p class="text-sm">Express.js, Git, GitHub, MongoDB, React.js, Vercel, VS Code.</p>
-                        </div>
-                        <div class="bg-white/5 border border-white/5 p-4 rounded-xl sm:col-span-2">
-                            <strong class="block text-white mb-2 text-sm uppercase tracking-wider text-indigo-400">Core Expertise</strong>
-                            <p class="text-sm">API Integration, Machine Learning, NLP (Transformers), OS Automation, Operating System Configurations.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 4. Projects -->
-                <section>
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                        <span class="w-1.5 h-5 bg-indigo-500 rounded-full"></span> Technical Projects
-                    </h3>
-                    <div class="space-y-6">
-                        <!-- Project 1 -->
-                        <div class="border-l-2 border-indigo-500 pl-4 py-1">
-                            <h4 class="text-lg font-bold text-white">Context-Aware Cyberbullying Detection (Cyber Shield)</h4>
-                            <span class="block text-xs font-semibold text-indigo-400 mt-1 mb-2">Python, NLP Transformers, Synthetic Data Pipeline</span>
-                            <ul class="resume-list text-slate-300 text-sm">
-                                <li>Designed and deployed an NLP-based classification model to capture toxicity and harassment in internet comments, outperforming basic keyword blockers.</li>
-                                <li>Configured a synthetic data generation workflow to balance datasets, increasing validation recall for extreme minority classes.</li>
-                            </ul>
+                <!-- Header Block -->
+                <div class="border-b border-white/10 dark:border-white/10 light:border-slate-300 pb-8 mb-8 flex flex-col md:flex-row items-center md:items-start gap-8">
+                    <!-- Profile Avatar -->
+                    <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/Profile/main.jpg" alt="Anshul Kanodia" class="w-32 h-32 md:w-36 md:h-36 rounded-full object-cover border-4 border-indigo-500/80 shadow-lg shadow-indigo-500/10 bg-slate-800">
+                    
+                    <div class="flex-1 text-center md:text-left">
+                        <h1 class="text-4xl md:text-5xl font-extrabold text-white dark:text-white light:text-slate-800 mb-2 tracking-tight">Anshul Kanodia</h1>
+                        <p class="text-lg font-semibold text-indigo-400 mb-4">Computer Science Engineering Undergraduate</p>
+                        
+                        <div class="flex flex-wrap justify-center md:justify-start gap-y-2.5 gap-x-6 text-sm text-slate-400 dark:text-slate-400 light:text-slate-500">
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-indigo-400"></i> New Delhi, India</span>
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-phone text-indigo-400"></i> +91-8368535805</span>
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-envelope text-indigo-400"></i> anshulkanodia3560@gmail.com</span>
                         </div>
                         
-                        <!-- Project 2 -->
-                        <div class="border-l-2 border-indigo-500 pl-4 py-1">
-                            <h4 class="text-lg font-bold text-white">Desktop Voice Assistant (DVA)</h4>
-                            <span class="block text-xs font-semibold text-indigo-400 mt-1 mb-2">Python, Speech Synthesis, Windows API, Automation Scripts</span>
-                            <ul class="resume-list text-slate-300 text-sm">
-                                <li>Built a lightweight, terminal-based voice assistant to increase user productivity.</li>
-                                <li>Integrated speech recognition libraries with the Windows OS API, allowing voice commands to trigger browser actions, files discovery, and custom commands.</li>
-                            </ul>
-                        </div>
-
-                        <!-- Project 3 -->
-                        <div class="border-l-2 border-indigo-500 pl-4 py-1">
-                            <h4 class="text-lg font-bold text-white">Personal Portfolio Website</h4>
-                            <span class="block text-xs font-semibold text-indigo-400 mt-1 mb-2">Frontend Stack, Glassmorphic UI/UX, Vercel Pipelines</span>
-                            <ul class="resume-list text-slate-300 text-sm">
-                                <li>Built a high-performance web portfolio featuring a modern layout design, responsive structure, and interactive certificate categorizations.</li>
-                                <li>Optimized for speed and SEO; deployed seamlessly via Vercel integration with GitHub.</li>
-                            </ul>
+                        <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-4 text-xs font-semibold no-print">
+                            <a href="https://linkedin.com/in/anshulkanodia" target="_blank" class="text-slate-300 dark:text-slate-300 light:text-slate-600 hover:text-white dark:hover:text-white light:hover:text-slate-900 transition-colors bg-white/5 light:bg-slate-200 px-3 py-1.5 rounded-lg border border-white/5 light:border-slate-300 flex items-center gap-1.5">
+                                <i class="fa-brands fa-linkedin text-blue-500"></i> linkedin.com/in/anshulkanodia
+                            </a>
+                            <a href="https://github.com/AnshulKanodia" target="_blank" class="text-slate-300 dark:text-slate-300 light:text-slate-600 hover:text-white dark:hover:text-white light:hover:text-slate-900 transition-colors bg-white/5 light:bg-slate-200 px-3 py-1.5 rounded-lg border border-white/5 light:border-slate-300 flex items-center gap-1.5">
+                                <i class="fa-brands fa-github text-white dark:text-white light:text-slate-800"></i> github.com/AnshulKanodia
+                            </a>
                         </div>
                     </div>
-                </section>
+                </div>
 
-                <!-- 5. Achievements -->
-                <section>
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                        <span class="w-1.5 h-5 bg-indigo-500 rounded-full"></span> Certifications
-                    </h3>
-                    <ul class="resume-list text-slate-300 text-sm">
-                        <li><strong>MongoDB Associate Database Administrator</strong> - FACE Prep (July 2026)</li>
-                        <li><strong>Cloud Computing and Distributed Systems</strong> - NPTEL (May 2026)</li>
-                        <li><strong>Open Source Software Module</strong> - Vityarthi (Mar 2026)</li>
-                        <li><strong>5-Day AI Agents Intensive Course</strong> - Kaggle / Google (Dec 2025)</li>
-                        <li><strong>Programming in Java Specialization</strong> - Vityarthi (Dec 2025)</li>
-                        <li><strong>Applied Machine Learning in Python</strong> - Coursera (Nov 2025)</li>
-                        <li><strong>Introduction to Internet of Things</strong> - Nptel (Nov 2025)</li>
-                        <li><strong>Operating System Architecture</strong> - Scaler (Sep 2025)</li>
-                        <li><strong>Introduction to Generative AI</strong> - Google Cloud (Sep 2025)</li>
-                    </ul>
-                    <p class="text-xs text-slate-500 italic mt-3 no-print">* A full list of certifications can be interactive checked and filtered on the main Portfolio site.</p>
-                </section>
+                <!-- Sections -->
+                <div class="space-y-8 text-sm md:text-base leading-relaxed text-slate-300 dark:text-slate-300 light:text-slate-600">
+                    
+                    <!-- 1. Summary -->
+                    <section class="print-card">
+                        <h3 class="text-xl font-bold text-white dark:text-white light:text-slate-800 mb-3 flex items-center gap-2">
+                            <span class="w-1.5 h-5 bg-indigo-500 rounded-full"></span> Professional Summary
+                        </h3>
+                        <p>
+                            Computer Science Engineering undergraduate (B.Tech, Expected Graduation: 2028) with a strong foundation in backend development, systems automation, and natural language processing. Experienced in training NLP machine learning models (Transformers), deploying vector validation pipelines, and constructing speech automation. Seeking software engineering internships and developer roles to design scalable systems and collaborate with cross-functional teams.
+                        </p>
+                    </section>
 
-                <!-- 6. Leadership -->
-                <section>
-                    <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                        <span class="w-1.5 h-5 bg-indigo-500 rounded-full"></span> Extracurricular & Leadership
-                    </h3>
-                    <div class="bg-white/5 border border-white/5 p-4 rounded-xl">
-                        <h4 class="font-bold text-white text-sm sm:text-base">Technical Committee Member | Student Chapters & Clubs</h4>
-                        <p class="text-xs text-slate-400 italic mb-2">VIT Bhopal University</p>
-                        <p class="text-sm">Collaborated in designing and executing technical frameworks, coding hackathons, and workshop requirements for university student clubs, coordinating with cross-functional committees.</p>
-                    </div>
-                </section>
+                    <!-- 2. Education -->
+                    <section class="print-card">
+                        <h3 class="text-xl font-bold text-white dark:text-white light:text-slate-800 mb-4 flex items-center gap-2">
+                            <span class="w-1.5 h-5 bg-indigo-500 rounded-full"></span> Education
+                        </h3>
+                        <div class="bg-white/5 dark:bg-slate-900/50 light:bg-slate-200 border border-white/5 light:border-slate-300 p-6 rounded-2xl">
+                            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-1">
+                                <h4 class="text-lg font-bold text-white dark:text-white light:text-slate-800">VIT Bhopal University</h4>
+                                <span class="text-indigo-400 light:text-indigo-600 font-semibold text-sm">Graduation: Expected May 2028</span>
+                            </div>
+                            <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-500 italic mb-3">Bhopal, Madhya Pradesh</p>
+                            <p class="font-medium text-slate-200 dark:text-slate-200 light:text-slate-700">Bachelor of Technology in Computer Science and Engineering</p>
+                            <p class="text-sm mt-2 text-slate-300 dark:text-slate-300 light:text-slate-600">
+                                <strong>CGPA:</strong> <span class="text-indigo-400 font-bold bg-indigo-500/10 px-2 py-0.5 rounded">8.0 / 10</span>
+                            </p>
+                            <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-500 mt-3 border-t border-white/5 light:border-slate-300 pt-3">
+                                <strong>Key Coursework:</strong> Data Structures & Algorithms, Object-Oriented Programming (OOP), Database Management Systems (DBMS), Operating Systems, Systems Architecture.
+                            </p>
+                        </div>
+                    </section>
 
+                    <!-- 3. Skills -->
+                    <section class="print-card">
+                        <h3 class="text-xl font-bold text-white dark:text-white light:text-slate-800 mb-4 flex items-center gap-2">
+                            <span class="w-1.5 h-5 bg-indigo-500 rounded-full"></span> Technical Skills
+                        </h3>
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div class="bg-white/5 dark:bg-slate-900/50 light:bg-slate-200 border border-white/5 light:border-slate-300 p-4 rounded-xl">
+                                <strong class="block text-white dark:text-white light:text-slate-800 mb-2 text-sm uppercase tracking-wider text-indigo-400 light:text-indigo-600">Languages</strong>
+                                <p class="text-sm">C, C++, HTML5/CSS3, Java, JavaScript (ES6+), Python (Advanced), SQL (MySQL).</p>
+                            </div>
+                            <div class="bg-white/5 dark:bg-slate-900/50 light:bg-slate-200 border border-white/5 light:border-slate-300 p-4 rounded-xl">
+                                <strong class="block text-white dark:text-white light:text-slate-800 mb-2 text-sm uppercase tracking-wider text-indigo-400 light:text-indigo-600">Frameworks & Tools</strong>
+                                <p class="text-sm">Express.js, Git, GitHub, MongoDB (Certified), Node.js, React.js, Vercel, VS Code.</p>
+                            </div>
+                            <div class="bg-white/5 dark:bg-slate-900/50 light:bg-slate-200 border border-white/5 light:border-slate-300 p-4 rounded-xl sm:col-span-2">
+                                <strong class="block text-white dark:text-white light:text-slate-800 mb-2 text-sm uppercase tracking-wider text-indigo-400 light:text-indigo-600">Core Expertise</strong>
+                                <p class="text-sm">API Integration, Machine Learning, NLP (Transformers), OS Automation, Operating System Architecture, Vector Geometry Mathematics.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 4. Projects -->
+                    <section class="print-card">
+                        <h3 class="text-xl font-bold text-white dark:text-white light:text-slate-800 mb-4 flex items-center gap-2">
+                            <span class="w-1.5 h-5 bg-indigo-500 rounded-full"></span> Technical Projects
+                        </h3>
+                        <div class="space-y-6">
+                            <!-- Project 1 -->
+                            <div class="print-border border-l-2 border-indigo-500 pl-4 py-1">
+                                <h4 class="text-lg font-bold text-white dark:text-white light:text-slate-800">Open Source Contributor – GeoCraft | tenali.fun</h4>
+                                <span class="block text-xs font-semibold text-indigo-400 light:text-indigo-600 mt-1 mb-2">React.js, SVG Canvas, Vector Mathematics, Route Security (AuthGate)</span>
+                                <ul class="resume-list text-sm">
+                                    <li>Contributed to Vicharanashala Lab's (IIT Ropar) open source Tenali platform by designing and developing the GeoCraft learning workspace.</li>
+                                    <li>Formulated deterministic geometry validation algorithms using vector mathematics for parallelism, angles, non-collinearity, and polygon closure.</li>
+                                    <li>Constructed an SVG canvas showing coordinate grids, snapping, and real-time validation feedback to bridge spatial-abstract learning gaps.</li>
+                                    <li>Integrated state persistence using localStorage and protected route rendering using AuthGate security middleware.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Project 2 -->
+                            <div class="print-border border-l-2 border-indigo-500 pl-4 py-1">
+                                <h4 class="text-lg font-bold text-white dark:text-white light:text-slate-800">Context-Aware Cyberbullying Detection (Cyber Shield)</h4>
+                                <span class="block text-xs font-semibold text-indigo-400 light:text-indigo-600 mt-1 mb-2">Python, NLP Transformers, Synthetic Data Pipeline</span>
+                                <ul class="resume-list text-sm">
+                                    <li>Designed and deployed an NLP-based classification model to capture toxicity and harassment in internet comments, outperforming basic keyword blockers.</li>
+                                    <li>Configured a synthetic data generation workflow to balance datasets, increasing validation recall for minority classes.</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Project 3 -->
+                            <div class="print-border border-l-2 border-indigo-500 pl-4 py-1">
+                                <h4 class="text-lg font-bold text-white dark:text-white light:text-slate-800">Desktop Voice Assistant (DVA)</h4>
+                                <span class="block text-xs font-semibold text-indigo-400 light:text-indigo-600 mt-1 mb-2">Python, Speech Synthesis, Windows API, Automation Scripts</span>
+                                <ul class="resume-list text-sm">
+                                    <li>Built a lightweight, terminal-based voice assistant to increase user productivity.</li>
+                                    <li>Integrated speech recognition libraries with the Windows OS API, allowing voice commands to trigger browser actions, file discovery, and custom tasks.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Project 4 -->
+                            <div class="print-border border-l-2 border-indigo-500 pl-4 py-1">
+                                <h4 class="text-lg font-bold text-white dark:text-white light:text-slate-800">Personal Developer Portfolio</h4>
+                                <span class="block text-xs font-semibold text-indigo-400 light:text-indigo-600 mt-1 mb-2">Frontend Stack, Glassmorphic UI/UX, Vercel Pipelines</span>
+                                <ul class="resume-list text-sm">
+                                    <li>Built a high-performance web portfolio featuring a modern layout design, responsive structure, and interactive certificate categorizations.</li>
+                                    <li>Optimized for speed and SEO; deployed seamlessly via Vercel integration with GitHub.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 5. Achievements -->
+                    <section class="print-card">
+                        <h3 class="text-xl font-bold text-white dark:text-white light:text-slate-800 mb-4 flex items-center gap-2">
+                            <span class="w-1.5 h-5 bg-indigo-500 rounded-full"></span> Certifications
+                        </h3>
+                        <ul class="resume-list text-sm">
+                            <li><strong>MongoDB Associate Database Administrator</strong> - FACE Prep (July 2026)</li>
+                            <li><strong>Cloud Computing and Distributed Systems</strong> - NPTEL (May 2026)</li>
+                            <li><strong>Open Source Software Module</strong> - Vityarthi (Mar 2026)</li>
+                            <li><strong>5-Day AI Agents Intensive Course</strong> - Kaggle / Google (Dec 2025)</li>
+                            <li><strong>Programming in Java Specialization</strong> - Vityarthi (Dec 2025)</li>
+                            <li><strong>Applied Machine Learning in Python</strong> - Coursera / University of Michigan (Nov 2025)</li>
+                            <li><strong>Introduction to Internet of Things</strong> - Nptel (Nov 2025)</li>
+                            <li><strong>Operating System Architecture</strong> - Scaler (Sep 2025)</li>
+                            <li><strong>Introduction to Generative AI</strong> - Google Cloud (Sep 2025)</li>
+                        </ul>
+                        <p class="text-xs text-slate-500 italic mt-3 no-print">* A full list of certifications can be interactively checked and filtered on the main Portfolio site.</p>
+                    </section>
+
+                    <!-- 6. Leadership -->
+                    <section class="print-card">
+                        <h3 class="text-xl font-bold text-white dark:text-white light:text-slate-800 mb-3 flex items-center gap-2">
+                            <span class="w-1.5 h-5 bg-indigo-500 rounded-full"></span> Extracurricular & Leadership
+                        </h3>
+                        <div class="bg-white/5 dark:bg-slate-900/50 light:bg-slate-200 border border-white/5 light:border-slate-300 p-4 rounded-xl">
+                            <h4 class="font-bold text-white dark:text-white light:text-slate-800 text-sm sm:text-base">Technical Committee Member | Student Chapters & Clubs</h4>
+                            <p class="text-xs text-slate-400 italic mb-2">VIT Bhopal University</p>
+                            <p class="text-sm">Collaborated in designing and executing technical frameworks, coding hackathons, and workshop requirements for university student clubs, coordinating with cross-functional committees.</p>
+                        </div>
+                    </section>
+
+                </div>
+                
             </div>
-            
         </div>
+
+        <!-- 2. PDF Viewer Tab Content (CV) -->
+        <div id="pdf-view-container" class="tab-content hidden transition-all duration-300 max-w-4xl mx-auto no-print">
+            <div class="resume-glass-card p-8 rounded-3xl border border-white/5 shadow-2xl text-center">
+                <div class="flex justify-between items-center mb-6 flex-wrap gap-4 text-left">
+                    <div>
+                        <h2 class="font-display text-2xl font-bold text-white dark:text-white light:text-slate-800 flex items-center gap-2">
+                            <i class="fa-regular fa-file-pdf text-teal-400"></i> CV Document
+                        </h2>
+                        <p class="text-sm text-slate-400 light:text-slate-500 mt-1">Live preview of your official CV.</p>
+                    </div>
+                    <div>
+                        <a href="Anshul Kanodia CV.pdf" download="Anshul Kanodia CV.pdf" class="inline-flex items-center gap-2 bg-gradient-to-r from-teal-500 to-indigo-500 hover:from-teal-600 hover:to-indigo-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-lg transition-all duration-200">
+                            <i class="fa-solid fa-download"></i>
+                            Download CV
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Iframe for PDF rendering -->
+                <div class="w-full rounded-2xl overflow-hidden border border-white/10 bg-slate-950/80">
+                    <object data="Anshul Kanodia CV.pdf" type="application/pdf" class="w-full h-[750px] rounded-2xl">
+                        <iframe src="Anshul Kanodia CV.pdf" class="w-full h-[750px] border-0" frameborder="0">
+                            <p class="text-slate-300 py-12">
+                                It looks like your browser doesn't support embedding PDF files. 
+                                No problem! You can 
+                                <a href="Anshul Kanodia CV.pdf" download class="text-indigo-400 underline font-semibold">click here to download the PDF CV</a> 
+                                directly to view it.
+                            </p>
+                        </iframe>
+                    </object>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <!-- Footer no-print -->
@@ -380,6 +496,27 @@
     <script>
         // Set Current Year
         document.getElementById('year').textContent = new Date().getFullYear();
+
+
+        // Tab Switching Logic
+        function switchTab(tabName) {
+            const interactiveContainer = document.getElementById('interactive-resume-container');
+            const pdfContainer = document.getElementById('pdf-view-container');
+            const interactiveTabBtn = document.getElementById('btn-interactive-tab');
+            const pdfTabBtn = document.getElementById('btn-pdf-tab');
+
+            if (tabName === 'interactive') {
+                interactiveContainer.classList.remove('hidden');
+                pdfContainer.classList.add('hidden');
+                interactiveTabBtn.className = "flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-gradient-to-r from-indigo-500 to-teal-500 text-white shadow-lg";
+                pdfTabBtn.className = "flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 text-slate-400 hover:text-white";
+            } else if (tabName === 'pdf') {
+                interactiveContainer.classList.add('hidden');
+                pdfContainer.classList.remove('hidden');
+                pdfTabBtn.className = "flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-gradient-to-r from-indigo-500 to-teal-500 text-white shadow-lg";
+                interactiveTabBtn.className = "flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 text-slate-400 hover:text-white";
+            }
+        }
 
         // Mobile Hamburger menu toggle script
         const mobileMenuBtn = document.getElementById("mobile-menu-button");

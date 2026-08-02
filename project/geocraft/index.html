@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details | GeoCraft</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='50' fill='%236366f1'/%3e%3ctext x='50' y='50' font-size='50' fill='white' text-anchor='middle' dy='.3em' font-family='Plus Jakarta Sans, sans-serif' font-weight='bold'%3eAK%3c/text%3e%3c/svg%3e">
+    
+    <!-- Fonts & TailWind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for professional icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --color-bg: #030014;
+            --color-card-bg: rgba(15, 23, 42, 0.4);
+            --color-border: rgba(255, 255, 255, 0.05);
+            --color-border-hover: rgba(99, 102, 241, 0.4);
+            --color-shadow-glow: rgba(99, 102, 241, 0.15);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* SVG Grid pattern background */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+        }
+
+        /* Floating Blobs animation */
+        @keyframes orb-float {
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(-30px, 50px) scale(1.1); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .ambient-glow {
+            animation: orb-float 20s ease-in-out infinite alternate;
+        }
+
+        /* Frosted Glass card */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Custom list style */
+        .project-list li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .project-list li::before {
+            content: '⬢';
+            position: absolute;
+            left: 0;
+            color: #6366f1;
+            font-size: 0.75em;
+            top: 0.3em;
+        }
+
+        /* Hide Scrollbar */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        html, body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Mobile Menu Optimization */
+        #mobile-menu {
+            will-change: transform, opacity;
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
+    
+    <!-- Vercel Web Analytics -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js"></script>
+</head>
+<body class="text-slate-300 antialiased bg-grid-pattern relative min-h-screen">
+
+    <!-- Ambient Glowing Blobs -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-[10%] left-[10%] w-[35rem] h-[35rem] rounded-full bg-indigo-500/5 blur-[120px] ambient-glow"></div>
+        <div class="absolute bottom-[20%] right-[10%] w-[35rem] h-[35rem] rounded-full bg-teal-500/5 blur-[120px] ambient-glow"></div>
+    </div>
+
+    <!-- Floating Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 transition-all duration-300">
+        <div class="max-w-6xl mx-auto flex justify-between items-center bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-full py-3 px-6 shadow-xl shadow-black/30">
+            <a href="/" class="flex items-center gap-3 group">
+                <div class="h-8 w-8 rounded-full overflow-hidden border-2 border-indigo-500 shadow-lg shadow-indigo-500/30 transition-transform duration-300 group-hover:scale-110">
+                    <img src="https://raw.githubusercontent.com/AnshulKan/Images/main/Profile/main.jpg" alt="Logo" class="h-full w-full object-cover">
+                </div>
+                <span class="text-white font-semibold text-lg tracking-wide hover:text-indigo-400 transition-colors">Anshul Kanodia</span>
+            </a>
+            
+            <nav class="hidden md:flex items-center gap-1">
+                <a href="/#about" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">About</a>
+                <a href="/#skills" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Skills</a>
+                <a href="/#projects" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300 text-indigo-400 bg-white/10">Projects</a>
+                <a href="/#certificates" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Certificates</a>
+                <a href="/resume" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Resume</a>
+                <a href="/#contact" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Contact</a>
+            </nav>
+
+            <button id="mobile-menu-button" class="md:hidden text-slate-300 hover:text-white focus:outline-none relative w-8 h-8 flex flex-col justify-center items-center gap-1.5 z-50">
+                <span class="w-6 h-0.5 bg-current transition-all duration-300" id="hamburger-top"></span>
+                <span class="w-6 h-0.5 bg-current transition-all duration-300" id="hamburger-mid"></span>
+                <span class="w-6 h-0.5 bg-current transition-all duration-300" id="hamburger-bot"></span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-x-4 top-20 bg-slate-900/95 backdrop-blur-md border border-white/10 rounded-3xl p-6 shadow-2xl z-40 transform scale-95 opacity-0 origin-top">
+            <div class="flex flex-col gap-4">
+                <a href="/#about" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">About</a>
+                <a href="/#skills" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Skills</a>
+                <a href="/#projects" class="mobile-nav-link text-lg font-semibold text-indigo-400 py-2 border-b border-white/5">Projects</a>
+                <a href="/#certificates" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Certificates</a>
+                <a href="/resume" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Resume</a>
+                <a href="/#contact" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 md:px-8 pt-28 pb-20 relative z-10">
+        
+        <!-- Controls panel: Back -->
+        <div class="max-w-4xl mx-auto flex justify-between items-center mb-8 gap-6">
+            <a href="/" class="inline-flex items-center text-sm md:text-base font-semibold text-indigo-400 hover:text-indigo-300 transition-colors group">
+                <i class="fa-solid fa-arrow-left mr-2 transition-transform group-hover:-translate-x-1"></i>
+                Back to Portfolio
+            </a>
+        </div>
+
+        <!-- Project Title Header -->
+        <div class="max-w-4xl mx-auto text-center mb-12">
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight font-display">Open Source Contributor – GeoCraft | tenali.fun</h1>
+            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">Interactive Geometry Workspace under Visual Learning Universe by Vicharanashala Lab, IIT Ropar.</p>
+        </div>
+
+        <!-- Project Content Body -->
+        <div class="max-w-4xl mx-auto glass-card p-8 md:p-12 rounded-3xl border border-white/5 shadow-2xl">
+            
+            <div class="space-y-10">
+                
+                <!-- 1. Description / Overview -->
+                <section class="space-y-4">
+                    <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2.5">
+                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Project Overview
+                    </h3>
+                    <p class="text-slate-300 leading-relaxed text-base md:text-lg">
+                        <strong>GeoCraft</strong> is an interactive geometry workspace integrated into the Tenali Platform's Visual Learning Universe. The module transforms abstract geometry concepts into hands-on visual learning using an SVG-based drawing canvas, real-time coordinate snapping, and mathematical validation algorithms.
+                    </p>
+                </section>
+
+                <!-- 2. Problem Statement -->
+                <section class="space-y-4">
+                    <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2.5">
+                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Problem Statement
+                    </h3>
+                    <p class="text-slate-300 leading-relaxed text-sm md:text-base mb-2">
+                        This feature addresses common challenges in learning geometry:
+                    </p>
+                    <ul class="project-list text-slate-300 text-sm md:text-base">
+                        <li><strong>Spatial-Abstract Disconnect:</strong> Difficulty in understanding abstract mathematical statements without interactive representation.</li>
+                        <li><strong>Text Reliance:</strong> Traditional learning relies heavily on static text-based explanations and illustrations.</li>
+                        <li><strong>Delayed Feedback:</strong> Students often experience a lack of immediate verification while executing drawing/solving exercises.</li>
+                    </ul>
+                </section>
+
+                <!-- 3. Curriculum Architecture -->
+                <section class="space-y-4">
+                    <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2.5">
+                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Curriculum Architecture
+                    </h3>
+                    <p class="text-slate-300 leading-relaxed text-sm md:text-base mb-4">
+                        The module currently supports the following structured learning chapters:
+                    </p>
+                    <div class="overflow-x-auto rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur">
+                        <table class="min-w-full divide-y divide-white/10 text-sm text-left">
+                            <thead class="bg-indigo-650/20 text-white font-semibold">
+                                <tr>
+                                    <th class="px-6 py-4">Chapter</th>
+                                    <th class="px-6 py-4">Topic</th>
+                                    <th class="px-6 py-4">Learning Focus</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-white/5 text-slate-300">
+                                <tr>
+                                    <td class="px-6 py-3 font-semibold text-indigo-400">1</td>
+                                    <td class="px-6 py-3 font-medium text-white">Points</td>
+                                    <td class="px-6 py-3">Coordinate mapping and precise point placement</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-3 font-semibold text-indigo-400">2</td>
+                                    <td class="px-6 py-3 font-medium text-white">Lines</td>
+                                    <td class="px-6 py-3">Infinite lines and slope alignment</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-3 font-semibold text-indigo-400">3</td>
+                                    <td class="px-6 py-3 font-medium text-white">Line Segments</td>
+                                    <td class="px-6 py-3">Fixed-length connectors</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-3 font-semibold text-indigo-400">4</td>
+                                    <td class="px-6 py-3 font-medium text-white">Rays</td>
+                                    <td class="px-6 py-3">Directional vectors</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-3 font-semibold text-indigo-400">5</td>
+                                    <td class="px-6 py-3 font-medium text-white">Angles</td>
+                                    <td class="px-6 py-3">Measuring and classifying angles</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-3 font-semibold text-indigo-400">6</td>
+                                    <td class="px-6 py-3 font-medium text-white">Polygons</td>
+                                    <td class="px-6 py-3">Closed geometric shapes</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-3 font-semibold text-indigo-400">7</td>
+                                    <td class="px-6 py-3 font-medium text-white">Triangles</td>
+                                    <td class="px-6 py-3">Triangle construction and classification</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-3 font-semibold text-indigo-400">8</td>
+                                    <td class="px-6 py-3 font-medium text-white">Quadrilaterals</td>
+                                    <td class="px-6 py-3">Rectangle, square, and quadrilateral properties</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 4. Mathematical Validation -->
+                <section class="space-y-4">
+                    <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2.5">
+                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Mathematical Validation
+                    </h3>
+                    <p class="text-slate-300 leading-relaxed text-sm md:text-base">
+                        Implemented deterministic geometry validation algorithms to verify user input in real-time, including:
+                    </p>
+                    <ul class="project-list text-slate-300 text-sm md:text-base">
+                        <li><strong>Point Proximity Detection:</strong> Handles drawing tolerances using distance thresholds.</li>
+                        <li><strong>Non-Collinearity Validation:</strong> Ensures lines and shapes form correct dimensions.</li>
+                        <li><strong>Slope & Parallelism Checks:</strong> Verifies parallel/perpendicular lines via coordinate vectors.</li>
+                        <li><strong>Angle Measurement:</strong> Computes exact dot-product angles based on vector mathematics.</li>
+                        <li><strong>Polygon Closure Verification:</strong> Confirms boundary integration and intersection loops.</li>
+                    </ul>
+                </section>
+
+                <!-- 5. Platform Integration -->
+                <section class="space-y-4">
+                    <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2.5">
+                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Platform Integration
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-6 text-sm">
+                        <div class="bg-white/5 border border-white/5 p-6 rounded-2xl">
+                            <h4 class="font-bold text-white text-base mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-route text-indigo-400 text-sm"></i> Routing & Protection
+                            </h4>
+                            <p class="text-slate-300 leading-relaxed">
+                                Added the dedicated <code>/geocraft</code> route inside the dashboard. Protected components dynamically using the platform's custom <code>AuthGate</code> middleware.
+                            </p>
+                        </div>
+                        <div class="bg-white/5 border border-white/5 p-6 rounded-2xl">
+                            <h4 class="font-bold text-white text-base mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-database text-indigo-400 text-sm"></i> State & Persistence
+                            </h4>
+                            <p class="text-slate-300 leading-relaxed">
+                                Configured progress tracking utilizing <code>localStorage</code> with unique keys (<code>tenali-geometry-completed</code>). Saved user state immediately to persist scores across sessions.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 6. User Experience -->
+                <section class="space-y-4">
+                    <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2.5">
+                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> User Experience
+                    </h3>
+                    <ul class="project-list text-slate-300 text-sm md:text-base">
+                        <li><strong>Particle Animations:</strong> Displays rewarding celebration effects immediately upon successful challenge completion.</li>
+                        <li><strong>Instant Validation Feedback:</strong> Highlights coordinate paths dynamically to guide user activities.</li>
+                    </ul>
+                </section>
+
+                <!-- 7. Future Roadmap -->
+                <section class="space-y-4">
+                    <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2.5">
+                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Future Roadmap
+                    </h3>
+                    <div class="bg-white/5 border border-white/5 p-6 rounded-2xl text-sm">
+                        <p class="text-slate-300 mb-3">Planned enhancements and content catalog expansions include:</p>
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <ul class="project-list text-slate-300">
+                                <li>Story-based interactive challenges</li>
+                                <li>Custom drawing tool tutorials</li>
+                                <li>Badges & unlocking achievements</li>
+                            </ul>
+                            <ul class="project-list text-slate-300">
+                                <li>Circles & radius validations</li>
+                                <li>Symmetry & mirroring tools</li>
+                                <li>Coordinate Geometry operations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Footer Buttons CTA -->
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-12 border-t border-white/10 pt-8 no-print">
+                <a href="https://github.com/vicharanashala/tenali/pull/46" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto flex items-center justify-center bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold py-4 px-8 rounded-full transition-all">
+                    <i class="fa-solid fa-code-pull-request mr-2"></i> View Pull Request
+                </a>
+                <a href="https://github.com/vicharanashala/tenali" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto flex items-center justify-center bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold py-4 px-8 rounded-full transition-all">
+                    <i class="fa-brands fa-github text-lg mr-2"></i> View Project Code
+                </a>
+                <a href="geocraftReport.pdf" download="geocraftReport.pdf" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto flex items-center justify-center bg-gradient-to-r from-indigo-500 to-teal-500 text-white font-bold py-4 px-8 rounded-full shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 transition-all">
+                    <i class="fa-regular fa-file-pdf text-lg mr-2"></i> Download Report
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-8 text-center text-xs text-slate-500 no-print">
+        <p>&copy; <span id="year"></span> Anshul Kanodia. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Set Current Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Hamburger menu toggle script
+        const mobileMenuBtn = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const hamTop = document.getElementById("hamburger-top");
+        const hamMid = document.getElementById("hamburger-mid");
+        const hamBot = document.getElementById("hamburger-bot");
+
+        mobileMenuBtn.addEventListener("click", () => {
+            const isClosed = mobileMenu.classList.contains("hidden");
+            if (isClosed) {
+                mobileMenu.classList.remove("hidden");
+                setTimeout(() => {
+                    mobileMenu.classList.remove("scale-95", "opacity-0");
+                }, 10);
+                hamTop.classList.add("rotate-45", "translate-y-2");
+                hamMid.classList.add("opacity-0");
+                hamBot.classList.add("-rotate-45", "-translate-y-2");
+            } else {
+                mobileMenu.classList.add("scale-95", "opacity-0");
+                setTimeout(() => {
+                    mobileMenu.classList.add("hidden");
+                }, 300);
+                hamTop.classList.remove("rotate-45", "translate-y-2");
+                hamMid.classList.remove("opacity-0");
+                hamBot.classList.remove("-rotate-45", "-translate-y-2");
+            }
+        });
+
+        // Close dropdown when nav links clicked
+        document.querySelectorAll(".mobile-nav-link").forEach(link => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.add("scale-95", "opacity-0");
+                setTimeout(() => {
+                    mobileMenu.classList.add("hidden");
+                }, 300);
+                hamTop.classList.remove("rotate-45", "translate-y-2");
+                hamMid.classList.remove("opacity-0");
+                hamBot.classList.remove("-rotate-45", "-translate-y-2");
+            });
+        });
+    </script>
+</body>
+</html>
