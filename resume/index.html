@@ -237,32 +237,15 @@
                 Back to Portfolio
             </a>
 
-            <div class="flex items-center gap-3">
-                
-                <!-- Download options dropup/dropdown -->
-                <div class="relative inline-block text-left group/dropdown">
-                    <button class="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-teal-500 hover:from-indigo-600 hover:to-teal-600 text-white font-bold py-3 px-6 rounded-full shadow-[0_0_15px_rgba(99,102,241,0.3)] transition duration-300 text-sm">
-                        <i class="fa-solid fa-download"></i>
-                        <span>Download Options</span>
-                        <i class="fa-solid fa-chevron-down text-xs"></i>
-                    </button>
-                    <!-- Dropdown menu -->
-                    <div class="absolute right-0 mt-2 w-48 rounded-xl bg-slate-900 border border-white/10 shadow-2xl origin-top-right divide-y divide-white/5 focus:outline-none hidden group-hover/dropdown:block hover:block z-50">
-                        <div class="py-1">
-                            <a href="Anshul%20Kanodia%20Resume.pdf" download="Anshul Kanodia Resume.pdf" class="flex items-center gap-2 px-4 py-2.5 text-sm text-slate-300 hover:bg-indigo-600 hover:text-white transition-colors">
-                                <i class="fa-regular fa-file-pdf text-indigo-400 w-4 text-center"></i> Download Resume
-                            </a>
-                            <a href="Anshul%20Kanodia%20CV.pdf" download="Anshul Kanodia CV.pdf" class="flex items-center gap-2 px-4 py-2.5 text-sm text-slate-300 hover:bg-indigo-600 hover:text-white transition-colors">
-                                <i class="fa-regular fa-file-pdf text-teal-400 w-4 text-center"></i> Download CV
-                            </a>
-                        </div>
-                        <div class="py-1">
-                            <button onclick="window.print()" class="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-slate-300 hover:bg-indigo-600 hover:text-white transition-colors text-left">
-                                <i class="fa-solid fa-print text-indigo-400 w-4 text-center"></i> Print/Save Resume
-                            </button>
-                        </div>
-                    </div>
-                </div>
+            <div class="flex items-center gap-3 flex-wrap">
+                <a href="Anshul%20Kanodia%20Resume.pdf" download="Anshul Kanodia Resume.pdf" class="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-violet-500 hover:from-indigo-600 hover:to-violet-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-lg transition-all duration-200">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    Download Resume
+                </a>
+                <a href="Anshul%20Kanodia%20CV.pdf" download="Anshul Kanodia CV.pdf" class="inline-flex items-center gap-2 bg-gradient-to-r from-teal-500 to-indigo-500 hover:from-teal-600 hover:to-indigo-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-lg transition-all duration-200">
+                    <i class="fa-solid fa-download"></i>
+                    Download CV
+                </a>
             </div>
         </div>
 
