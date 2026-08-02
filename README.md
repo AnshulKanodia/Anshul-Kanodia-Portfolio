@@ -44,13 +44,21 @@ Form Handling: Formspree API
 
 📁 root
  ├── 📄 index.html                        # Main landing page (About, Skills, Contact)
- ├── 📄 Anshul Kanodia.pdf                # Downloadable Resume PDF
+ ├── 📄 resume.md                         # Markdown text resume
  ├── 📁 resume/
- │    └── 📄 index.html                   # Interactive glassmorphic resume page
+ │    ├── 📄 index.html                   # Interactive glassmorphic resume page (tabs view)
+ │    ├── 📄 Anshul Kanodia CV.pdf        # Downloadable academic CV PDF
+ │    └── 📄 Anshul Kanodia Resume.pdf    # Downloadable resume PDF
  └── 📁 project/
+      ├── 📁 geocraft/
+      │    ├── 📄 index.html              # Detailed GeoCraft project breakdown
+      │    └── 📄 geocraftReport.pdf      # Downloadable GeoCraft project report
+      ├── 📁 cyber-shield/
+      │    ├── 📄 index.html              # Detailed Cyber Shield project breakdown
+      │    └── 📄 Report.pdf              # Downloadable Cyber Shield project report
       └── 📁 desktop-voice-assistant/
            ├── 📄 index.html              # Detailed DVA project breakdown
-           └── 📄 Report.pdf              # Downloadable project report
+           └── 📄 Report.pdf              # Downloadable DVA project report
 ```        
 
 
