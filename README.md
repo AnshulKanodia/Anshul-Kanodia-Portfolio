@@ -43,6 +43,15 @@ Form Handling: Formspree API
 ```
 
 📁 root
+ ├── 📁 css/
+ │    ├── 📄 style.css                    # Main portfolio stylesheet
+ │    └── 📄 resume.css                   # Resume page stylesheet
+ ├── 📁 js/
+ │    ├── 📄 main.js                      # Main landing page interactive logic
+ │    ├── 📄 resume.js                    # Resume tab & menu logic
+ │    └── 📄 project.js                   # Shared project page menu logic
+ ├── 📁 scripts/
+ │    └── 📄 validate_portfolio.py        # Python asset & link validator utility
  ├── 📄 index.html                        # Main landing page (About, Skills, Contact)
  ├── 📄 resume.md                         # Markdown text resume
  ├── 📁 resume/

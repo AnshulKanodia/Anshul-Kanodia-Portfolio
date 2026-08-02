@@ -260,51 +260,6 @@
         <p>&copy; <span id="year"></span> Anshul Kanodia. All Rights Reserved.</p>
     </footer>
 
-    <!-- Scripts -->
-    <script>
-        // Set Current Year
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Mobile Hamburger menu toggle script
-        const mobileMenuBtn = document.getElementById("mobile-menu-button");
-        const mobileMenu = document.getElementById("mobile-menu");
-        const hamTop = document.getElementById("hamburger-top");
-        const hamMid = document.getElementById("hamburger-mid");
-        const hamBot = document.getElementById("hamburger-bot");
-
-        mobileMenuBtn.addEventListener("click", () => {
-            const isClosed = mobileMenu.classList.contains("hidden");
-            if (isClosed) {
-                mobileMenu.classList.remove("hidden");
-                setTimeout(() => {
-                    mobileMenu.classList.remove("scale-95", "opacity-0");
-                }, 10);
-                hamTop.classList.add("rotate-45", "translate-y-2");
-                hamMid.classList.add("opacity-0");
-                hamBot.classList.add("-rotate-45", "-translate-y-2");
-            } else {
-                mobileMenu.classList.add("scale-95", "opacity-0");
-                setTimeout(() => {
-                    mobileMenu.classList.add("hidden");
-                }, 300);
-                hamTop.classList.remove("rotate-45", "translate-y-2");
-                hamMid.classList.remove("opacity-0");
-                hamBot.classList.remove("-rotate-45", "-translate-y-2");
-            }
-        });
-
-        // Close dropdown when nav links clicked
-        document.querySelectorAll(".mobile-nav-link").forEach(link => {
-            link.addEventListener("click", () => {
-                mobileMenu.classList.add("scale-95", "opacity-0");
-                setTimeout(() => {
-                    mobileMenu.classList.add("hidden");
-                }, 300);
-                hamTop.classList.remove("rotate-45", "translate-y-2");
-                hamMid.classList.remove("opacity-0");
-                hamBot.classList.remove("-rotate-45", "-translate-y-2");
-            });
-        });
-    </script>
+    <script src="/js/project.js"></script>
 </body>
 </html>
