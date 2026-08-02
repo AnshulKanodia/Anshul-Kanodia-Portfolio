@@ -43,31 +43,31 @@ Form Handling: Formspree API
 ```
 
 📁 root
- ├── 📄 index.html                        # Main landing page
- ├── 📄 README.md                         # Project documentation
+ ├── 🌐 index.html                        # Main landing page
+ ├── 📝 README.md                         # Project documentation
  ├── 📁 assets/                           # Main landing page support assets
- │    ├── 📄 main.jpg                     # Profile avatar logo image
- │    ├── 📄 style.css                    # Main landing page stylesheet
- │    ├── 📄 main.js                      # Main landing page interactive logic
- │    ├── 📄 validate_portfolio.py        # Python asset & link validator utility
- │    └── 📄 resume.md                    # Markdown text resume
+ │    ├── 🖼️ main.jpg                     # Profile avatar logo image
+ │    ├── 🎨 style.css                    # Main landing page stylesheet
+ │    ├── 📜 main.js                      # Main landing page interactive logic
+ │    ├── 🐍 validate_portfolio.py        # Python asset & link validator utility
+ │    └── 📝 resume.md                    # Markdown text resume
  ├── 📁 resume/                           # Resume page files
- │    ├── 📄 index.html                   # Interactive glassmorphic resume page (tabs view)
- │    ├── 📄 resume.css                   # Resume page stylesheet
- │    ├── 📄 resume.js                    # Resume tab & menu logic
- │    ├── 📄 Anshul Kanodia CV.pdf        # Downloadable academic CV PDF
- │    └── 📄 Anshul Kanodia Resume.pdf    # Downloadable resume PDF
+ │    ├── 🌐 index.html                   # Interactive glassmorphic resume page (tabs view)
+ │    ├── 🎨 resume.css                   # Resume page stylesheet
+ │    ├── 📜 resume.js                    # Resume tab & menu logic
+ │    ├── 📕 Anshul Kanodia CV.pdf        # Downloadable academic CV PDF
+ │    └── 📕 Anshul Kanodia Resume.pdf    # Downloadable resume PDF
  └── 📁 project/
-      ├── 📄 project.js                   # Shared project page menu logic
+      ├── 📜 project.js                   # Shared project page menu logic
       ├── 📁 geocraft/
-      │    ├── 📄 index.html              # Detailed GeoCraft project breakdown
-      │    └── 📄 geocraftReport.pdf      # Downloadable GeoCraft project report
+      │    ├── 🌐 index.html              # Detailed GeoCraft project breakdown
+      │    └── 📕 geocraftReport.pdf      # Downloadable GeoCraft project report
       ├── 📁 cyber-shield/
-      │    ├── 📄 index.html              # Detailed Cyber Shield project breakdown
-      │    └── 📄 Report.pdf              # Downloadable Cyber Shield project report
+      │    ├── 🌐 index.html              # Detailed Cyber Shield project breakdown
+      │    └── 📕 Report.pdf              # Downloadable Cyber Shield project report
       └── 📁 desktop-voice-assistant/
-           ├── 📄 index.html              # Detailed DVA project breakdown
-           └── 📄 Report.pdf              # Downloadable DVA project report
+           ├── 🌐 index.html              # Detailed DVA project breakdown
+           └── 📕 Report.pdf              # Downloadable DVA project report
 ```        
 
 
