@@ -1,104 +1,123 @@
-<h1 align="center">Personal Developer Portfolio</h1>
+# 🌐 Anshul Kanodia — Personal Developer Portfolio
 
-<p align="center">
-A modern, responsive, and interactive personal portfolio built to showcase my projects, technical skills, and certifications. Featuring a custom glassmorphic UI, dynamic particle backgrounds, and 3D card interactions.
-</p>
+> **Modern, Interactive Software Engineer Portfolio with Glassmorphism & 3D Tilt**  
+> A high-performance personal portfolio website built to present projects, skills, academic achievements, verified certifications, and interactive resumes. Engineered with lightweight vanilla web standards, dynamic particle physics, and glassmorphic card aesthetics.
 
-<p align="center">
-<a href="https://www.google.com/search?q=https://anshulkanodia.vercel.app" target="_blank"><b>🌐 View Live Demo</b></a>
-</p>
+[![HTML5](https://img.shields.io/badge/Language-HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/Styling-Tailwind_CSS_&_CSS3-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![JavaScript](https://img.shields.io/badge/Interactivity-Vanilla_JS-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Live Demo](https://img.shields.io/badge/Demo-anshulkanodia.me-00C7B7?style=flat&logo=vercel&logoColor=white)](https://anshulkanodia.me/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-✨ Key Features
+---
 
-Custom Particle Engine: A lightweight, vanilla JavaScript canvas background that dynamically draws and connects floating particles.
+## 📌 Overview & Small Description
 
-Glassmorphism UI: Modern frosted-glass aesthetic applied to navigation, cards, and interactive documents using Tailwind CSS utility classes.
+This repository powers **[anshulkanodia.me](https://anshulkanodia.me/)**, the flagship personal web portal for **Anshul Kanodia**.
 
-Interactive 3D Elements: Integrated vanilla-tilt.js for holographic, mouse-tracking hover effects on project and skill cards.
+Built without the weight of heavy JavaScript runtime frameworks, the site emphasizes sub-second First Contentful Paint (FCP), accessibility, and micro-interactions. It features a custom HTML5 canvas particle background, holographic 3D card tilt physics, integrated project modal walkthroughs with downloadable academic reports, an interactive resume sub-page with printable PDF exports, and telemetry powered by Vercel Web Analytics.
 
-Smooth Navigation: Custom JavaScript interceptors for buttery-smooth scrolling and clean URL management (preventing harsh anchor jumps).
+---
 
-Serverless Contact Form: Fully integrated with Formspree using an AJAX fetch request to prevent page reloads upon submission.
+## ✨ Features
 
-Integrated Resume Viewer: A custom sub-page (/resume) featuring an HTML-based interactive resume and a direct PDF download.
+- **Custom Particle Engine**: Lightweight vanilla JavaScript canvas backdrop that dynamically renders, animates, and connects floating particles based on cursor proximity.
+- **Glassmorphic UI Design**: Frosted-glass aesthetics crafted with backdrop filters, subtle translucent borders, and dark OLED gradients.
+- **Holographic 3D Tilt Effects**: Integrated `vanilla-tilt.js` for mouse-tracking perspective elevation on skill badges and project cards.
+- **Integrated Project Showcase Hub**:
+  - Detailed project pages for **Cyber Shield**, **Desktop Voice Assistant**, and **Geocraft**.
+  - Direct links to embedded academic research PDFs and live GitHub repositories.
+- **Interactive Resume Suite (`/resume`)**:
+  - Web-native structured resume highlighting education, technical skills, coursework, and honors.
+  - One-click direct PDF downloads for official CV and standard technical resumes.
+- **Serverless Form Handling**: Integrated Formspree AJAX submission pipeline providing instant feedback without page reloads.
+- **Performance Telemetry**: Full instrumentation with Vercel Web Analytics and Speed Insights for Core Web Vitals monitoring.
 
-Analytics Tracking: Fully instrumented with Vercel Web Analytics and Speed Insights for real-time traffic monitoring.
+---
 
-<br>
-🛠️ Technology Stack
+## 📂 File Structure
 
-Frontend: HTML5, CSS3, Vanilla JavaScript
-
-Styling Framework: Tailwind CSS (via CDN)
-
-Libraries: Vanilla-Tilt.js (for 3D UI effects)
-
-Hosting & CI/CD: Vercel
-
-Form Handling: Formspree API
-
-<br>
-
-📂 Repository Structure
+```text
+Anshul-Kanodia-Portfolio/
+├── .gitignore                    # Excludes OS thumbnails, editor configs & Vercel caches
+├── LICENSE                       # MIT Open Source License
+├── README.md                     # Comprehensive project documentation
+├── index.html                    # Single-page portfolio application & hero view
+├── assets/                       # Core styles, logic, scripts & images
+│   ├── main.jpg                  # Profile hero portrait
+│   ├── main.js                   # Particle engine, smooth scroll & form handlers
+│   ├── resume.md                 # Markdown source text for developer resume
+│   ├── style.css                 # Custom glassmorphism, animations & typography
+│   └── validate_portfolio.py     # Python script verifying link integrity & assets
+├── project/                      # Dedicated project detail pages & report assets
+│   ├── project.js                # Project modal controller
+│   ├── cyber-shield/
+│   │   ├── index.html            # Cyber Shield showcase sub-page
+│   │   └── Report.pdf            # Research & system design report
+│   ├── desktop-voice-assistant/
+│   │   ├── index.html            # Desktop Voice Assistant walkthrough
+│   │   └── Report.pdf            # Architecture and implementation report
+│   └── geocraft/
+│       ├── index.html            # Geocraft project details
+│       └── geocraftReport.pdf    # Academic research paper
+└── resume/                       # Dedicated resume portal
+    ├── index.html                # Interactive resume page
+    ├── resume.css                # Print & display styling
+    ├── resume.js                 # Resume interactivity & download dispatcher
+    ├── Anshul Kanodia CV.pdf     # Complete curriculum vitae
+    └── Anshul Kanodia Resume.pdf # Single-page technical resume
 ```
 
-📁 root
- ├── 🌐 index.html                        # Main landing page
- ├── 📝 README.md                         # Project documentation
- ├── 📁 assets/                           # Main landing page support assets
- │    ├── 🖼️ main.jpg                     # Profile avatar logo image
- │    ├── 🎨 style.css                    # Main landing page stylesheet
- │    ├── 📜 main.js                      # Main landing page interactive logic
- │    ├── 🐍 validate_portfolio.py        # Python asset & link validator utility
- │    └── 📝 resume.md                    # Markdown text resume
- ├── 📁 resume/                           # Resume page files
- │    ├── 🌐 index.html                   # Interactive glassmorphic resume page (tabs view)
- │    ├── 🎨 resume.css                   # Resume page stylesheet
- │    ├── 📜 resume.js                    # Resume tab & menu logic
- │    ├── 📕 Anshul Kanodia CV.pdf        # Downloadable academic CV PDF
- │    └── 📕 Anshul Kanodia Resume.pdf    # Downloadable resume PDF
- └── 📁 project/
-      ├── 📜 project.js                   # Shared project page menu logic
-      ├── 📁 geocraft/
-      │    ├── 🌐 index.html              # Detailed GeoCraft project breakdown
-      │    └── 📕 geocraftReport.pdf      # Downloadable GeoCraft project report
-      ├── 📁 cyber-shield/
-      │    ├── 🌐 index.html              # Detailed Cyber Shield project breakdown
-      │    └── 📕 Report.pdf              # Downloadable Cyber Shield project report
-      └── 📁 desktop-voice-assistant/
-           ├── 🌐 index.html              # Detailed DVA project breakdown
-           └── 📕 Report.pdf              # Downloadable DVA project report
-```        
+---
 
+## 🚀 Setup & Deployment
 
-💻 Local Setup & Development
+### Prerequisites
+- Any modern web browser (Chrome, Firefox, Safari, Edge)
+- Optional: Lightweight static HTTP server (`live-server`, `http-server`, or Python)
 
-Running this project locally requires zero build tools or package managers.
+### Local Setup & Testing
 
-Clone the repository:
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/AnshulKanodia/Anshul-Kanodia-Portfolio.git
+   cd Anshul-Kanodia-Portfolio
+   ```
+
+2. **Run Asset Verification Script**:
+   ```bash
+   python assets/validate_portfolio.py
+   ```
+
+3. **Serve Locally**:
+   ```bash
+   # Using Python
+   python -m http.server 3000
+   ```
+   Open `http://localhost:3000` in your browser.
+
+### Deployment on Vercel
+Deploy to production instantly using the Vercel CLI:
+```bash
+npm install -g vercel
+vercel --prod
 ```
+Or link this repository to [Vercel](https://vercel.com/) for automatic Git-push deployments.
 
-git clone [https://github.com/anshulkanodia/Anshul-Kanodia-Portfolio.git](https://github.com/anshulkanodia/Anshul-Kanodia-Portfolio.git)
+---
 
-```
+## 🛠️ Tech Stack & Language Breakdown
 
-Navigate to the directory:
-```
+| Layer | Technologies |
+|---|---|
+| **Structure & Semantics** | HTML5 |
+| **Styling & Effects** | CSS3, Tailwind CSS (CDN), Custom Keyframe Animations |
+| **Logic & Interactivity** | Vanilla JavaScript (ES6+), Vanilla-Tilt.js |
+| **Integrations** | Formspree (AJAX Forms), Vercel Analytics, Google Fonts |
+| **Deployment** | Vercel (Edge Network) |
 
-cd Anshul-Kanodia-Portfolio
+---
 
-```
+## 📄 License
 
-
-Run the site:
-Simply double-click the index.html file to open it in your default web browser, or use a tool like VS Code's "Live Server" extension for hot-reloading.
-
-📫 Contact & Links
-
-Created by Anshul Kanodia
-
-Email: anshulkanodia3560@gmail.com
-
-LinkedIn: linkedin.com/in/anshulkanodia
-
-GitHub: github.com/anshulkanodia
+This project is licensed under the [MIT License](LICENSE) — see the [LICENSE](LICENSE) file for details.

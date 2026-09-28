@@ -1,0 +1,14 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Temporary files & logs
+*.tmp
+*.log
+.vercel/
