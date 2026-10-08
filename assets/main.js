@@ -1,7 +1,6 @@
 // --- 1. Typed Roles Subtitle Script ---
 const roles = [
     "AI & Backend Systems Engineer",
-    "Certified MongoDB Database Administrator",
     "Machine Learning Pipeline Developer",
     "Computer Science Engineering Student"
 ];
