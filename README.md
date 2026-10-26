@@ -50,21 +50,21 @@ Anshul-Kanodia-Portfolio/
 │   ├── style.css                 # Custom glassmorphism, animations & typography
 │   └── validate_portfolio.py     # Python script verifying link integrity & assets
 ├── project/                      # Dedicated project detail pages & report assets
-│   ├── project.js                # Project modal controller
-│   ├── cyber-shield/
-│   │   ├── index.html            # Cyber Shield showcase sub-page
-│   │   └── Report.pdf            # Research & system design report
-│   ├── desktop-voice-assistant/
-│   │   ├── index.html            # Desktop Voice Assistant walkthrough
-│   │   └── Report.pdf            # Architecture and implementation report
+│   ├── project.js                # Shared navigation & mobile menu script
+│   ├── personal-finance-management/
+│   │   ├── index.html            # RupeePulse showcase sub-page
+│   │   ├── main.jpg              # Project cover portrait
+│   │   ├── Report.pdf            # Engineering & architecture report
+│   │   └── screenshots/          # Production UI captures & mobile walkthroughs
 │   ├── geocraft/
 │   │   ├── index.html            # Geocraft project details
 │   │   └── geocraftReport.pdf    # Academic research paper
-│   └── personal-finance-management/
-│       ├── index.html            # RupeePulse showcase sub-page
-│       ├── main.jpg              # Project cover portrait
-│       ├── Report.pdf            # Engineering & architecture report
-│       └── screenshots/          # Production UI captures & mobile walkthroughs
+│   ├── cyber-shield/
+│   │   ├── index.html            # Cyber Shield showcase sub-page
+│   │   └── Report.pdf            # Research & system design report
+│   └── desktop-voice-assistant/
+│       ├── index.html            # Desktop Voice Assistant walkthrough
+│       └── Report.pdf            # Architecture and implementation report
 └── resume/                       # Dedicated resume portal
     ├── index.html                # Interactive resume page
     ├── resume.css                # Print & display styling
@@ -127,4 +127,4 @@ Or link this repository to [Vercel](https://vercel.com/) for automatic Git-push 
 
 This project is licensed under the [MIT License](LICENSE) — see the [LICENSE](LICENSE) file for details.
 
-<!-- Last maintenance sync: 2026-10-26 08:03:56 UTC -->
+<!-- Last maintenance sync: 2026-10-26 16:25:00 UTC -->
