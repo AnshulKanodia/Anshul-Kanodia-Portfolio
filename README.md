@@ -25,7 +25,7 @@ Built without the weight of heavy JavaScript runtime frameworks, the site emphas
 - **Glassmorphic UI Design**: Frosted-glass aesthetics crafted with backdrop filters, subtle translucent borders, and dark OLED gradients.
 - **Holographic 3D Tilt Effects**: Integrated `vanilla-tilt.js` for mouse-tracking perspective elevation on skill badges and project cards.
 - **Integrated Project Showcase Hub**:
-  - Detailed project pages for **Cyber Shield**, **Desktop Voice Assistant**, and **Geocraft**.
+  - Detailed project pages for **Cyber Shield**, **Desktop Voice Assistant**, **Geocraft**, and **RupeePulse**.
   - Direct links to embedded academic research PDFs and live GitHub repositories.
 - **Interactive Resume Suite (`/resume`)**:
   - Web-native structured resume highlighting education, technical skills, coursework, and honors.
@@ -57,9 +57,14 @@ Anshul-Kanodia-Portfolio/
 │   ├── desktop-voice-assistant/
 │   │   ├── index.html            # Desktop Voice Assistant walkthrough
 │   │   └── Report.pdf            # Architecture and implementation report
-│   └── geocraft/
-│       ├── index.html            # Geocraft project details
-│       └── geocraftReport.pdf    # Academic research paper
+│   ├── geocraft/
+│   │   ├── index.html            # Geocraft project details
+│   │   └── geocraftReport.pdf    # Academic research paper
+│   └── personal-finance-management/
+│       ├── index.html            # RupeePulse showcase sub-page
+│       ├── main.jpg              # Project cover portrait
+│       ├── Report.pdf            # Engineering & architecture report
+│       └── screenshots/          # Production UI captures & mobile walkthroughs
 └── resume/                       # Dedicated resume portal
     ├── index.html                # Interactive resume page
     ├── resume.css                # Print & display styling
