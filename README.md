@@ -25,7 +25,7 @@ Built without the weight of heavy JavaScript runtime frameworks, the site emphas
 - **Glassmorphic UI Design**: Frosted-glass aesthetics crafted with backdrop filters, subtle translucent borders, and dark OLED gradients.
 - **Holographic 3D Tilt Effects**: Integrated `vanilla-tilt.js` for mouse-tracking perspective elevation on skill badges and project cards.
 - **Integrated Project Showcase Hub**:
-  - Detailed project pages for **Cyber Shield**, **Desktop Voice Assistant**, **Geocraft**, and **RupeePulse**.
+  - Detailed project pages for **RupeePulse**, **Geocraft**, **Cyber Shield**, and **Desktop Voice Assistant**.
   - Direct links to embedded academic research PDFs and live GitHub repositories.
 - **Interactive Resume Suite (`/resume`)**:
   - Web-native structured resume highlighting education, technical skills, coursework, and honors.

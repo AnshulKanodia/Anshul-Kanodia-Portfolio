@@ -27,6 +27,14 @@ Computer Science Engineering undergraduate student with a strong foundation in b
 
 ## Technical Projects
 
+### **RupeePulse — Sovereign Personal Finance & Khaata Ecosystem**
+*Next.js 14, TypeScript, MongoDB Atlas, IndexedDB, Android TWA, NPCI UPI*  
+* **Architecture:** Engineered an enterprise-grade, offline-first personal finance platform using Next.js 14 App Router, MongoDB Atlas Serverless, and client-side IndexedDB FIFO caching.
+* **Vault Guard Pacing Engine:** Designed a dynamic budget runway engine calculating daily burn-rate runway ($R = C_{rem} / \Delta t$) against categorized monthly allowances.
+* **Bilateral Khaata Split Ledger:** Developed pairwise debt reconciliation matrices with dynamic NPCI UPI QR code generation (`upi://pay?pa=...`) and 1-tap WhatsApp statement broadcasting.
+* **Security & Containerization:** Packaged into a zero-telemetry Android Trusted Web Activity (TWA) with Google Digital Asset Links, WebAuthn biometrics, and 64 automated unit tests passing.
+* **Code & Resources:** [GitHub Repository](https://github.com/AnshulKanodia/Personal-Finance-Management)
+
 ### **Open Source Contributor — GeoCraft | tenali.fun**
 *React.js, SVG Canvas, Vector Mathematics, LocalStorage, AuthGate route security*  
 * **Feature Development:** Designed and programmed *GeoCraft*, an interactive geometry learning workspace integrated into the Tenali Platform's Visual Learning Universe (Open Source Contributor).
@@ -48,14 +56,6 @@ Computer Science Engineering undergraduate student with a strong foundation in b
 * **Processing Logic:** Built custom regex text parsers and speech-to-text conversion routines to enable low-latency desktop execution.
 * **Workflow Optimization:** Streamlined day-to-day workflow tasks by minimizing manual keyboard inputs for repetitive operations.
 * **Code & Resources:** [GitHub Repository](https://github.com/anshulkanodia/Desktop-Voice-Assistant)
-
-### **RupeePulse — Sovereign Personal Finance & Khaata Ecosystem**
-*Next.js 14, TypeScript, MongoDB Atlas, IndexedDB, Android TWA, NPCI UPI*  
-* **Architecture:** Engineered an enterprise-grade, offline-first personal finance platform using Next.js 14 App Router, MongoDB Atlas Serverless, and client-side IndexedDB FIFO caching.
-* **Vault Guard Pacing Engine:** Designed a dynamic budget runway engine calculating daily burn-rate runway ($R = C_{rem} / \Delta t$) against categorized monthly allowances.
-* **Bilateral Khaata Split Ledger:** Developed pairwise debt reconciliation matrices with dynamic NPCI UPI QR code generation (`upi://pay?pa=...`) and 1-tap WhatsApp statement broadcasting.
-* **Security & Containerization:** Packaged into a zero-telemetry Android Trusted Web Activity (TWA) with Google Digital Asset Links, WebAuthn biometrics, and 64 automated unit tests passing.
-* **Code & Resources:** [GitHub Repository](https://github.com/AnshulKanodia/Personal-Finance-Management)
 
 ### **Personal Developer Portfolio**
 *HTML5, CSS3, JavaScript, Tailwind CSS, Vercel Deployment*  
