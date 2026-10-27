@@ -6,7 +6,7 @@
     <title>Project Details | Desktop Voice Assistant</title>
     
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='50' fill='%236366f1'/%3e%3ctext x='50' y='50' font-size='50' fill='white' text-anchor='middle' dy='.3em' font-family='Plus Jakarta Sans, sans-serif' font-weight='bold'%3eAK%3c/text%3e%3c/svg%3e">
+    <link rel="icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='50' fill='%238b5cf6'/%3e%3ctext x='50' y='50' font-size='50' fill='white' text-anchor='middle' dy='.3em' font-family='Plus Jakarta Sans, sans-serif' font-weight='bold'%3eAK%3c/text%3e%3c/svg%3e">
     
     <!-- Fonts & TailWind -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -22,8 +22,8 @@
             --color-bg: #030014;
             --color-card-bg: rgba(15, 23, 42, 0.4);
             --color-border: rgba(255, 255, 255, 0.05);
-            --color-border-hover: rgba(99, 102, 241, 0.4);
-            --color-shadow-glow: rgba(99, 102, 241, 0.15);
+            --color-border-hover: rgba(139, 92, 246, 0.4);
+            --color-shadow-glow: rgba(139, 92, 246, 0.15);
         }
 
         body {
@@ -73,7 +73,7 @@
             content: '⬢';
             position: absolute;
             left: 0;
-            color: #6366f1;
+            color: #8b5cf6;
             font-size: 0.75em;
             top: 0.3em;
         }
@@ -106,16 +106,16 @@
     <header class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 transition-all duration-300">
         <div class="max-w-6xl mx-auto flex justify-between items-center bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-full py-3 px-6 shadow-xl shadow-black/30">
             <a href="/" class="flex items-center gap-3 group">
-                <div class="h-8 w-8 rounded-full overflow-hidden border-2 border-indigo-500 shadow-lg shadow-indigo-500/30 transition-transform duration-300 group-hover:scale-110">
+                <div class="h-8 w-8 rounded-full overflow-hidden border-2 border-violet-500 shadow-lg shadow-violet-500/30 transition-transform duration-300 group-hover:scale-110">
                     <img src="/assets/main.jpg" alt="Logo" class="h-full w-full object-cover">
                 </div>
-                <span class="text-white font-semibold text-lg tracking-wide hover:text-indigo-400 transition-colors">Anshul Kanodia</span>
+                <span class="text-white font-semibold text-lg tracking-wide hover:text-violet-400 transition-colors">Anshul Kanodia</span>
             </a>
             
             <nav class="hidden md:flex items-center gap-1">
                 <a href="/#about" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">About</a>
                 <a href="/#skills" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Skills</a>
-                <a href="/#projects" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300 text-indigo-400 bg-white/10">Projects</a>
+                <a href="/#projects" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300 text-violet-400 bg-white/10">Projects</a>
                 <a href="/#certificates" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Certificates</a>
                 <a href="/resume" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Resume</a>
                 <a href="/#contact" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Contact</a>
@@ -133,7 +133,7 @@
             <div class="flex flex-col gap-4">
                 <a href="/#about" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">About</a>
                 <a href="/#skills" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Skills</a>
-                <a href="/#projects" class="mobile-nav-link text-lg font-semibold text-indigo-400 py-2 border-b border-white/5">Projects</a>
+                <a href="/#projects" class="mobile-nav-link text-lg font-semibold text-violet-400 py-2 border-b border-white/5">Projects</a>
                 <a href="/#certificates" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Certificates</a>
                 <a href="/resume" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Resume</a>
                 <a href="/#contact" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2">Contact</a>
@@ -145,7 +145,7 @@
         
         <!-- Controls panel: Back -->
         <div class="max-w-4xl mx-auto flex justify-between items-center mb-8 gap-6">
-            <a href="/" class="inline-flex items-center text-sm md:text-base font-semibold text-indigo-400 hover:text-indigo-300 transition-colors group">
+            <a href="/" class="inline-flex items-center text-sm md:text-base font-semibold text-violet-400 hover:text-violet-300 transition-colors group">
                 <i class="fa-solid fa-arrow-left mr-2 transition-transform group-hover:-translate-x-1"></i>
                 Back to Portfolio
             </a>
@@ -170,7 +170,7 @@
                 <!-- 1. Description -->
                 <section class="space-y-4">
                     <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2.5">
-                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Project Overview
+                        <span class="w-1.5 h-6 bg-violet-500 rounded-full"></span> Project Overview
                     </h3>
                     <p class="text-slate-300 leading-relaxed text-base md:text-lg">
                         The <strong>Desktop Voice Assistant (DVA)</strong> is a modular productivity toolkit built in Python to streamline operating system automation via text and spoken commands. Instead of manually navigating complex directories, settings profiles, or trigger layouts, DVA hooks directly into speech recognition frameworks and the native Windows API to execute commands on the fly.
@@ -180,7 +180,7 @@
                 <!-- 2. Core Capabilities -->
                 <section class="space-y-4">
                     <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2.5">
-                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Core Capabilities
+                        <span class="w-1.5 h-6 bg-violet-500 rounded-full"></span> Core Capabilities
                     </h3>
                     <ul class="project-list text-slate-300 text-sm md:text-base">
                         <li><strong>System Automation:</strong> Executes voice-activated system tasks, including adjusting volumes, searching hard drives, opening tools, and triggering operations.</li>
@@ -192,7 +192,7 @@
                 <!-- 3. Tech Stack -->
                 <section class="space-y-4">
                     <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2.5">
-                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Technology Stack
+                        <span class="w-1.5 h-6 bg-violet-500 rounded-full"></span> Technology Stack
                     </h3>
                     <div class="flex flex-wrap gap-3">
                         <span class="text-sm font-semibold px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-slate-200">Python</span>
@@ -206,7 +206,7 @@
                 <!-- 4. Architecture & Logic -->
                 <section class="space-y-4">
                     <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2.5">
-                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Project Architecture
+                        <span class="w-1.5 h-6 bg-violet-500 rounded-full"></span> Project Architecture
                     </h3>
                     <p class="text-slate-300 text-sm md:text-base">
                         The assistant operates using a standard read-eval-print loop (REPL) structure customized for voice inputs:

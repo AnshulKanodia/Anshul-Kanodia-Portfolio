@@ -6,7 +6,7 @@
     <title>Project Details | GeoCraft</title>
     
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='50' fill='%236366f1'/%3e%3ctext x='50' y='50' font-size='50' fill='white' text-anchor='middle' dy='.3em' font-family='Plus Jakarta Sans, sans-serif' font-weight='bold'%3eAK%3c/text%3e%3c/svg%3e">
+    <link rel="icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='50' fill='%23f97316'/%3e%3ctext x='50' y='50' font-size='50' fill='white' text-anchor='middle' dy='.3em' font-family='Plus Jakarta Sans, sans-serif' font-weight='bold'%3eAK%3c/text%3e%3c/svg%3e">
     
     <!-- Fonts & TailWind -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -22,8 +22,8 @@
             --color-bg: #030014;
             --color-card-bg: rgba(15, 23, 42, 0.4);
             --color-border: rgba(255, 255, 255, 0.05);
-            --color-border-hover: rgba(99, 102, 241, 0.4);
-            --color-shadow-glow: rgba(99, 102, 241, 0.15);
+            --color-border-hover: rgba(249, 115, 22, 0.4);
+            --color-shadow-glow: rgba(249, 115, 22, 0.15);
         }
 
         body {
@@ -73,7 +73,7 @@
             content: '⬢';
             position: absolute;
             left: 0;
-            color: #6366f1;
+            color: #f97316;
             font-size: 0.75em;
             top: 0.3em;
         }
@@ -104,7 +104,7 @@
 
     <!-- Ambient Glowing Blobs -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute top-[10%] left-[10%] w-[35rem] h-[35rem] rounded-full bg-indigo-500/5 blur-[120px] ambient-glow"></div>
+        <div class="absolute top-[10%] left-[10%] w-[35rem] h-[35rem] rounded-full bg-orange-500/10 blur-[130px] ambient-glow"></div>
         <div class="absolute bottom-[20%] right-[10%] w-[35rem] h-[35rem] rounded-full bg-teal-500/5 blur-[120px] ambient-glow"></div>
     </div>
 
@@ -112,16 +112,16 @@
     <header class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 transition-all duration-300">
         <div class="max-w-6xl mx-auto flex justify-between items-center bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-full py-3 px-6 shadow-xl shadow-black/30">
             <a href="/" class="flex items-center gap-3 group">
-                <div class="h-8 w-8 rounded-full overflow-hidden border-2 border-indigo-500 shadow-lg shadow-indigo-500/30 transition-transform duration-300 group-hover:scale-110">
+                <div class="h-8 w-8 rounded-full overflow-hidden border-2 border-orange-500 shadow-lg shadow-orange-500/30 transition-transform duration-300 group-hover:scale-110">
                     <img src="/assets/main.jpg" alt="Logo" class="h-full w-full object-cover">
                 </div>
-                <span class="text-white font-semibold text-lg tracking-wide hover:text-indigo-400 transition-colors">Anshul Kanodia</span>
+                <span class="text-white font-semibold text-lg tracking-wide hover:text-orange-400 transition-colors">Anshul Kanodia</span>
             </a>
             
             <nav class="hidden md:flex items-center gap-1">
                 <a href="/#about" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">About</a>
                 <a href="/#skills" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Skills</a>
-                <a href="/#projects" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300 text-indigo-400 bg-white/10">Projects</a>
+                <a href="/#projects" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300 text-orange-400 bg-white/10">Projects</a>
                 <a href="/#certificates" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Certificates</a>
                 <a href="/resume" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Resume</a>
                 <a href="/#contact" class="text-sm font-medium text-slate-300 px-4 py-2 rounded-full hover:text-white transition-colors duration-300">Contact</a>
@@ -139,7 +139,7 @@
             <div class="flex flex-col gap-4">
                 <a href="/#about" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">About</a>
                 <a href="/#skills" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Skills</a>
-                <a href="/#projects" class="mobile-nav-link text-lg font-semibold text-indigo-400 py-2 border-b border-white/5">Projects</a>
+                <a href="/#projects" class="mobile-nav-link text-lg font-semibold text-orange-400 py-2 border-b border-white/5">Projects</a>
                 <a href="/#certificates" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Certificates</a>
                 <a href="/resume" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Resume</a>
                 <a href="/#contact" class="mobile-nav-link text-lg font-medium text-slate-300 hover:text-white transition-colors py-2">Contact</a>
@@ -151,7 +151,7 @@
         
         <!-- Controls panel: Back -->
         <div class="max-w-4xl mx-auto flex justify-between items-center mb-8 gap-6">
-            <a href="/" class="inline-flex items-center text-sm md:text-base font-semibold text-indigo-400 hover:text-indigo-300 transition-colors group">
+            <a href="/" class="inline-flex items-center text-sm md:text-base font-semibold text-orange-400 hover:text-orange-300 transition-colors group">
                 <i class="fa-solid fa-arrow-left mr-2 transition-transform group-hover:-translate-x-1"></i>
                 Back to Portfolio
             </a>
@@ -176,7 +176,7 @@
                 <!-- 1. Description / Overview -->
                 <section class="space-y-4">
                     <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2.5">
-                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Project Overview
+                        <span class="w-1.5 h-6 bg-orange-500 rounded-full"></span> Project Overview
                     </h3>
                     <p class="text-slate-300 leading-relaxed text-base md:text-lg">
                         <strong>GeoCraft</strong> is an interactive geometry workspace integrated into the Tenali Platform's Visual Learning Universe. The module transforms abstract geometry concepts into hands-on visual learning using an SVG-based drawing canvas, real-time coordinate snapping, and mathematical validation algorithms.
@@ -186,7 +186,7 @@
                 <!-- 2. Problem Statement -->
                 <section class="space-y-4">
                     <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2.5">
-                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Problem Statement
+                        <span class="w-1.5 h-6 bg-orange-500 rounded-full"></span> Problem Statement
                     </h3>
                     <p class="text-slate-300 leading-relaxed text-sm md:text-base mb-2">
                         This feature addresses common challenges in learning geometry:
@@ -201,7 +201,7 @@
                 <!-- 3. Curriculum Architecture -->
                 <section class="space-y-4">
                     <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2.5">
-                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Curriculum Architecture
+                        <span class="w-1.5 h-6 bg-orange-500 rounded-full"></span> Curriculum Architecture
                     </h3>
                     <p class="text-slate-300 leading-relaxed text-sm md:text-base mb-4">
                         The module currently supports the following structured learning chapters:
@@ -264,7 +264,7 @@
                 <!-- 4. Mathematical Validation -->
                 <section class="space-y-4">
                     <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2.5">
-                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Mathematical Validation
+                        <span class="w-1.5 h-6 bg-orange-500 rounded-full"></span> Mathematical Validation
                     </h3>
                     <p class="text-slate-300 leading-relaxed text-sm md:text-base">
                         Implemented deterministic geometry validation algorithms to verify user input in real-time, including:
@@ -281,7 +281,7 @@
                 <!-- 5. Platform Integration -->
                 <section class="space-y-4">
                     <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2.5">
-                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Platform Integration
+                        <span class="w-1.5 h-6 bg-orange-500 rounded-full"></span> Platform Integration
                     </h3>
                     <div class="grid md:grid-cols-2 gap-6 text-sm">
                         <div class="bg-white/5 border border-white/5 p-6 rounded-2xl">
@@ -306,7 +306,7 @@
                 <!-- 6. User Experience -->
                 <section class="space-y-4">
                     <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2.5">
-                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> User Experience
+                        <span class="w-1.5 h-6 bg-orange-500 rounded-full"></span> User Experience
                     </h3>
                     <ul class="project-list text-slate-300 text-sm md:text-base">
                         <li><strong>Particle Animations:</strong> Displays rewarding celebration effects immediately upon successful challenge completion.</li>
@@ -317,7 +317,7 @@
                 <!-- 7. Future Roadmap -->
                 <section class="space-y-4">
                     <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2.5">
-                        <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span> Future Roadmap
+                        <span class="w-1.5 h-6 bg-orange-500 rounded-full"></span> Future Roadmap
                     </h3>
                     <div class="bg-white/5 border border-white/5 p-6 rounded-2xl text-sm">
                         <p class="text-slate-300 mb-3">Planned enhancements and content catalog expansions include:</p>
@@ -346,7 +346,7 @@
                 <a href="https://github.com/vicharanashala/tenali" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto flex items-center justify-center bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold py-4 px-8 rounded-full transition-all">
                     <i class="fa-brands fa-github text-lg mr-2"></i> View Project Code
                 </a>
-                <a href="geocraftReport.pdf" download="geocraftReport.pdf" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto flex items-center justify-center bg-gradient-to-r from-indigo-500 to-teal-500 text-white font-bold py-4 px-8 rounded-full shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 transition-all">
+                <a href="geocraftReport.pdf" download="geocraftReport.pdf" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto flex items-center justify-center bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold py-4 px-8 rounded-full shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 transition-all">
                     <i class="fa-regular fa-file-pdf text-lg mr-2"></i> Download Report
                 </a>
             </div>
