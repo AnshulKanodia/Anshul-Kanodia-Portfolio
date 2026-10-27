@@ -5,7 +5,7 @@
 ---
 
 ## Professional Summary
-Computer Science Engineering undergraduate student with a strong foundation in backend systems engineering, machine learning pipelines, and database management. Experienced in building automated system scripts, fine-tuning NLP models, and deploying responsive web architectures. Seeking a Software Engineering internship or project opportunities to leverage programming skills and contribute to scalable tech solutions.
+Computer Science Engineering undergraduate student with research internship experience at Vicharanashala Lab (IIT Ropar) and a strong foundation in backend systems engineering, offline-first architectures, and natural language processing. Experienced in building interactive SVG vector canvas engines, fine-tuning NLP Transformer models, and deploying responsive web applications. Seeking software engineering opportunities to design scalable systems and collaborate with cross-functional teams.
 
 ---
 
@@ -14,6 +14,17 @@ Computer Science Engineering undergraduate student with a strong foundation in b
 *Bachelor of Technology in Computer Science and Engineering* | **Expected Graduation: May 2028**  
 * **CGPA:** 8.0 / 10.0
 * **Key Coursework:** Data Structures & Algorithms, Database Management Systems (DBMS), Operating Systems, Object-Oriented Programming (OOP), Foundation in Data Analytics, Systems Architecture.
+
+---
+
+## Experience
+
+### **Summer Research Intern — Vicharanashala Lab for Education Design, IIT Ropar**
+*May 2026 – Oct 2026 | Credential ID: 26VINS10036-NHDG | [Verify Credential](https://samagama.in/verify/26VINS10036-NHDG)*  
+* **GeoCraft Workspace:** Engineered and integrated *GeoCraft*, an interactive visual geometry workspace for Vicharanashala Lab's open-source Tenali platform ([tenali.fun](https://tenali.fun)).
+* **Vector Validation Algorithms:** Formulated deterministic geometry validation algorithms using vector mathematics for point proximity, slope parallelism, non-collinearity, and closed polygon detection.
+* **Canvas Engineering:** Constructed a reactive SVG-based drawing canvas featuring coordinate grid snapping, dynamic visual feedback, and `localStorage` session state persistence.
+* **Security & Open Source:** Implemented route security and access control with `AuthGate` middleware; collaborated on open-source codebases, authored documentation, and completed upstream pull request reviews ([PR #46](https://github.com/vicharanashala/tenali/pull/46)).
 
 ---
 
@@ -67,6 +78,7 @@ Computer Science Engineering undergraduate student with a strong foundation in b
 ---
 
 ## Certifications
+* **Research Internship Completion Certificate** — *Vicharanashala Lab, IIT Ropar* (May 2026 – Oct 2026 | ID: `26VINS10036-NHDG` | [Verify](https://samagama.in/verify/26VINS10036-NHDG))
 * **MongoDB Associate Database Administrator** — *FACE Prep* (Jul 2026)
 * **Cloud Computing & Distributed Systems** — *NPTEL* (May 2026)
 * **Open Source Software Module** — *Vityarthi* (Mar 2026)
