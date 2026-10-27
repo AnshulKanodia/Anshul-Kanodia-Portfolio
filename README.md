@@ -1,137 +1,59 @@
-# 🌐 Anshul Kanodia — Personal Developer Portfolio
+# 🌐 Anshul Kanodia
 
-> **Modern, Interactive Software Engineer Portfolio with Glassmorphism & 3D Tilt**  
-> A high-performance personal portfolio website built to present projects, skills, academic achievements, verified certifications, and interactive resumes. Engineered with lightweight vanilla web standards, dynamic particle physics, and glassmorphic card aesthetics.
-
-[![HTML5](https://img.shields.io/badge/Language-HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/Styling-Tailwind_CSS_&_CSS3-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![JavaScript](https://img.shields.io/badge/Interactivity-Vanilla_JS-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Live Demo](https://img.shields.io/badge/Demo-anshulkanodia.me-00C7B7?style=flat&logo=vercel&logoColor=white)](https://anshulkanodia.me/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Website](https://img.shields.io/badge/Website-anshulkanodia.me-00C7B7?style=flat&logo=vercel&logoColor=white)](https://anshulkanodia.me/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Anshul_Kanodia-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/anshulkanodia/)
+[![GitHub](https://img.shields.io/badge/GitHub-AnshulKanodia-181717?style=flat&logo=github&logoColor=white)](https://github.com/AnshulKanodia)
+[![License: All Rights Reserved](https://img.shields.io/badge/License-All_Rights_Reserved-red.svg)](LICENSE)
 
 ---
 
-## 📌 Overview & Small Description
+## 👨‍💻 About Me
 
-This repository powers **[anshulkanodia.me](https://anshulkanodia.me/)**, the flagship personal web portal for **Anshul Kanodia**.
+I am a **Computer Science Engineering** undergraduate (B.Tech, Class of 2028) at **VIT Bhopal University**, with research internship experience at **Vicharanashala Lab for Education Design, IIT Ropar**.
 
-Built without the weight of heavy JavaScript runtime frameworks, the site emphasizes sub-second First Contentful Paint (FCP), accessibility, and micro-interactions. It features a custom HTML5 canvas particle background, holographic 3D card tilt physics, integrated project modal walkthroughs with downloadable academic reports, an interactive resume sub-page with printable PDF exports, and telemetry powered by Vercel Web Analytics.
+My engineering focus spans **backend systems engineering**, **artificial intelligence & natural language processing**, and **offline-first application architectures**. I formulate mathematical validation models, construct lightweight system automation utilities, and build reliable software platforms.
 
----
-
-## ✨ Features
-
-- **Custom Particle Engine**: Lightweight vanilla JavaScript canvas backdrop that dynamically renders, animates, and connects floating particles based on cursor proximity.
-- **Glassmorphic UI Design**: Frosted-glass aesthetics crafted with backdrop filters, subtle translucent borders, and dark OLED gradients.
-- **Holographic 3D Tilt Effects**: Integrated `vanilla-tilt.js` for mouse-tracking perspective elevation on skill badges and project cards.
-- **Integrated Project Showcase Hub**:
-  - Detailed project pages for **RupeePulse**, **Geocraft**, **Cyber Shield**, and **Desktop Voice Assistant**.
-  - Direct links to embedded academic research PDFs and live GitHub repositories.
-- **Interactive Resume Suite (`/resume`)**:
-  - Web-native structured resume highlighting education, technical skills, coursework, and honors.
-  - One-click direct PDF downloads for official CV and standard technical resumes.
-- **Serverless Form Handling**: Integrated Formspree AJAX submission pipeline providing instant feedback without page reloads.
-- **Performance Telemetry**: Full instrumentation with Vercel Web Analytics and Speed Insights for Core Web Vitals monitoring.
+### 🔬 Core Competencies
+- **Systems & Architecture:** Offline-first web applications, IndexedDB client caching, event-driven pipelines, and operating system automation.
+- **AI & NLP:** Transformer models, context-aware toxic behavior detection, and synthetic data generation pipelines for class balance.
+- **Core Engineering:** Vector mathematics for geometry validation engines, RESTful APIs, and full-stack development (TypeScript, Python, C++, Java, SQL).
 
 ---
 
-## 📂 File Structure
+## 🚀 Key Projects
+
+- **[RupeePulse](https://github.com/AnshulKanodia/Personal-Finance-Management)**: Sovereign personal finance ecosystem engineered with Next.js 14, real-time Vault Guard runway pacing, bilateral Khaata split ledgers, dynamic NPCI UPI QR settlements, and zero-telemetry Android TWA containerization.
+- **[GeoCraft](https://github.com/vicharanashala/tenali/pull/46)** *(Open Source Contributor)*: Interactive visual geometry workspace built for Vicharanashala Lab's (IIT Ropar) Tenali educational platform, powered by SVG canvas math and deterministic vector validation algorithms.
+- **[Cyber Shield](https://github.com/anshulkanodia/Cyber-Shield)**: Context-aware cyberbullying and harassment detection pipeline leveraging fine-tuned NLP Transformer models and synthetic data balancing.
+- **[Desktop Voice Assistant](https://github.com/anshulkanodia/Desktop-Voice-Assistant)**: Lightweight desktop automation tool integrating speech recognition routines with Windows OS APIs for productivity workflows.
+
+---
+
+## 📂 Repository Structure
 
 ```text
 Anshul-Kanodia-Portfolio/
-├── .gitignore                    # Excludes OS thumbnails, editor configs & Vercel caches
-├── LICENSE                       # MIT Open Source License
-├── README.md                     # Comprehensive project documentation
-├── favicon.ico                   # Multi-resolution root favicon
-├── index.html                    # Single-page portfolio application & hero view
-├── assets/                       # Core styles, logic, scripts & images
-│   ├── certificates/             # Verified certification credentials & diplomas
-│   ├── favicon.png               # High-contrast 192x192 browser tab icon
-│   ├── logo.png                  # Master geometric AK monogram brand logo
-│   ├── main.jpg                  # Profile hero portrait
-│   ├── main.js                   # Particle engine, smooth scroll & form handlers
-│   ├── resume.md                 # Markdown source text for developer resume
-│   ├── style.css                 # Custom glassmorphism, animations & typography
-│   └── validate_portfolio.py     # Python script verifying link integrity & assets
-├── project/                      # Dedicated project detail pages & report assets
-│   ├── project.js                # Shared navigation & mobile menu script
-│   ├── personal-finance-management/
-│   │   ├── index.html            # RupeePulse showcase sub-page
-│   │   ├── main.jpg              # Project cover portrait
-│   │   ├── Report.pdf            # Engineering & architecture report
-│   │   └── screenshots/          # Production UI captures & mobile walkthroughs
-│   ├── geocraft/
-│   │   ├── index.html            # Geocraft project details
-│   │   ├── main.jpg              # Project cover portrait
-│   │   └── geocraftReport.pdf    # Academic research paper
-│   ├── cyber-shield/
-│   │   ├── index.html            # Cyber Shield showcase sub-page
-│   │   ├── main.jpg              # Project cover portrait
-│   │   └── Report.pdf            # Research & system design report
-│   └── desktop-voice-assistant/
-│       ├── index.html            # Desktop Voice Assistant walkthrough
-│       ├── main.jpg              # Project cover portrait
-│       └── Report.pdf            # Architecture and implementation report
-└── resume/                       # Dedicated resume portal
-    ├── index.html                # Interactive resume page
-    ├── resume.css                # Print & display styling
-    ├── resume.js                 # Resume interactivity & download dispatcher
-    ├── Anshul Kanodia CV.pdf     # Complete curriculum vitae
-    └── Anshul Kanodia Resume.pdf # Single-page technical resume
+├── index.html        # Main portfolio homepage
+├── assets/           # Brand logos, hero assets, styles, and verified credentials
+├── project/          # Dedicated case study pages & research reports
+└── resume/           # Interactive resume portal & printable curriculum vitae
 ```
 
 ---
 
-## 🚀 Setup & Deployment
+## 📬 Connect
 
-### Prerequisites
-- Any modern web browser (Chrome, Firefox, Safari, Edge)
-- Optional: Lightweight static HTTP server (`live-server`, `http-server`, or Python)
-
-### Local Setup & Testing
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/AnshulKanodia/Anshul-Kanodia-Portfolio.git
-   cd Anshul-Kanodia-Portfolio
-   ```
-
-2. **Run Asset Verification Script**:
-   ```bash
-   python assets/validate_portfolio.py
-   ```
-
-3. **Serve Locally**:
-   ```bash
-   # Using Python
-   python -m http.server 3000
-   ```
-   Open `http://localhost:3000` in your browser.
-
-### Deployment on Vercel
-Deploy to production instantly using the Vercel CLI:
-```bash
-npm install -g vercel
-vercel --prod
-```
-Or link this repository to [Vercel](https://vercel.com/) for automatic Git-push deployments.
+- **Website:** [anshulkanodia.me](https://anshulkanodia.me/)
+- **LinkedIn:** [linkedin.com/in/anshulkanodia](https://www.linkedin.com/in/anshulkanodia/)
+- **GitHub:** [github.com/AnshulKanodia](https://github.com/AnshulKanodia)
+- **Email:** [anshulkanodia3560@gmail.com](mailto:anshulkanodia3560@gmail.com)
 
 ---
 
-## 🛠️ Tech Stack & Language Breakdown
+## 📄 License & Terms of Use
 
-| Layer | Technologies |
-|---|---|
-| **Structure & Semantics** | HTML5 |
-| **Styling & Effects** | CSS3, Tailwind CSS (CDN), Custom Keyframe Animations |
-| **Logic & Interactivity** | Vanilla JavaScript (ES6+), Vanilla-Tilt.js |
-| **Integrations** | Formspree (AJAX Forms), Vercel Analytics, Google Fonts |
-| **Deployment** | Vercel (Edge Network) |
+Copyright © 2026 Anshul Kanodia. All Rights Reserved.
 
----
+This repository and its entire contents (including code, design, layout, text, reports, and graphical assets) are personal and proprietary. **This is not an open-source template or starter kit.** 
 
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE) — see the [LICENSE](LICENSE) file for details.
-
-<!-- Last maintenance sync: 2026-10-26 16:25:00 UTC -->
+Unauthorized copying, cloning, redistribution, sublicensing, modification, or using this codebase or template for personal or commercial portfolios is strictly prohibited without prior written permission.
