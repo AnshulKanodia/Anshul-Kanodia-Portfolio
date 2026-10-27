@@ -44,6 +44,7 @@ Anshul-Kanodia-Portfolio/
 ├── README.md                     # Comprehensive project documentation
 ├── index.html                    # Single-page portfolio application & hero view
 ├── assets/                       # Core styles, logic, scripts & images
+│   ├── certificates/             # Verified certification credentials & diplomas
 │   ├── main.jpg                  # Profile hero portrait
 │   ├── main.js                   # Particle engine, smooth scroll & form handlers
 │   ├── resume.md                 # Markdown source text for developer resume
@@ -58,12 +59,15 @@ Anshul-Kanodia-Portfolio/
 │   │   └── screenshots/          # Production UI captures & mobile walkthroughs
 │   ├── geocraft/
 │   │   ├── index.html            # Geocraft project details
+│   │   ├── main.jpg              # Project cover portrait
 │   │   └── geocraftReport.pdf    # Academic research paper
 │   ├── cyber-shield/
 │   │   ├── index.html            # Cyber Shield showcase sub-page
+│   │   ├── main.jpg              # Project cover portrait
 │   │   └── Report.pdf            # Research & system design report
 │   └── desktop-voice-assistant/
 │       ├── index.html            # Desktop Voice Assistant walkthrough
+│       ├── main.jpg              # Project cover portrait
 │       └── Report.pdf            # Architecture and implementation report
 └── resume/                       # Dedicated resume portal
     ├── index.html                # Interactive resume page
