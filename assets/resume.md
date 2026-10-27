@@ -20,7 +20,7 @@ Computer Science Engineering undergraduate student with research internship expe
 ## Experience
 
 ### **Summer Research Intern — Vicharanashala Lab for Education Design, IIT Ropar**
-*May 2026 – Oct 2026 | Credential ID: 26VINS10036-NHDG | [Verify Credential](https://samagama.in/verify/26VINS10036-NHDG)*  
+*May 2026 – Oct 2026*  
 * **GeoCraft Workspace:** Engineered and integrated *GeoCraft*, an interactive visual geometry workspace for Vicharanashala Lab's open-source Tenali platform ([tenali.fun](https://tenali.fun)).
 * **Vector Validation Algorithms:** Formulated deterministic geometry validation algorithms using vector mathematics for point proximity, slope parallelism, non-collinearity, and closed polygon detection.
 * **Canvas Engineering:** Constructed a reactive SVG-based drawing canvas featuring coordinate grid snapping, dynamic visual feedback, and `localStorage` session state persistence.
@@ -78,7 +78,7 @@ Computer Science Engineering undergraduate student with research internship expe
 ---
 
 ## Certifications
-* **Research Internship Completion Certificate** — *Vicharanashala Lab, IIT Ropar* (May 2026 – Oct 2026 | ID: `26VINS10036-NHDG` | [Verify](https://samagama.in/verify/26VINS10036-NHDG))
+* **Research Internship Completion Certificate** — *Vicharanashala Lab, IIT Ropar* (Oct 2026)
 * **MongoDB Associate Database Administrator** — *FACE Prep* (Jul 2026)
 * **Cloud Computing & Distributed Systems** — *NPTEL* (May 2026)
 * **Open Source Software Module** — *Vityarthi* (Mar 2026)
