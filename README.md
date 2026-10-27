@@ -42,9 +42,12 @@ Anshul-Kanodia-Portfolio/
 ├── .gitignore                    # Excludes OS thumbnails, editor configs & Vercel caches
 ├── LICENSE                       # MIT Open Source License
 ├── README.md                     # Comprehensive project documentation
+├── favicon.ico                   # Multi-resolution root favicon
 ├── index.html                    # Single-page portfolio application & hero view
 ├── assets/                       # Core styles, logic, scripts & images
 │   ├── certificates/             # Verified certification credentials & diplomas
+│   ├── favicon.png               # High-contrast 192x192 browser tab icon
+│   ├── logo.png                  # Master geometric AK monogram brand logo
 │   ├── main.jpg                  # Profile hero portrait
 │   ├── main.js                   # Particle engine, smooth scroll & form handlers
 │   ├── resume.md                 # Markdown source text for developer resume
